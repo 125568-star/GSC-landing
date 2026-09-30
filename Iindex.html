@@ -1,1 +1,184 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ground Support Crew</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Fraunces:ital,opsz@1,9..144&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2A1B12;
+    --paper:#FFF6EC;
+    --amber:#E8862B;
+    --slate:#6B5B4E;
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  html{scroll-padding-top:env(safe-area-inset-top,0px);}
+  *,*::before,*::after{box-sizing:inherit;}
+  html,body{height:100%;margin:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
+  .hero{
+    position:relative;
+    min-height:78svh;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    padding:28px 0 40px;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    inset:-10px;
+    background-image:url("1.jpg");
+    background-size:cover;
+    background-position:center 40%;
+    filter:blur(3px) saturate(0.75) brightness(0.7);
+    transform:scale(1.03);
+    z-index:0;
+  }
+  .scrim{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(20,14,8,0.55) 0%, rgba(20,14,8,0.3) 35%, rgba(20,14,8,0.35) 55%, rgba(20,14,8,0.85) 100%);
+    z-index:1;
+  }
+  .brand{
+    position:relative;
+    z-index:2;
+    font-family:'Big Shoulders Display',sans-serif;
+    font-weight:800;
+    font-size:clamp(20px,4.2vw,28px);
+    letter-spacing:0.08em;
+    color:#FFF6EC;
+    text-shadow:0 2px 12px rgba(0,0,0,0.5);
+  }
+  .tagline{
+    position:relative;
+    z-index:2;
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:clamp(26px,9vw,54px);
+    line-height:1.1;
+    color:#FFFDF9;
+    text-shadow:0 4px 24px rgba(0,0,0,0.6);
+    max-width:11ch;
+    word-wrap:break-word;
+  }
+  .intro{ padding:56px 0 40px; }
+  .intro p{
+    font-size:19px;
+    line-height:1.65;
+    color:var(--slate);
+    max-width:46ch;
+    margin:0 0 32px;
+  }
+  .cta{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:var(--ink);
+    color:var(--paper);
+    font-weight:600;
+    font-size:15px;
+    padding:14px 24px;
+    border-radius:2px;
+    text-decoration:none;
+  }
+  .rule{
+    height:1px;
+    background:linear-gradient(90deg, transparent, var(--slate) 20%, var(--slate) 80%, transparent);
+    opacity:0.3;
+    margin:8px 0 48px;
+  }
+  .work{ padding:0 0 56px; }
+  .work h2{
+    font-family:'Big Shoulders Display',sans-serif;
+    font-weight:800;
+    font-size:26px;
+    margin:0 0 28px;
+    color:var(--ink);
+  }
+  .item{
+    border-left:2px solid #E8DACB;
+    padding:4px 0 20px 20px;
+    margin-bottom:8px;
+  }
+  .item h3{ font-size:16px; font-weight:600; margin:0 0 6px; color:var(--ink); }
+  .item p{
+    font-size:15px;
+    line-height:1.55;
+    color:var(--slate);
+    margin:0;
+    max-width:48ch;
+  }
+  footer{
+    padding:32px 0 40px;
+    border-top:1px solid #E8DACB;
+  }
+  footer p{ font-size:13px; color:var(--slate); margin:0; }
+  footer .tag{
+    font-family:'Big Shoulders Display',sans-serif;
+    font-weight:700;
+    font-size:15px;
+    color:var(--ink);
+    margin:0 0 6px;
+  }
+  @media (max-width:380px){
+    .wrap{padding:0 18px;}
+    .brand{font-size:16px;}
+    .intro p{font-size:17px;}
+    .work h2{font-size:22px;}
+    .cta{padding:12px 20px;font-size:14px;}
+  }
+</style>
+</head>
+<body>
+  <div class="hero">
+    <div class="scrim"></div>
+    <div class="wrap" style="position:relative;z-index:2;display:flex;flex-direction:column;justify-content:space-between;flex:1;">
+      <div class="brand">GROUND SUPPORT CREW</div>
+      <div class="tagline">Whatever keeps<br>you flying</div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="intro">
+      <p>We handle the scheduling, coordination and day-to-day logistics &mdash; so you can spend your time in the air, not on the ground managing it.</p>
+      <a class="cta" href="mailto:hello@groundsupportcrew.com">Get in touch</a>
+    </div>
+    <div class="rule"></div>
+    <section class="work">
+      <h2>What we do</h2>
+      <div class="item">
+        <h3>Scheduling &amp; coordination</h3>
+        <p>Appointments, providers, follow-ups &mdash; booked, tracked, and chased so nothing falls through.</p>
+      </div>
+      <div class="item">
+        <h3>Day-to-day support</h3>
+        <p>The recurring tasks that eat a week &mdash; organised into something that actually runs itself.</p>
+      </div>
+      <div class="item">
+        <h3>NDIS-aligned delivery</h3>
+        <p>Support delivered and invoiced the right way, for participants who need it done properly.</p>
+      </div>
+    </section>
+    <footer>
+      <p class="tag">Ground Support Crew &mdash; we keep you flying.</p>
+      <p>groundsupportcrew.com</p>
+    </footer>
+  </div>
+</body>
+</html>
