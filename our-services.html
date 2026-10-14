@@ -228,12 +228,16 @@
   .site-footer{width:100%;padding:32px 0 40px;border-top:1px solid #E8DACB;}
   .site-footer .verification{font-size:12px;line-height:1.5;color:var(--slate);font-style:italic;margin-top:14px;}
 </style>
+<link rel="stylesheet" href="assets/gsc-icons.css">
 </head>
 <body>
   <div class="hero">
     <div class="scrim"></div>
     <div class="wrap" style="position:relative;z-index:2;display:flex;flex-direction:column;justify-content:space-between;flex:1;">
-      <div class="brand">GROUND SUPPORT CREW</div>
+      <div class="site-brand">
+        <a class="site-logo" href="index.html" aria-label="Ground Support Crew home"><img src="assets/gsc-badge-logo.webp" alt="Ground Support Crew logo" width="66" height="66"></a>
+        <div class="brand">GROUND SUPPORT CREW</div>
+      </div>
     </div>
     <div class="tagline resource-title">Our Services</div>
   </div>
@@ -248,7 +252,7 @@
             <section class="service-list" aria-label="Our services">
               <article class="service-item">
                 <a href="assets/shopify-shop-flyer.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open Shopify shop setup flyer (PDF)">
-                  <img src="assets/shopify-shop-flyer-icon.png" alt="Shopfront illustration from the Shopify shop setup flyer" width="128" height="128" loading="lazy">
+                  <span class="gsc-icon gsc-icon-shopify" role="img" aria-label="Shopify shopfront illustration"></span>
                 </a>
                 <div class="service-description">
                   <h2><a href="assets/shopify-shop-flyer.pdf" target="_blank" rel="noopener noreferrer">Shopify Shop Setup</a></h2>
@@ -257,7 +261,7 @@
               </article>
               <article class="service-item">
                 <a href="assets/google-maps-listing-ad.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open Google Maps business listing flyer (PDF)">
-                  <img src="assets/google-maps-service-icon.jpg" alt="Illustration of a map with a location pin and business listing" width="128" height="128" loading="lazy">
+                  <span class="gsc-icon gsc-icon-maps" role="img" aria-label="Colourful Google Maps business listing illustration"></span>
                 </a>
                 <div class="service-description">
                   <h2><a href="assets/google-maps-listing-ad.pdf" target="_blank" rel="noopener noreferrer">Google Maps &amp; Business Listing Setup</a></h2>
@@ -266,7 +270,7 @@
               </article>
               <article class="service-item">
                 <a href="assets/website-creation-flyer.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open website creation service flyer (PDF)">
-                  <img src="assets/website-creation-icon.svg" alt="Green illustration of a laptop displaying a website" width="128" height="128" loading="lazy">
+                  <span class="gsc-icon gsc-icon-website" role="img" aria-label="Website creation illustration"></span>
                 </a>
                 <div class="service-description">
                   <h2><a href="assets/website-creation-flyer.pdf" target="_blank" rel="noopener noreferrer">Website Creation</a></h2>
