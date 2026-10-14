@@ -160,7 +160,36 @@
     border-collapse:collapse;
   }
   .resource-table td{padding:0;text-align:left;}
-  .resource-space{height:260px;}
+  .software-list{padding:28px 0 18px;}
+  .software-section{padding:20px 0 23px;border-bottom:1px solid #E8DACB;}
+  .software-section:first-child{padding-top:0;}
+  .software-section h2{
+    font-family:'Big Shoulders Display',sans-serif;
+    font-size:26px;
+    font-weight:800;
+    color:var(--ink);
+    margin:0 0 9px;
+  }
+  .software-section p{
+    font-size:15px;
+    line-height:1.7;
+    color:var(--slate);
+    margin:0;
+    max-width:75ch;
+  }
+  .software-section a{color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:3px;}
+  .software-section a:hover,.software-section a:focus-visible{color:#A55618;}
+  .software-disclaimer{
+    color:var(--slate);
+    background:#F6EBDD;
+    border-left:3px solid #D5B995;
+    padding:16px 18px;
+    font-size:13px;
+    line-height:1.65;
+    margin:18px 0 30px;
+  }
+  .software-disclaimer strong{color:var(--ink);}
+
 </style>
 </head>
 <body>
@@ -175,7 +204,49 @@
           <td><a class="cta" href="index.html">Back to home</a></td>
         </tr>
         <tr>
-          <td class="resource-space"></td>
+          <td>
+            <div class="software-list">
+              <section class="software-section">
+                <h2>Image Editing</h2>
+                <p><a href="https://www.gimp.org/" target="_blank" rel="noopener noreferrer">GIMP</a> lets you edit photos, crop images, remove backgrounds and create graphics without needing an expensive photo-editing subscription.</p>
+              </section>
+              <section class="software-section">
+                <h2>Word Processing</h2>
+                <p><a href="https://www.libreoffice.org/" target="_blank" rel="noopener noreferrer">LibreOffice Writer</a> lets you write letters, resumes, reports and other documents. It is part of LibreOffice, a free office suite that can also work with common Microsoft Office file formats.</p>
+              </section>
+              <section class="software-section">
+                <h2>Video Editing</h2>
+                <p><a href="https://kdenlive.org/" target="_blank" rel="noopener noreferrer">Kdenlive</a> lets you cut video clips, add titles and transitions, work with multiple tracks and export finished videos without paying for an editor.</p>
+              </section>
+              <section class="software-section">
+                <h2>Video Watching &amp; Media Players</h2>
+                <p><a href="https://www.videolan.org/vlc/" target="_blank" rel="noopener noreferrer">VLC media player</a> lets you watch videos and listen to audio in a wide variety of file formats, including MP4, MKV and MP3, without needing extra codec packs.</p>
+              </section>
+              <section class="software-section">
+                <h2>Audio Editing</h2>
+                <p><a href="https://www.audacityteam.org/" target="_blank" rel="noopener noreferrer">Audacity</a> lets you record and edit voice, music and podcasts. You can trim recordings, adjust sound levels and remove unwanted noise.</p>
+              </section>
+              <section class="software-section">
+                <h2>Screen Recording &amp; Live Streaming</h2>
+                <p><a href="https://obsproject.com/" target="_blank" rel="noopener noreferrer">OBS Studio</a> lets you record your computer screen, webcam or tutorials, and broadcast live video when you need to.</p>
+              </section>
+              <section class="software-section">
+                <h2>Graphic Design &amp; Illustration</h2>
+                <p><a href="https://inkscape.org/" target="_blank" rel="noopener noreferrer">Inkscape</a> lets you create logos, diagrams, icons and scalable vector artwork with professional drawing tools.</p>
+              </section>
+              <section class="software-section">
+                <h2>File Compression</h2>
+                <p><a href="https://www.7-zip.org/" target="_blank" rel="noopener noreferrer">7-Zip</a> lets you open and create compressed archives, including ZIP and 7z files, and reduce file sizes for storage or sharing.</p>
+              </section>
+              <section class="software-section">
+                <h2>Web Browsing</h2>
+                <p><a href="https://www.mozilla.org/firefox/" target="_blank" rel="noopener noreferrer">Firefox</a> lets you browse the internet with a free browser that includes built-in privacy protections and customisation options.</p>
+              </section>
+            </div>
+            <aside class="software-disclaimer">
+              <strong>Disclaimer:</strong> We do not receive any payment, commission or other benefit when you download or install this software. The programs listed here are free to download from their official websites. Please check that the version you choose is suitable for your device.
+            </aside>
+          </td>
         </tr>
         <tr>
           <td><a class="cta" href="index.html">Back to home</a></td>
