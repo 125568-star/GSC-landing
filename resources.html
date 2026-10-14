@@ -145,22 +145,43 @@
     .work h2{font-size:22px;}
     .cta{padding:12px 20px;font-size:14px;}
   }
+  /* Resources-only layout */
+  .resource-title{
+    position:absolute;
+    bottom:40px;
+    left:20px;
+    font-size:clamp(22px,5vw,36px);
+    max-width:none;
+  }
+  .resource-table{
+    width:900px;
+    max-width:calc(100% - 32px);
+    margin:24px auto 40px;
+    border-collapse:collapse;
+  }
+  .resource-table td{padding:0;text-align:left;}
+  .resource-space{height:260px;}
 </style>
 </head>
 <body>
   <div class="hero">
     <div class="scrim"></div>
-    <div class="wrap" style="position:relative;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;flex:1;">
-      <div class="tagline">Resources</div>
-    </div>
+    <div class="tagline resource-title">Resources</div>
   </div>
-  <main class="wrap" style="padding-top:24px;min-height:300px;">
-    <a class="cta" href="index.html">Back to home</a>
+  <main>
+    <table class="resource-table" role="presentation">
+      <tbody>
+        <tr>
+          <td><a class="cta" href="index.html">Back to home</a></td>
+        </tr>
+        <tr>
+          <td class="resource-space"></td>
+        </tr>
+        <tr>
+          <td><a class="cta" href="index.html">Back to home</a></td>
+        </tr>
+      </tbody>
+    </table>
   </main>
-  <footer>
-    <div class="wrap">
-      <a class="cta" href="index.html">Back to home</a>
-    </div>
-  </footer>
 </body>
 </html>
