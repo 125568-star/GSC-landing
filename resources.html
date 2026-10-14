@@ -205,12 +205,16 @@
   .site-footer{width:100%;padding:32px 0 40px;border-top:1px solid #E8DACB;}
   .site-footer .verification{font-size:12px;line-height:1.5;color:var(--slate);font-style:italic;margin-top:14px;}
 </style>
+<link rel="stylesheet" href="assets/gsc-icons.css">
 </head>
 <body>
   <div class="hero">
     <div class="scrim"></div>
     <div class="wrap" style="position:relative;z-index:2;display:flex;flex-direction:column;justify-content:space-between;flex:1;">
-      <div class="brand">GROUND SUPPORT CREW</div>
+      <div class="site-brand">
+        <a class="site-logo" href="index.html" aria-label="Ground Support Crew home"><img src="assets/gsc-badge-logo.webp" alt="Ground Support Crew logo" width="66" height="66"></a>
+        <div class="brand">GROUND SUPPORT CREW</div>
+      </div>
     </div>
     <div class="tagline resource-title">Resources</div>
   </div>
@@ -225,10 +229,20 @@
             <section class="resource-section" aria-labelledby="free-heading">
               <h2 id="free-heading">Free</h2>
               <hr class="resource-divider">
-              <a class="resource-link" href="free-software.html">Software</a>
-              <p>These programs are genuinely free and open-source &mdash; not limited-time trials. Download them from the official websites and keep using them without a subscription or paid licence.</p>
-              <h3 class="resource-info-heading"><a class="resource-link" href="information.html">Information</a></h3>
-              <p>Access useful information completely free of charge. Our educational content is written with the help of AI, then reviewed, fact-checked and verified by Ground Support Crew before publication.</p>
+              <div class="gsc-resource-row">
+                <a class="gsc-icon-link" href="free-software.html" aria-label="View free software"><span class="gsc-icon gsc-icon-software" role="img" aria-label="Software illustration"></span></a>
+                <div class="gsc-resource-copy">
+                  <a class="resource-link" href="free-software.html">Software</a>
+                  <p>These programs are genuinely free and open-source &mdash; not limited-time trials. Download them from the official websites and keep using them without a subscription or paid licence.</p>
+                </div>
+              </div>
+              <div class="gsc-resource-row">
+                <a class="gsc-icon-link" href="information.html" aria-label="View free information"><span class="gsc-icon gsc-icon-information" role="img" aria-label="Information illustration"></span></a>
+                <div class="gsc-resource-copy">
+                  <h3 class="resource-info-heading"><a class="resource-link" href="information.html">Information</a></h3>
+                  <p>Access useful information completely free of charge. Our educational content is written with the help of AI, then reviewed, fact-checked and verified by Ground Support Crew before publication.</p>
+                </div>
+              </div>
             </section>
           </td>
         </tr>
