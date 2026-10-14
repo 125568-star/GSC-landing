@@ -161,12 +161,16 @@
   .site-footer{width:100%;padding:32px 0 40px;border-top:1px solid #E8DACB;}
   .site-footer .verification{font-size:12px;line-height:1.5;color:var(--slate);font-style:italic;margin-top:14px;}
 </style>
+<link rel="stylesheet" href="assets/gsc-icons.css">
 </head>
 <body>
   <div class="hero">
     <div class="scrim"></div>
     <div class="wrap" style="position:relative;z-index:2;display:flex;flex-direction:column;justify-content:space-between;flex:1;">
-      <div class="brand">GROUND SUPPORT CREW</div>
+      <div class="site-brand">
+        <a class="site-logo" href="index.html" aria-label="Ground Support Crew home"><img src="assets/gsc-badge-logo.webp" alt="Ground Support Crew logo" width="66" height="66"></a>
+        <div class="brand">GROUND SUPPORT CREW</div>
+      </div>
       <div class="tagline">Whatever keeps<br>you flying</div>
     </div>
   </div>
@@ -187,7 +191,7 @@
       <div class="item">
         <div class="feature-layout">
           <a class="feature-picture" href="our-services.html" aria-label="Explore Our Services">
-            <img src="assets/home-services.svg" alt="Illustration of a briefcase representing our services" width="88" height="88">
+            <span class="gsc-icon gsc-icon-services" role="img" aria-label="Our Services illustration"></span>
           </a>
           <div class="feature-text">
             <h3><a href="our-services.html">Our Services</a></h3>
@@ -198,7 +202,7 @@
       <div class="item">
         <div class="feature-layout">
           <a class="feature-picture" href="resources.html" aria-label="Explore Education and Resources">
-            <img src="assets/home-resources.svg" alt="Illustration of an open book representing educational resources" width="88" height="88">
+            <span class="gsc-icon gsc-icon-resources" role="img" aria-label="Education and Resources illustration"></span>
           </a>
           <div class="feature-text">
             <h3><a href="resources.html">Education &amp; resources</a></h3>
