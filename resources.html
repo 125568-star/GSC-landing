@@ -146,17 +146,11 @@
     .cta{padding:12px 20px;font-size:14px;}
   }
   /* Resources-only layout */
-  /* Keep the page title inside the same centered 900px table as the content. */
+  /* All pages show the same centered slogan within the 900px content width. */
   .hero .wrap{width:900px;max-width:calc(100% - 32px);padding:0;margin:0 auto;}
-  .hero-title-table{width:100%;border-collapse:collapse;table-layout:fixed;}
-  .hero-title-table td{padding:0;text-align:left;}
-  .hero .resource-title{
-    position:relative;
-    bottom:auto;
-    left:auto;
-    max-width:none;
-    font-size:clamp(22px,5vw,36px);
-  }
+  .hero-slogan-table{width:100%;border-collapse:collapse;table-layout:fixed;}
+  .hero-slogan-table td{padding:0;text-align:center;}
+  .hero .tagline{max-width:none;width:100%;text-align:center;font-size:clamp(26px,5.4vw,54px);}
   .resource-table{
     width:900px;
     max-width:calc(100% - 32px);
@@ -219,9 +213,9 @@
         <a class="site-logo" href="index.html" aria-label="Ground Support Crew home"><img src="assets/gsc-badge-logo.webp" alt="Ground Support Crew logo" width="66" height="66"></a>
         <div class="brand">GROUND SUPPORT CREW</div>
       </div>
-      <table class="hero-title-table" role="presentation">
+      <table class="hero-slogan-table" role="presentation">
         <tbody>
-          <tr><td><div class="tagline resource-title">Resources</div></td></tr>
+          <tr><td><div class="tagline">We Keep You Flying</div></td></tr>
         </tbody>
       </table>
     </div>
