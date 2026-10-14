@@ -160,6 +160,11 @@
   .spacer-row td{height:24px;line-height:24px;font-size:0;}
   .site-footer{width:100%;padding:32px 0 40px;border-top:1px solid #E8DACB;}
   .site-footer .verification{font-size:12px;line-height:1.5;color:var(--slate);font-style:italic;margin-top:14px;}
+  /* Match the centred 900px content table in the hero. */
+  .hero .wrap{width:900px;max-width:calc(100% - 32px);padding:0;margin:0 auto;}
+  .hero-slogan-table{width:100%;border-collapse:collapse;table-layout:fixed;}
+  .hero-slogan-table td{padding:0;text-align:center;}
+  .hero .tagline{max-width:none;width:100%;text-align:center;font-size:clamp(26px,5.4vw,54px);}
 </style>
 <link rel="stylesheet" href="assets/gsc-icons.css">
 </head>
@@ -171,7 +176,13 @@
         <a class="site-logo" href="index.html" aria-label="Ground Support Crew home"><img src="assets/gsc-badge-logo.webp" alt="Ground Support Crew logo" width="66" height="66"></a>
         <div class="brand">GROUND SUPPORT CREW</div>
       </div>
-      <div class="tagline">Whatever keeps<br>you flying</div>
+      <table class="hero-slogan-table" role="presentation">
+        <tbody>
+          <tr>
+            <td><div class="tagline">Ground Support Crew &mdash; we keep you flying.</div></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
   <main>
