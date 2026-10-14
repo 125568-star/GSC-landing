@@ -196,6 +196,17 @@
   }
   .software-disclaimer strong{color:var(--ink);}
 
+  /* Shared centred 900px layout, footer and five-row spacer */
+  .resource-table{
+    width:900px;
+    max-width:calc(100% - 32px);
+    margin:24px auto 40px;
+    border-collapse:collapse;
+  }
+  .resource-table td{padding:0;text-align:left;}
+  .spacer-row td{height:24px;line-height:24px;font-size:0;}
+  .site-footer{width:100%;padding:32px 0 40px;border-top:1px solid #E8DACB;}
+  .site-footer .verification{font-size:12px;line-height:1.5;color:var(--slate);font-style:italic;margin-top:14px;}
 </style>
 </head>
 <body>
@@ -297,6 +308,20 @@
         </tr>
         <tr>
           <td><a class="cta" href="index.html">Back to home</a></td>
+        </tr>
+        <tr class="spacer-row" aria-hidden="true"><td>&nbsp;</td></tr>
+        <tr class="spacer-row" aria-hidden="true"><td>&nbsp;</td></tr>
+        <tr class="spacer-row" aria-hidden="true"><td>&nbsp;</td></tr>
+        <tr class="spacer-row" aria-hidden="true"><td>&nbsp;</td></tr>
+        <tr class="spacer-row" aria-hidden="true"><td>&nbsp;</td></tr>
+        <tr>
+          <td>
+            <footer class="site-footer">
+              <p class="tag">Ground Support Crew &mdash; we keep you flying.</p>
+              <p>groundsupportcrew.com</p>
+              <p class="verification">Written by AI, verified by the humans of the Ground Support Crew.</p>
+            </footer>
+          </td>
         </tr>
       </tbody>
     </table>
