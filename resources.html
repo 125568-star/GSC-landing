@@ -161,6 +161,32 @@
   }
   .resource-table td{padding:0;text-align:left;}
   .resource-space{height:260px;}
+  .resource-section{padding:34px 0 48px;}
+  .resource-section h2{
+    font-family:'Big Shoulders Display',sans-serif;
+    font-weight:800;
+    font-size:28px;
+    margin:0 0 12px;
+  }
+  .resource-divider{
+    border:0;
+    border-top:1px solid #D9CABB;
+    margin:0 0 26px;
+  }
+  .resource-link{
+    color:var(--ink);
+    font-size:18px;
+    font-weight:600;
+    text-decoration:underline;
+    text-underline-offset:3px;
+  }
+  .resource-section p{
+    font-size:15px;
+    line-height:1.65;
+    color:var(--slate);
+    max-width:65ch;
+    margin:12px 0 0;
+  }
 </style>
 </head>
 <body>
@@ -175,7 +201,14 @@
           <td><a class="cta" href="index.html">Back to home</a></td>
         </tr>
         <tr>
-          <td class="resource-space"></td>
+          <td>
+            <section class="resource-section" aria-labelledby="free-heading">
+              <h2 id="free-heading">Free</h2>
+              <hr class="resource-divider">
+              <a class="resource-link" href="free-software.html">Free Software</a>
+              <p>You don't have to buy software for so many everyday tasks anymore. Here you'll find useful free software you can download and use without paying for a licence.</p>
+            </section>
+          </td>
         </tr>
         <tr>
           <td><a class="cta" href="index.html">Back to home</a></td>
