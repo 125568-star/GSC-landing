@@ -113,6 +113,15 @@
     padding:4px 0 20px 20px;
     margin-bottom:8px;
   }
+  .feature-layout{display:flex;align-items:flex-start;gap:18px;}
+  .feature-picture{display:block;flex:0 0 88px;width:88px;height:88px;border-radius:8px;overflow:hidden;}
+  .feature-picture img{display:block;width:100%;height:100%;object-fit:cover;}
+  .feature-picture:focus-visible{outline:3px solid var(--amber);outline-offset:3px;}
+  .feature-text{flex:1;min-width:0;}
+  @media(max-width:420px){
+    .feature-layout{gap:12px;}
+    .feature-picture{width:68px;height:68px;flex-basis:68px;}
+  }
   .item h3{ font-size:16px; font-weight:600; margin:0 0 6px; color:var(--ink); }
   .item p{
     font-size:15px;
@@ -176,12 +185,26 @@
     <div class="rule"></div>
     <section class="work" aria-label="Our services and educational resources">
       <div class="item">
-        <h3><a href="our-services.html">Our Services</a></h3>
-        <p>Discover the practical support Ground Support Crew can provide for you or your business, from scheduling and coordination to keeping everyday tasks organised and running smoothly.</p>
+        <div class="feature-layout">
+          <a class="feature-picture" href="our-services.html" aria-label="Explore Our Services">
+            <img src="assets/home-services.svg" alt="Illustration of a briefcase representing our services" width="88" height="88">
+          </a>
+          <div class="feature-text">
+            <h3><a href="our-services.html">Our Services</a></h3>
+            <p>Discover the practical support Ground Support Crew can provide for you or your business, from scheduling and coordination to keeping everyday tasks organised and running smoothly.</p>
+          </div>
+        </div>
       </div>
       <div class="item">
-        <h3><a href="resources.html">Education &amp; resources</a></h3>
-        <p>Practical information through e-books, guides and reports &mdash; helping people understand their options, build knowledge and make informed decisions.</p>
+        <div class="feature-layout">
+          <a class="feature-picture" href="resources.html" aria-label="Explore Education and Resources">
+            <img src="assets/home-resources.svg" alt="Illustration of an open book representing educational resources" width="88" height="88">
+          </a>
+          <div class="feature-text">
+            <h3><a href="resources.html">Education &amp; resources</a></h3>
+            <p>Practical information through e-books, guides and reports &mdash; helping people understand their options, build knowledge and make informed decisions.</p>
+          </div>
+        </div>
       </div>
     </section>
           </td>
