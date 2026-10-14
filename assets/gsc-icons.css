@@ -1,0 +1,40 @@
+/* Ground Support Crew shared imagery */
+.site-brand{display:flex;align-items:center;gap:16px;position:relative;z-index:3;max-width:calc(100% - 24px)}
+.site-brand .brand{min-width:0}
+.site-logo{display:flex;align-items:center;justify-content:center;flex:0 0 66px;width:66px;height:66px;text-decoration:none}
+.site-logo img{display:block;width:66px;height:66px;object-fit:contain}
+.site-logo:focus-visible,.gsc-icon-link:focus-visible,.feature-picture:focus-visible,.service-preview:focus-visible{outline:3px solid #E8862B;outline-offset:3px}
+.gsc-icon{
+  display:block;width:100%;height:100%;background-image:url("gsc-icons-sprite.webp");
+  background-size:400% 200%;background-repeat:no-repeat;border-radius:9px;
+}
+.gsc-icon-services{background-position:0% 0%}
+.gsc-icon-resources{background-position:33.333333% 0%}
+.gsc-icon-shopify{background-position:66.666667% 0%}
+.gsc-icon-maps{background-position:100% 0%}
+.gsc-icon-website{background-position:0% 100%}
+.gsc-icon-software{background-position:33.333333% 100%}
+.gsc-icon-information{background-position:66.666667% 100%}
+.feature-layout{align-items:flex-start;gap:20px}
+.feature-picture{flex:0 0 112px;width:112px;height:112px;border-radius:10px}
+.service-preview .gsc-icon{width:100%;height:100%;border-radius:4px}
+.gsc-resource-row{display:flex;align-items:flex-start;gap:22px;margin:20px 0 30px}
+.gsc-resource-copy{min-width:0;flex:1}
+.gsc-resource-copy p{margin:12px 0 0}
+.gsc-resource-copy .resource-info-heading{margin:0}
+.gsc-icon-link{display:block;flex:0 0 112px;width:112px;height:112px}
+.software-entry .software-logo{width:104px;height:104px;flex:0 0 104px;padding:12px;border-radius:10px}
+@media(max-width:560px){
+  .site-brand{gap:10px}
+  .site-logo{width:52px;height:52px;flex-basis:52px}
+  .site-logo img{width:52px;height:52px}
+  .site-brand .brand{font-size:clamp(16px,3.5vw,22px)}
+  .feature-picture{flex-basis:84px;width:84px;height:84px}
+  .gsc-resource-row{gap:13px}
+  .gsc-icon-link{flex-basis:82px;width:82px;height:82px}
+  .software-entry .software-logo{width:78px;height:78px;flex-basis:78px;padding:9px}
+}
+@media(max-width:380px){
+  .feature-picture{flex-basis:76px;width:76px;height:76px}
+  .gsc-icon-link{flex-basis:72px;width:72px;height:72px}
+}
