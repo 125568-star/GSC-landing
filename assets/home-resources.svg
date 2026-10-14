@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-labelledby="t">
+<title id="t">Education and Resources — open book illustration</title>
+<rect width="128" height="128" rx="18" fill="#E5EDEB"/>
+<circle cx="102" cy="27" r="19" fill="#EBC283"/>
+<path d="M24 43q24-10 40 4v59q-15-13-40-4z" fill="#FDF8ED" stroke="#395C56" stroke-width="4" stroke-linejoin="round"/>
+<path d="M104 43q-24-10-40 4v59q15-13 40-4z" fill="#C4DED5" stroke="#395C56" stroke-width="4" stroke-linejoin="round"/>
+<path d="M64 47v59" stroke="#395C56" stroke-width="4" stroke-linecap="round"/>
+<path d="M32 57q13-4 23 2M32 69q13-4 23 2M32 81q13-4 23 2" fill="none" stroke="#BEA58B" stroke-width="3" stroke-linecap="round"/>
+<path d="M72 59q11-6 23-2M72 71q11-6 23-2M72 83q11-6 23-2" fill="none" stroke="#6D9A8B" stroke-width="3" stroke-linecap="round"/>
+<path d="M93 20v17M85 28h16" stroke="#FFF6EC" stroke-width="3" stroke-linecap="round"/>
+</svg>
