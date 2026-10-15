@@ -205,6 +205,7 @@
  .vpn-book-cover{display:block;flex:0 0 152px;width:152px;max-width:30%;height:auto;aspect-ratio:595/842;object-fit:contain;align-self:flex-start;box-shadow:0 4px 15px rgba(0,0,0,.14)}
  .vpn-book-row{align-items:flex-start}
  @media(max-width:560px){.vpn-book-cover{flex-basis:112px;width:112px;max-width:35%}}
+ .vpn-book-copy{display:flex;flex-direction:column;align-self:stretch;min-height:215px;justify-content:flex-start}.vpn-book-copy p:first-child{margin-top:0}.vpn-book-copy .vpn-download{margin-top:auto;padding-top:14px}.vpn-book-row{align-items:stretch}
 </style>
 <link rel="stylesheet" href="assets/gsc-icons.css">
 </head>
@@ -236,11 +237,11 @@
               <hr class="resource-divider">
               <div class="gsc-resource-row vpn-book-row">
                 <img class="vpn-book-cover" src="assets/vpn-cover.svg" alt="Blue cover of the VPN eBook">
-                <div class="gsc-resource-copy">
+                <div class="gsc-resource-copy vpn-book-copy">
                   <p>This free eBook explains virtual private networks in plain English. Learn how a VPN works, why people use one for online privacy and public Wi-Fi, and what protection it does and does not provide.</p>
                   <p>It covers the different types of VPNs, common protocols such as WireGuard and OpenVPN, tips for choosing a trustworthy provider, and practical steps for setting up and using a VPN on your computer, phone or tablet.</p>
-                  <p>It also looks at everyday uses, including travel, streaming and troubleshooting, so you can make informed decisions about your online privacy.</p>
-                  <p><a class="resource-link" href="resources/free/VPN.pdf" download="VPN.pdf">Download this free VPN book</a></p>
+                  <p>Explore everyday uses such as travel, streaming and troubleshooting.</p>
+                  <p class="vpn-download"><a class="resource-link" href="resources/free/VPN.pdf" download="VPN.pdf">Download this free VPN book</a></p>
                 </div>
               </div>
             </section>
