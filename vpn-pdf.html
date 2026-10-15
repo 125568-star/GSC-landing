@@ -1,1 +1,270 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>VPN | Ground Support Crew</title><style>body{margin:0;background:#FFF6EC;color:#2A1B12;font-family:Arial,sans-serif}main{max-width:900px;margin:36px auto;padding:0 24px}a{color:#2A1B12}h1{font-size:36px}footer{margin-top:80px;font-size:12px;color:#6B5B4E}</style></head><body><main><p><a href="information.html">← Back to Information</a></p><h1>VPN</h1><footer>Written by AI, verified by the humans of the Ground Support Crew.</footer></main></body></html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>VPN eBook | Ground Support Crew</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Fraunces:ital,opsz@1,9..144&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2A1B12;
+    --paper:#FFF6EC;
+    --amber:#E8862B;
+    --slate:#6B5B4E;
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  html{scroll-padding-top:env(safe-area-inset-top,0px);}
+  *,*::before,*::after{box-sizing:inherit;}
+  html,body{height:100%;margin:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
+  .hero{
+    position:relative;
+    min-height:45svh;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    padding:28px 0 40px;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    inset:-10px;
+    background-image:url("1.jpg");
+    background-size:cover;
+    background-position:center 40%;
+    filter:saturate(0.9) brightness(0.85);
+    transform:scale(1.03);
+    z-index:0;
+  }
+  .scrim{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(20,14,8,0.55) 0%, rgba(20,14,8,0.3) 35%, rgba(20,14,8,0.35) 55%, rgba(20,14,8,0.85) 100%);
+    z-index:1;
+  }
+  .brand{
+    position:relative;
+    z-index:2;
+    font-family:'Big Shoulders Display',sans-serif;
+    font-weight:800;
+    font-size:clamp(20px,4.2vw,28px);
+    letter-spacing:0.08em;
+    color:#FFF6EC;
+    text-shadow:0 2px 12px rgba(0,0,0,0.5);
+  }
+  .tagline{
+    position:relative;
+    z-index:2;
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:clamp(26px,9vw,54px);
+    line-height:1.1;
+    color:#FFFDF9;
+    text-shadow:0 4px 24px rgba(0,0,0,0.6);
+    max-width:11ch;
+    word-wrap:break-word;
+  }
+  .intro{ padding:56px 0 40px; }
+  .intro p{
+    font-size:19px;
+    line-height:1.65;
+    color:var(--slate);
+    max-width:46ch;
+    margin:0 0 32px;
+  }
+  .cta{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:var(--ink);
+    color:var(--paper);
+    font-weight:600;
+    font-size:15px;
+    padding:14px 24px;
+    border-radius:2px;
+    text-decoration:none;
+  }
+  .cta-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+  .rule{
+    height:1px;
+    background:linear-gradient(90deg, transparent, var(--slate) 20%, var(--slate) 80%, transparent);
+    opacity:0.3;
+    margin:8px 0 48px;
+  }
+  .work{ padding:0 0 56px; }
+  .work h2{
+    font-family:'Big Shoulders Display',sans-serif;
+    font-weight:800;
+    font-size:26px;
+    margin:0 0 28px;
+    color:var(--ink);
+  }
+  .item{
+    border-left:2px solid #E8DACB;
+    padding:4px 0 20px 20px;
+    margin-bottom:8px;
+  }
+  .item h3{ font-size:16px; font-weight:600; margin:0 0 6px; color:var(--ink); }
+  .item p{
+    font-size:15px;
+    line-height:1.55;
+    color:var(--slate);
+    margin:0;
+    max-width:48ch;
+  }
+  footer{
+    padding:32px 0 40px;
+    border-top:1px solid #E8DACB;
+  }
+  footer p{ font-size:13px; color:var(--slate); margin:0; }
+  footer .tag{
+    font-family:'Big Shoulders Display',sans-serif;
+    font-weight:700;
+    font-size:15px;
+    color:var(--ink);
+    margin:0 0 6px;
+  }
+  @media (max-width:380px){
+    .wrap{padding:0 18px;}
+    .brand{font-size:16px;}
+    .intro p{font-size:17px;}
+    .work h2{font-size:22px;}
+    .cta{padding:12px 20px;font-size:14px;}
+  }
+  /* Resources-only layout */
+  /* All pages show the same centered slogan within the 900px content width. */
+  .hero .wrap{width:900px;max-width:calc(100% - 32px);padding:0;margin:0 auto;}
+  .hero-slogan-table{width:100%;border-collapse:collapse;table-layout:fixed;}
+  .hero-slogan-table td{padding:0;text-align:center;}
+  .hero .tagline{max-width:none;width:100%;text-align:center;font-size:clamp(26px,5.4vw,54px);}
+  .resource-table{
+    width:900px;
+    max-width:calc(100% - 32px);
+    margin:24px auto 40px;
+    border-collapse:collapse;
+  }
+  .resource-table td{padding:0;text-align:left;}
+  .resource-space{height:260px;}
+  .resource-section{padding:34px 0 48px;}
+  .resource-section h2{
+    font-family:'Big Shoulders Display',sans-serif;
+    font-weight:800;
+    font-size:28px;
+    margin:0 0 12px;
+  }
+  .resource-divider{
+    border:0;
+    border-top:1px solid #D9CABB;
+    margin:0 0 26px;
+  }
+  .resource-link{
+    color:var(--ink);
+    font-size:18px;
+    font-weight:600;
+    text-decoration:underline;
+    text-underline-offset:3px;
+  }
+  .resource-info-heading{
+    color:var(--ink);
+    font-size:18px;
+    font-weight:600;
+    margin:28px 0 0;
+  }
+  .resource-section p{
+    font-size:15px;
+    line-height:1.65;
+    color:var(--slate);
+    max-width:65ch;
+    margin:12px 0 0;
+  }
+  /* Shared centred 900px layout, footer and five-row spacer */
+  .resource-table{
+    width:900px;
+    max-width:calc(100% - 32px);
+    margin:24px auto 40px;
+    border-collapse:collapse;
+  }
+  .resource-table td{padding:0;text-align:left;}
+  .spacer-row td{height:24px;line-height:24px;font-size:0;}
+  .site-footer{width:100%;padding:32px 0 40px;border-top:1px solid #E8DACB;}
+  .site-footer .verification{font-size:12px;line-height:1.5;color:var(--slate);font-style:italic;margin-top:14px;}
+ .vpn-book-cover{width:152px;max-width:30%;height:auto;object-fit:contain;align-self:flex-start;box-shadow:0 4px 15px rgba(0,0,0,.14)}
+ .vpn-book-row{align-items:flex-start}
+ @media(max-width:560px){.vpn-book-cover{width:112px;max-width:35%}}
+</style>
+<link rel="stylesheet" href="assets/gsc-icons.css">
+</head>
+<body>
+  <div class="hero">
+    <div class="scrim"></div>
+    <div class="wrap" style="position:relative;z-index:2;display:flex;flex-direction:column;justify-content:space-between;flex:1;">
+      <div class="site-brand">
+        <a class="site-logo" href="index.html" aria-label="Ground Support Crew home"><img src="assets/gsc-badge-logo.webp" alt="Ground Support Crew logo" width="66" height="66"></a>
+        <div class="brand">GROUND SUPPORT CREW</div>
+      </div>
+      <table class="hero-slogan-table" role="presentation">
+        <tbody>
+          <tr><td><div class="tagline">We Keep You Flying</div></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <main>
+    <table class="resource-table" role="presentation">
+      <tbody>
+        <tr>
+          <td><a class="cta" href="information.html">Back to Information</a></td>
+        </tr>
+        <tr>
+          <td>
+            <section class="resource-section" aria-labelledby="vpn-book-heading">
+              <h2 id="vpn-book-heading">VPN</h2>
+              <hr class="resource-divider">
+              <div class="gsc-resource-row vpn-book-row">
+                <img class="vpn-book-cover" src="assets/vpn-cover.svg" alt="Blue cover of the VPN eBook">
+                <div class="gsc-resource-copy">
+                  <p>This free eBook explains virtual private networks in plain English. Learn how a VPN works, why people use one for online privacy and public Wi-Fi, and what protection it does and does not provide.</p>
+                  <p>It covers the different types of VPNs, common protocols such as WireGuard and OpenVPN, tips for choosing a trustworthy provider, and practical steps for setting up and using a VPN on your computer, phone or tablet.</p>
+                  <p>It also looks at everyday uses, including travel, streaming and troubleshooting, so you can make informed decisions about your online privacy.</p>
+                  <p><a class="resource-link" href="VPN.pdf" download="VPN.pdf">Download this free VPN book</a></p>
+                </div>
+              </div>
+            </section>
+          </td>
+        </tr>
+        <tr>
+          <td><a class="cta" href="resources.html">Back to Resources</a></td>
+        </tr>
+        <tr>
+          <td>
+            <footer class="site-footer">
+              <p class="tag">Ground Support Crew &mdash; we keep you flying.</p>
+              <p>groundsupportcrew.com</p>
+              <p class="verification">Written by AI, verified by the humans of the Ground Support Crew.</p>
+            </footer>
+          </td>
+        </tr>
+        <tr class="spacer-row" aria-hidden="true"><td>&nbsp;</td></tr>
+        <tr class="spacer-row" aria-hidden="true"><td>&nbsp;</td></tr>
+        <tr class="spacer-row" aria-hidden="true"><td>&nbsp;</td></tr>
+        <tr class="spacer-row" aria-hidden="true"><td>&nbsp;</td></tr>
+        <tr class="spacer-row" aria-hidden="true"><td>&nbsp;</td></tr>
+      </tbody>
+    </table>
+  </main>
+</body>
+</html>
