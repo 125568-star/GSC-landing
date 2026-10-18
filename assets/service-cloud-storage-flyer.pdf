@@ -6,7 +6,7 @@ endobj
 << /Type /Pages /Kids [3 0 R] /Count 1 >>
 endobj
 3 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 4 0 R /F2 5 0 R /F3 6 0 R >> >> /Contents 7 0 R >>
 endobj
 4 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
@@ -15,38 +15,67 @@ endobj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
 endobj
 6 0 obj
-<< /Length 1203 >>
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique >>
+endobj
+7 0 obj
+<< /Length 3466 >>
 stream
-0.1294 0.4431 0.5451 rg 0 0 595 842 re f
-1 1 1 rg
-BT /F2 14 Tf 1 0 0 1 54 781 Tm (GROUND SUPPORT CREW) Tj ET
-BT /F1 10 Tf 1 0 0 1 54 757 Tm (WE KEEP YOU FLYING) Tj ET
-BT /F2 29 Tf 1 0 0 1 54 680 Tm (Cloud Storage & File Sharing) Tj ET
-BT /F1 15 Tf 1 0 0 1 54 618 Tm (Access and share your files with less confusion.) Tj ET
-BT /F2 14 Tf 1 0 0 1 54 553 Tm (WHAT THIS SERVICE INCLUDES) Tj ET
-BT /F1 12 Tf 1 0 0 1 54 516 Tm (-  Help choose Google Drive, OneDrive or Nextcloud.) Tj ET
-BT /F1 12 Tf 1 0 0 1 54 485 Tm (-  Configure file syncing on supported devices.) Tj ET
-BT /F1 12 Tf 1 0 0 1 54 454 Tm (-  Organise folders and practical access permissions.) Tj ET
-BT /F1 12 Tf 1 0 0 1 54 423 Tm (-  Show how to share links and manage storage safely.) Tj ET
-BT /F2 14 Tf 1 0 0 1 54 374 Tm (GOOD TO KNOW) Tj ET
-BT /F1 11 Tf 1 0 0 1 54 344 Tm (Third-party subscriptions and extra cloud capacity are charged by their) Tj ET
-BT /F1 11 Tf 1 0 0 1 54 327 Tm (providers.) Tj ET
-BT /F2 13 Tf 1 0 0 1 54 126 Tm (ASK FOR A PERSONALISED QUOTE) Tj ET
-BT /F1 12 Tf 1 0 0 1 54 101 Tm (info@groundsupportcrew.com) Tj ET
-BT /F1 9 Tf 1 0 0 1 54 45 Tm (Written by AI, verified by the humans of the Ground Support Crew.) Tj ET
+0.2353 0.5294 0.6157 rg 0 620 595 222 re f
+1 1 1 RG 1 1 1 rg 5 w 1 J 1 j
+240 663 115 95 re S
+252 673 91 75 re S
+263 699 m 264 719 278 721 285 723 c 296 742 316 724 319 719 c 337 713 333 694 319 693 c h S
+0.2353 0.5294 0.6157 rg BT /F2 23 Tf 1 0 0 1 130.1 583.0 Tm (Cloud Storage & File Sharing) Tj ET
+0.2353 0.5294 0.6157 rg BT /F3 11 Tf 1 0 0 1 178.9 553.0 Tm (Keep documents organised and easy to access.) Tj ET
+0.18 0.18 0.36 rg BT /F2 14 Tf 1 0 0 1 60.0 498.0 Tm (Why have us do it) Tj ET
+0.2353 0.5294 0.6157 RG 0.8 w 60 492 m 535 492 l S
+0.2353 0.5294 0.6157 rg BT /F2 11 Tf 1 0 0 1 65.0 469.0 Tm (o) Tj ET
+0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 469.0 Tm (Find important files without hunting through devices.) Tj ET
+0.2353 0.5294 0.6157 rg BT /F2 11 Tf 1 0 0 1 65.0 447.7 Tm (o) Tj ET
+0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 447.7 Tm (Share selected documents without emailing attachments.) Tj ET
+0.2353 0.5294 0.6157 rg BT /F2 11 Tf 1 0 0 1 65.0 426.4 Tm (o) Tj ET
+0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 426.4 Tm (Synchronised folders can simplify everyday work.) Tj ET
+0.2353 0.5294 0.6157 rg BT /F2 11 Tf 1 0 0 1 65.0 405.1 Tm (o) Tj ET
+0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 405.1 Tm (We help you understand access permissions.) Tj ET
+0.18 0.18 0.36 rg BT /F2 14 Tf 1 0 0 1 60.0 378.0 Tm (How we'll do it) Tj ET
+0.2353 0.5294 0.6157 RG 0.8 w 60 372 m 535 372 l S
+0.2353 0.5294 0.6157 rg BT /F2 11 Tf 1 0 0 1 65.0 349.0 Tm (1.) Tj ET
+0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 349.0 Tm (We discuss Google Drive, OneDrive or Nextcloud.) Tj ET
+0.2353 0.5294 0.6157 rg BT /F2 11 Tf 1 0 0 1 65.0 327.7 Tm (2.) Tj ET
+0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 327.7 Tm (We create a practical folder structure.) Tj ET
+0.2353 0.5294 0.6157 rg BT /F2 11 Tf 1 0 0 1 65.0 306.4 Tm (3.) Tj ET
+0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 306.4 Tm (We configure syncing and basic sharing settings.) Tj ET
+0.2353 0.5294 0.6157 rg BT /F2 11 Tf 1 0 0 1 65.0 285.1 Tm (4.) Tj ET
+0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 285.1 Tm (We demonstrate sharing and safe file organisation.) Tj ET
+0.18 0.18 0.36 rg BT /F2 14 Tf 1 0 0 1 60.0 258.0 Tm (What we need from you) Tj ET
+0.2353 0.5294 0.6157 RG 0.8 w 60 252 m 535 252 l S
+0.2353 0.5294 0.6157 rg BT /F2 11 Tf 1 0 0 1 65.0 229.0 Tm (o) Tj ET
+0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 229.0 Tm (Access to the relevant devices and accounts.) Tj ET
+0.2353 0.5294 0.6157 rg BT /F2 11 Tf 1 0 0 1 65.0 207.7 Tm (o) Tj ET
+0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 207.7 Tm (The folders you want to organise.) Tj ET
+0.2353 0.5294 0.6157 rg BT /F2 11 Tf 1 0 0 1 65.0 186.4 Tm (o) Tj ET
+0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 186.4 Tm (A cloud subscription if extra storage is needed.) Tj ET
+0.2353 0.5294 0.6157 rg BT /F2 11 Tf 1 0 0 1 65.0 165.1 Tm (o) Tj ET
+0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 165.1 Tm (Approval of which files can be shared.) Tj ET
+0.2353 0.5294 0.6157 rg BT /F3 12 Tf 1 0 0 1 109.3 137.0 Tm (That's it: you tell us what you need, we set it up and check it.) Tj ET
+0.2353 0.5294 0.6157 rg 45 34 505 63 re f
+1 1 1 rg BT /F1 10 Tf 1 0 0 1 175.0 73.0 Tm (Want us to help with cloud storage & file sharing?) Tj ET
+1 1 1 rg BT /F2 12 Tf 1 0 0 1 132.1 49.0 Tm (Email us for a free quote: info@groundsupportcrew.com) Tj ET
+0.2353 0.5294 0.6157 rg BT /F3 8 Tf 1 0 0 1 170.1 16.0 Tm (Written by AI, verified by the humans of the Ground Support Crew.) Tj ET
 endstream
 endobj
 xref
-0 7
+0 8
 0000000000 65535 f 
 0000000009 00000 n 
 0000000058 00000 n 
 0000000115 00000 n 
-0000000251 00000 n 
-0000000321 00000 n 
-0000000396 00000 n 
+0000000261 00000 n 
+0000000331 00000 n 
+0000000406 00000 n 
+0000000484 00000 n 
 trailer
-<< /Size 7 /Root 1 0 R >>
+<< /Size 8 /Root 1 0 R >>
 startxref
-1650
+4001
 %%EOF
