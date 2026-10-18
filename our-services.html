@@ -192,21 +192,21 @@
   }
   .service-preview img{display:block;width:100%;height:100%;object-fit:contain;}
   .service-description{flex:1;min-width:0;}
-  .service-description h2{font-size:18px;margin:0 0 8px;font-weight:600;line-height:1.35;}
+  .service-description h2{font-size:clamp(11px,1.28vw,15px);margin:0 0 8px;font-weight:600;line-height:1.35;white-space:nowrap;letter-spacing:-0.025em;}
   .service-description h2 a{color:var(--ink);text-decoration:underline;text-underline-offset:3px;}
-  .service-description p{font-size:14px;line-height:1.58;color:var(--slate);margin:0;max-width:none;}
+  .service-description p{font-size:13px;line-height:1.55;color:var(--slate);margin:0;max-width:none;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;line-clamp:3;overflow:hidden;}
   @media(max-width:720px){
     .service-list{gap:0 18px;}
     .service-item, .service-item + .service-item{flex-direction:column;gap:10px;padding:18px 0;}
     .service-preview{flex:none;width:88px;height:88px;}
     .service-description{width:100%;}
-    .service-description h2{font-size:16px;}
-    .service-description p{font-size:13px;line-height:1.5;overflow-wrap:anywhere;}
+    .service-description h2{font-size:clamp(10px,2.45vw,14px);}
+    .service-description p{font-size:12px;line-height:1.5;overflow-wrap:anywhere;}
   }
   @media(max-width:380px){
     .service-list{gap:0 12px;}
     .service-preview{width:78px;height:78px;}
-    .service-description h2{font-size:15px;}
+    .service-description h2{font-size:10px;}
     .service-description p{font-size:12px;}
   }
   .resource-section{padding:34px 0 48px;}
@@ -285,7 +285,7 @@
                 </a>
                 <div class="service-description">
                   <h2><a href="assets/shopify-shop-flyer.pdf" target="_blank" rel="noopener noreferrer">Shopify Shop Setup</a></h2>
-                  <p>We build a professional Shopify shop for your business so you can start selling online without the technical headaches. We help set up your products, photos and prices, payments and shipping, and check everything before launch. You provide your product details and pay Shopify’s own subscription.</p>
+                  <p>We create your online Shopify store, add products, set up payments and prepare it for launch.</p>
                 </div>
               </article>
               <article class="service-item">
@@ -293,8 +293,8 @@
                   <span class="gsc-icon gsc-icon-maps" role="img" aria-label="Colourful Google Maps business listing illustration"></span>
                 </a>
                 <div class="service-description">
-                  <h2><a href="assets/google-maps-listing-ad.pdf" target="_blank" rel="noopener noreferrer">Google Maps &amp; Business Listing Setup</a></h2>
-                  <p>Help nearby customers find your business on Google Maps. We can claim and verify your Google Business Profile, add your opening hours, phone number, website, services and photos, and get your listing ready for customer reviews. Already listed? We can review your existing profile and help you make better use of its features.</p>
+                  <h2><a href="assets/google-maps-listing-ad.pdf" target="_blank" rel="noopener noreferrer">Google Maps Listing</a></h2>
+                  <p>We set up or improve your Google Business Profile so local customers can find and contact you.</p>
                 </div>
               </article>
               <article class="service-item">
@@ -303,7 +303,7 @@
                 </a>
                 <div class="service-description">
                   <h2><a href="assets/website-creation-flyer.pdf" target="_blank" rel="noopener noreferrer">Website Creation</a></h2>
-                  <p>We create a professional, mobile-friendly website for you or your business without the technical headaches. We plan the layout, add your text, photos, services and contact details, test the site and help get it online. You provide the business information and approve the finished design.</p>
+                  <p>We create a mobile-friendly website with your business details, photos and contact information.</p>
                 </div>
               </article>
               <article class="service-item">
@@ -311,8 +311,8 @@
                   <img src="assets/colorful-icons-v2/service-computer-setup.svg" alt="Computer Setup &amp; Optimisation illustration" width="128" height="128" loading="lazy" decoding="async">
                 </a>
                 <div class="service-description">
-                  <h2><a href="assets/service-computer-setup-flyer.pdf" target="_blank" rel="noopener noreferrer">Computer Setup &amp; Optimisation</a></h2>
-                  <p>Set up new computers, install essential programs, apply updates and improve everyday performance.</p>
+                  <h2><a href="assets/service-computer-setup-flyer.pdf" target="_blank" rel="noopener noreferrer">Computer Setup</a></h2>
+                  <p>We configure new computers, install software, apply updates and improve everyday performance.</p>
                 </div>
               </article>
               <article class="service-item">
@@ -320,8 +320,8 @@
                   <img src="assets/colorful-icons-v2/service-backup.svg" alt="Backup &amp; Data Protection illustration" width="128" height="128" loading="lazy" decoding="async">
                 </a>
                 <div class="service-description">
-                  <h2><a href="assets/service-backup-flyer.pdf" target="_blank" rel="noopener noreferrer">Backup &amp; Data Protection</a></h2>
-                  <p>Protect important documents and photos with automatic backups to external drives or cloud storage, and assistance with recoverable files.</p>
+                  <h2><a href="assets/service-backup-flyer.pdf" target="_blank" rel="noopener noreferrer">Backup &amp; Protection</a></h2>
+                  <p>We set up backups for your important files and photos using external drives or cloud storage.</p>
                 </div>
               </article>
               <article class="service-item">
@@ -329,8 +329,8 @@
                   <img src="assets/colorful-icons-v2/service-vpn.svg" alt="VPN &amp; Online Privacy illustration" width="128" height="128" loading="lazy" decoding="async">
                 </a>
                 <div class="service-description">
-                  <h2><a href="assets/service-vpn-flyer.pdf" target="_blank" rel="noopener noreferrer">VPN &amp; Online Privacy</a></h2>
-                  <p>Configure a VPN, privacy-focused browser and safer browsing settings to reduce unwanted tracking.</p>
+                  <h2><a href="assets/service-vpn-flyer.pdf" target="_blank" rel="noopener noreferrer">VPN &amp; Privacy</a></h2>
+                  <p>We configure VPNs and browser privacy settings to help reduce unwanted online tracking.</p>
                 </div>
               </article>
               <article class="service-item">
@@ -338,8 +338,8 @@
                   <img src="assets/colorful-icons-v2/service-email.svg" alt="Professional Email Setup illustration" width="128" height="128" loading="lazy" decoding="async">
                 </a>
                 <div class="service-description">
-                  <h2><a href="assets/service-email-flyer.pdf" target="_blank" rel="noopener noreferrer">Professional Email Setup</a></h2>
-                  <p>Set up domain-based business email, signatures, forwarding and spam-filtering settings.</p>
+                  <h2><a href="assets/service-email-flyer.pdf" target="_blank" rel="noopener noreferrer">Business Email Setup</a></h2>
+                  <p>We set up professional email addresses, signatures, forwarding and spam filtering.</p>
                 </div>
               </article>
               <article class="service-item">
@@ -347,8 +347,8 @@
                   <img src="assets/colorful-icons-v2/service-cloud-storage.svg" alt="Cloud Storage &amp; File Sharing illustration" width="128" height="128" loading="lazy" decoding="async">
                 </a>
                 <div class="service-description">
-                  <h2><a href="assets/service-cloud-storage-flyer.pdf" target="_blank" rel="noopener noreferrer">Cloud Storage &amp; File Sharing</a></h2>
-                  <p>Organise, synchronise and share files with services such as Google Drive, OneDrive or Nextcloud.</p>
+                  <h2><a href="assets/service-cloud-storage-flyer.pdf" target="_blank" rel="noopener noreferrer">Cloud Storage</a></h2>
+                  <p>We organise and sync files using cloud services, with convenient and controlled sharing.</p>
                 </div>
               </article>
               <article class="service-item">
@@ -356,8 +356,8 @@
                   <img src="assets/colorful-icons-v2/service-website-maintenance.svg" alt="Website Updates &amp; Maintenance illustration" width="128" height="128" loading="lazy" decoding="async">
                 </a>
                 <div class="service-description">
-                  <h2><a href="assets/service-website-maintenance-flyer.pdf" target="_blank" rel="noopener noreferrer">Website Updates &amp; Maintenance</a></h2>
-                  <p>Keep your website fresh by updating content, images and links, checking pages and fixing common problems.</p>
+                  <h2><a href="assets/service-website-maintenance-flyer.pdf" target="_blank" rel="noopener noreferrer">Website Maintenance</a></h2>
+                  <p>We update website content and images, repair links and check that pages work properly.</p>
                 </div>
               </article>
               <article class="service-item">
@@ -365,8 +365,8 @@
                   <img src="assets/colorful-icons-v2/service-social.svg" alt="Business Social Media Setup illustration" width="128" height="128" loading="lazy" decoding="async">
                 </a>
                 <div class="service-description">
-                  <h2><a href="assets/service-social-flyer.pdf" target="_blank" rel="noopener noreferrer">Business Social Media Setup</a></h2>
-                  <p>Set up and configure professional Pinterest, Facebook or Instagram business profiles.</p>
+                  <h2><a href="assets/service-social-flyer.pdf" target="_blank" rel="noopener noreferrer">Social Media Setup</a></h2>
+                  <p>We set up professional business profiles on Pinterest, Facebook and Instagram.</p>
                 </div>
               </article>
               <article class="service-item">
@@ -375,7 +375,7 @@
                 </a>
                 <div class="service-description">
                   <h2><a href="assets/service-store-management-flyer.pdf" target="_blank" rel="noopener noreferrer">Online Store Management</a></h2>
-                  <p>Add products, update prices, organise collections and prepare digital downloads for your online shop.</p>
+                  <p>We add products, change prices, organise collections and prepare digital downloads.</p>
                 </div>
               </article>
               <article class="service-item">
@@ -383,8 +383,8 @@
                   <img src="assets/colorful-icons-v2/service-documents.svg" alt="Digital Documents &amp; eBooks illustration" width="128" height="128" loading="lazy" decoding="async">
                 </a>
                 <div class="service-description">
-                  <h2><a href="assets/service-documents-flyer.pdf" target="_blank" rel="noopener noreferrer">Digital Documents &amp; eBooks</a></h2>
-                  <p>Create professional PDF brochures, digital guides, forms, manuals and downloadable eBooks.</p>
+                  <h2><a href="assets/service-documents-flyer.pdf" target="_blank" rel="noopener noreferrer">Documents &amp; eBooks</a></h2>
+                  <p>We design professional PDF brochures, forms, manuals, digital guides and eBooks.</p>
                 </div>
               </article>
               <article class="service-item">
@@ -392,8 +392,8 @@
                   <img src="assets/colorful-icons-v2/service-software.svg" alt="Software Installation &amp; Training illustration" width="128" height="128" loading="lazy" decoding="async">
                 </a>
                 <div class="service-description">
-                  <h2><a href="assets/service-software-flyer.pdf" target="_blank" rel="noopener noreferrer">Software Installation &amp; Training</a></h2>
-                  <p>Install useful applications, including free and open-source options, and explain how to use them confidently.</p>
+                  <h2><a href="assets/service-software-flyer.pdf" target="_blank" rel="noopener noreferrer">Software &amp; Training</a></h2>
+                  <p>We install useful software and show you how to use it for everyday tasks.</p>
                 </div>
               </article>
               <article class="service-item">
@@ -401,8 +401,8 @@
                   <img src="assets/colorful-icons-v2/service-wifi.svg" alt="Home Wi-Fi &amp; Network Assistance illustration" width="128" height="128" loading="lazy" decoding="async">
                 </a>
                 <div class="service-description">
-                  <h2><a href="assets/service-wifi-flyer.pdf" target="_blank" rel="noopener noreferrer">Home Wi-Fi &amp; Network Assistance</a></h2>
-                  <p>Get help with router configuration, guest Wi-Fi, coverage and everyday home-network security.</p>
+                  <h2><a href="assets/service-wifi-flyer.pdf" target="_blank" rel="noopener noreferrer">Home Wi-Fi &amp; Networks</a></h2>
+                  <p>We help set up routers, guest Wi-Fi, better coverage and basic network security.</p>
                 </div>
               </article>
               <article class="service-item">
@@ -410,8 +410,8 @@
                   <img src="assets/colorful-icons-v2/service-business-setup.svg" alt="Small Business Digital Setup illustration" width="128" height="128" loading="lazy" decoding="async">
                 </a>
                 <div class="service-description">
-                  <h2><a href="assets/service-business-setup-flyer.pdf" target="_blank" rel="noopener noreferrer">Small Business Digital Setup</a></h2>
-                  <p>Bring together a basic website, business email, Google Business Profile and social media accounts.</p>
+                  <h2><a href="assets/service-business-setup-flyer.pdf" target="_blank" rel="noopener noreferrer">Small Business Setup</a></h2>
+                  <p>We bring together your website, business email, Google listing and social profiles.</p>
                 </div>
               </article>
             </section>
