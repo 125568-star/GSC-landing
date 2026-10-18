@@ -6,7 +6,7 @@ endobj
 << /Type /Pages /Kids [3 0 R] /Count 1 >>
 endobj
 3 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 4 0 R /F2 5 0 R /F3 6 0 R >> >> /Contents 7 0 R >>
 endobj
 4 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
@@ -15,39 +15,68 @@ endobj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
 endobj
 6 0 obj
-<< /Length 1285 >>
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique >>
+endobj
+7 0 obj
+<< /Length 3533 >>
 stream
-0.1569 0.4353 0.3137 rg 0 0 595 842 re f
-1 1 1 rg
-BT /F2 14 Tf 1 0 0 1 54 781 Tm (GROUND SUPPORT CREW) Tj ET
-BT /F1 10 Tf 1 0 0 1 54 757 Tm (WE KEEP YOU FLYING) Tj ET
-BT /F2 29 Tf 1 0 0 1 54 680 Tm (Home Wi-Fi & Network) Tj ET
-BT /F2 29 Tf 1 0 0 1 54 643 Tm (Assistance) Tj ET
-BT /F1 15 Tf 1 0 0 1 54 581 Tm (Make everyday home connectivity easier to manage.) Tj ET
-BT /F2 14 Tf 1 0 0 1 54 516 Tm (WHAT THIS SERVICE INCLUDES) Tj ET
-BT /F1 12 Tf 1 0 0 1 54 479 Tm (-  Review router and Wi-Fi settings remotely where possible.) Tj ET
-BT /F1 12 Tf 1 0 0 1 54 448 Tm (-  Help configure network names, passwords and guest access.) Tj ET
-BT /F1 12 Tf 1 0 0 1 54 417 Tm (-  Discuss coverage problems and common connection issues.) Tj ET
-BT /F1 12 Tf 1 0 0 1 54 386 Tm (-  Review basic router security and device organisation.) Tj ET
-BT /F2 14 Tf 1 0 0 1 54 337 Tm (GOOD TO KNOW) Tj ET
-BT /F1 11 Tf 1 0 0 1 54 307 Tm (Physical cabling, on-site work and new networking equipment are not included) Tj ET
-BT /F1 11 Tf 1 0 0 1 54 290 Tm (unless quoted.) Tj ET
-BT /F2 13 Tf 1 0 0 1 54 126 Tm (ASK FOR A PERSONALISED QUOTE) Tj ET
-BT /F1 12 Tf 1 0 0 1 54 101 Tm (info@groundsupportcrew.com) Tj ET
-BT /F1 9 Tf 1 0 0 1 54 45 Tm (Written by AI, verified by the humans of the Ground Support Crew.) Tj ET
+0.1098 0.4314 0.4706 rg 0 620 595 222 re f
+1 1 1 RG 1 1 1 rg 5 w 1 J 1 j
+215 743 m 257 786 338 786 379 743 c S
+237 723 m 267 754 328 754 358 723 c S
+265 702 m 281 722 314 722 330 702 c S
+287 687 10 10 re S
+0.1098 0.4314 0.4706 rg BT /F2 23.0 Tf 1 0 0 1 121.8 583.0 Tm (Home Wi-Fi & Network Assistance) Tj ET
+0.1098 0.4314 0.4706 rg BT /F3 11.0 Tf 1 0 0 1 199.4 553.0 Tm (Wi-Fi and network settings made easier.) Tj ET
+0.18 0.18 0.36 rg BT /F2 14.0 Tf 1 0 0 1 60.0 498.0 Tm (Why have us do it) Tj ET
+0.1098 0.4314 0.4706 RG 0.8 w 60 492 m 535 492 l S
+0.1098 0.4314 0.4706 rg BT /F2 11.0 Tf 1 0 0 1 65.0 469.0 Tm (o) Tj ET
+0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 469.0 Tm (A reliable connection helps every device in the home.) Tj ET
+0.1098 0.4314 0.4706 rg BT /F2 11.0 Tf 1 0 0 1 65.0 447.7 Tm (o) Tj ET
+0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 447.7 Tm (Guest Wi-Fi can help keep visitor access separate.) Tj ET
+0.1098 0.4314 0.4706 rg BT /F2 11.0 Tf 1 0 0 1 65.0 426.4 Tm (o) Tj ET
+0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 426.4 Tm (Router settings can be confusing without guidance.) Tj ET
+0.1098 0.4314 0.4706 rg BT /F2 11.0 Tf 1 0 0 1 65.0 405.1 Tm (o) Tj ET
+0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 405.1 Tm (Small changes can improve security and convenience.) Tj ET
+0.18 0.18 0.36 rg BT /F2 14.0 Tf 1 0 0 1 60.0 378.0 Tm (How we'll do it) Tj ET
+0.1098 0.4314 0.4706 RG 0.8 w 60 372 m 535 372 l S
+0.1098 0.4314 0.4706 rg BT /F2 11.0 Tf 1 0 0 1 65.0 349.0 Tm (1.) Tj ET
+0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 349.0 Tm (We discuss the router, devices and connection problems.) Tj ET
+0.1098 0.4314 0.4706 rg BT /F2 11.0 Tf 1 0 0 1 65.0 327.7 Tm (2.) Tj ET
+0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 327.7 Tm (We review existing Wi-Fi and router settings.) Tj ET
+0.1098 0.4314 0.4706 rg BT /F2 11.0 Tf 1 0 0 1 65.0 306.4 Tm (3.) Tj ET
+0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 306.4 Tm (We configure agreed network and security options.) Tj ET
+0.1098 0.4314 0.4706 rg BT /F2 11.0 Tf 1 0 0 1 65.0 285.1 Tm (4.) Tj ET
+0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 285.1 Tm (We test connections and explain what we changed.) Tj ET
+0.18 0.18 0.36 rg BT /F2 14.0 Tf 1 0 0 1 60.0 258.0 Tm (What we need from you) Tj ET
+0.1098 0.4314 0.4706 RG 0.8 w 60 252 m 535 252 l S
+0.1098 0.4314 0.4706 rg BT /F2 11.0 Tf 1 0 0 1 65.0 229.0 Tm (o) Tj ET
+0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 229.0 Tm (Your router details and internet connection.) Tj ET
+0.1098 0.4314 0.4706 rg BT /F2 11.0 Tf 1 0 0 1 65.0 207.7 Tm (o) Tj ET
+0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 207.7 Tm (Permission to access the relevant router settings.) Tj ET
+0.1098 0.4314 0.4706 rg BT /F2 11.0 Tf 1 0 0 1 65.0 186.4 Tm (o) Tj ET
+0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 186.4 Tm (A connected computer or phone for testing.) Tj ET
+0.1098 0.4314 0.4706 rg BT /F2 11.0 Tf 1 0 0 1 65.0 165.1 Tm (o) Tj ET
+0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 165.1 Tm (Approval before any new equipment is purchased.) Tj ET
+0.1098 0.4314 0.4706 rg BT /F3 12.0 Tf 1 0 0 1 137.3 137.0 Tm (That's it: we check, configure, test and explain your network.) Tj ET
+0.1098 0.4314 0.4706 rg 45 34 505 63 re f
+1 1 1 rg BT /F1 10.0 Tf 1 0 0 1 211.6 73.0 Tm (Want us to help with your home Wi-Fi?) Tj ET
+1 1 1 rg BT /F2 12.0 Tf 1 0 0 1 151.5 49.0 Tm (Email us for a free quote: info@groundsupportcrew.com) Tj ET
+0.1098 0.4314 0.4706 rg BT /F3 8.0 Tf 1 0 0 1 179.9 16.0 Tm (Written by AI, verified by the humans of the Ground Support Crew.) Tj ET
 endstream
 endobj
 xref
-0 7
+0 8
 0000000000 65535 f 
 0000000009 00000 n 
 0000000058 00000 n 
 0000000115 00000 n 
-0000000251 00000 n 
-0000000321 00000 n 
-0000000396 00000 n 
+0000000261 00000 n 
+0000000331 00000 n 
+0000000406 00000 n 
+0000000484 00000 n 
 trailer
-<< /Size 7 /Root 1 0 R >>
+<< /Size 8 /Root 1 0 R >>
 startxref
-1732
+4068
 %%EOF
