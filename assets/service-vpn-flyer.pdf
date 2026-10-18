@@ -6,7 +6,7 @@ endobj
 << /Type /Pages /Kids [3 0 R] /Count 1 >>
 endobj
 3 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 4 0 R /F2 5 0 R /F3 6 0 R >> >> /Contents 7 0 R >>
 endobj
 4 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
@@ -15,38 +15,67 @@ endobj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
 endobj
 6 0 obj
-<< /Length 1219 >>
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique >>
+endobj
+7 0 obj
+<< /Length 3432 >>
 stream
-0.3412 0.2745 0.6039 rg 0 0 595 842 re f
-1 1 1 rg
-BT /F2 14 Tf 1 0 0 1 54 781 Tm (GROUND SUPPORT CREW) Tj ET
-BT /F1 10 Tf 1 0 0 1 54 757 Tm (WE KEEP YOU FLYING) Tj ET
-BT /F2 29 Tf 1 0 0 1 54 680 Tm (VPN & Online Privacy) Tj ET
-BT /F1 15 Tf 1 0 0 1 54 618 Tm (Improve everyday privacy across your devices.) Tj ET
-BT /F2 14 Tf 1 0 0 1 54 553 Tm (WHAT THIS SERVICE INCLUDES) Tj ET
-BT /F1 12 Tf 1 0 0 1 54 516 Tm (-  Discuss VPN options and your particular needs.) Tj ET
-BT /F1 12 Tf 1 0 0 1 54 485 Tm (-  Install and configure your chosen VPN service.) Tj ET
-BT /F1 12 Tf 1 0 0 1 54 454 Tm (-  Review browser privacy, cookies and tracking settings.) Tj ET
-BT /F1 12 Tf 1 0 0 1 54 423 Tm (-  Explain basic safe-browsing habits and limitations.) Tj ET
-BT /F2 14 Tf 1 0 0 1 54 374 Tm (GOOD TO KNOW) Tj ET
-BT /F1 11 Tf 1 0 0 1 54 344 Tm (A VPN cannot guarantee anonymity or protection from every online threat.) Tj ET
-BT /F1 11 Tf 1 0 0 1 54 327 Tm (Provider fees are not included.) Tj ET
-BT /F2 13 Tf 1 0 0 1 54 126 Tm (ASK FOR A PERSONALISED QUOTE) Tj ET
-BT /F1 12 Tf 1 0 0 1 54 101 Tm (info@groundsupportcrew.com) Tj ET
-BT /F1 9 Tf 1 0 0 1 54 45 Tm (Written by AI, verified by the humans of the Ground Support Crew.) Tj ET
+0.4000 0.3333 0.6431 rg 0 620 595 222 re f
+1 1 1 RG 1 1 1 rg 5 w 1 J 1 j
+240 663 115 95 re S
+252 673 91 75 re S
+297 725 m 273 710 l 278 684 l 297 677 l 316 684 l 321 710 l h S
+0.4000 0.3333 0.6431 rg BT /F2 23 Tf 1 0 0 1 177.9 583.0 Tm (VPN & Online Privacy) Tj ET
+0.4000 0.3333 0.6431 rg BT /F3 11 Tf 1 0 0 1 170.8 553.0 Tm (Browse more privately, with the right settings.) Tj ET
+0.18 0.18 0.36 rg BT /F2 14 Tf 1 0 0 1 60.0 498.0 Tm (Why have us do it) Tj ET
+0.4000 0.3333 0.6431 RG 0.8 w 60 492 m 535 492 l S
+0.4000 0.3333 0.6431 rg BT /F2 11 Tf 1 0 0 1 65.0 469.0 Tm (o) Tj ET
+0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 469.0 Tm (Privacy tools can reduce unwanted tracking.) Tj ET
+0.4000 0.3333 0.6431 rg BT /F2 11 Tf 1 0 0 1 65.0 447.7 Tm (o) Tj ET
+0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 447.7 Tm (A VPN can help protect traffic on untrusted networks.) Tj ET
+0.4000 0.3333 0.6431 rg BT /F2 11 Tf 1 0 0 1 65.0 426.4 Tm (o) Tj ET
+0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 426.4 Tm (Browser settings matter as much as the VPN itself.) Tj ET
+0.4000 0.3333 0.6431 rg BT /F2 11 Tf 1 0 0 1 65.0 405.1 Tm (o) Tj ET
+0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 405.1 Tm (We explain what these tools can and cannot protect.) Tj ET
+0.18 0.18 0.36 rg BT /F2 14 Tf 1 0 0 1 60.0 378.0 Tm (How we'll do it) Tj ET
+0.4000 0.3333 0.6431 RG 0.8 w 60 372 m 535 372 l S
+0.4000 0.3333 0.6431 rg BT /F2 11 Tf 1 0 0 1 65.0 349.0 Tm (1.) Tj ET
+0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 349.0 Tm (We discuss your devices and privacy concerns.) Tj ET
+0.4000 0.3333 0.6431 rg BT /F2 11 Tf 1 0 0 1 65.0 327.7 Tm (2.) Tj ET
+0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 327.7 Tm (We help choose and install a suitable VPN.) Tj ET
+0.4000 0.3333 0.6431 rg BT /F2 11 Tf 1 0 0 1 65.0 306.4 Tm (3.) Tj ET
+0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 306.4 Tm (We configure browser privacy and related settings.) Tj ET
+0.4000 0.3333 0.6431 rg BT /F2 11 Tf 1 0 0 1 65.0 285.1 Tm (4.) Tj ET
+0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 285.1 Tm (We test connections and show you everyday use.) Tj ET
+0.18 0.18 0.36 rg BT /F2 14 Tf 1 0 0 1 60.0 258.0 Tm (What we need from you) Tj ET
+0.4000 0.3333 0.6431 RG 0.8 w 60 252 m 535 252 l S
+0.4000 0.3333 0.6431 rg BT /F2 11 Tf 1 0 0 1 65.0 229.0 Tm (o) Tj ET
+0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 229.0 Tm (Your device and permission to adjust settings.) Tj ET
+0.4000 0.3333 0.6431 rg BT /F2 11 Tf 1 0 0 1 65.0 207.7 Tm (o) Tj ET
+0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 207.7 Tm (A VPN account, if you choose a paid service.) Tj ET
+0.4000 0.3333 0.6431 rg BT /F2 11 Tf 1 0 0 1 65.0 186.4 Tm (o) Tj ET
+0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 186.4 Tm (Access to the browsers you use regularly.) Tj ET
+0.4000 0.3333 0.6431 rg BT /F2 11 Tf 1 0 0 1 65.0 165.1 Tm (o) Tj ET
+0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 165.1 Tm (A few minutes to learn the key controls.) Tj ET
+0.4000 0.3333 0.6431 rg BT /F3 12 Tf 1 0 0 1 109.3 137.0 Tm (That's it: you tell us what you need, we set it up and check it.) Tj ET
+0.4000 0.3333 0.6431 rg 45 34 505 63 re f
+1 1 1 rg BT /F1 10 Tf 1 0 0 1 194.6 73.0 Tm (Want us to help with vpn & online privacy?) Tj ET
+1 1 1 rg BT /F2 12 Tf 1 0 0 1 132.1 49.0 Tm (Email us for a free quote: info@groundsupportcrew.com) Tj ET
+0.4000 0.3333 0.6431 rg BT /F3 8 Tf 1 0 0 1 170.1 16.0 Tm (Written by AI, verified by the humans of the Ground Support Crew.) Tj ET
 endstream
 endobj
 xref
-0 7
+0 8
 0000000000 65535 f 
 0000000009 00000 n 
 0000000058 00000 n 
 0000000115 00000 n 
-0000000251 00000 n 
-0000000321 00000 n 
-0000000396 00000 n 
+0000000261 00000 n 
+0000000331 00000 n 
+0000000406 00000 n 
+0000000484 00000 n 
 trailer
-<< /Size 7 /Root 1 0 R >>
+<< /Size 8 /Root 1 0 R >>
 startxref
-1666
+3967
 %%EOF
