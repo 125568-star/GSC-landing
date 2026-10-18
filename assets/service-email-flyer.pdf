@@ -18,50 +18,48 @@ endobj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique >>
 endobj
 7 0 obj
-<< /Length 3440 >>
+<< /Length 3217 >>
 stream
 0.6980 0.3647 0.4549 rg 0 620 595 222 re f
-1 1 1 RG 1 1 1 rg 5 w 1 J 1 j
-240 663 115 95 re S
-252 673 91 75 re S
-260 693 74 43 re S 260 736 m 297 708 l 334 736 l S
-0.6980 0.3647 0.4549 rg BT /F2 23 Tf 1 0 0 1 154.0 583.0 Tm (Professional Email Setup) Tj ET
-0.6980 0.3647 0.4549 rg BT /F3 11 Tf 1 0 0 1 176.2 553.0 Tm (Give your business email a professional home.) Tj ET
-0.18 0.18 0.36 rg BT /F2 14 Tf 1 0 0 1 60.0 498.0 Tm (Why have us do it) Tj ET
-0.6980 0.3647 0.4549 RG 0.8 w 60 492 m 535 492 l S
-0.6980 0.3647 0.4549 rg BT /F2 11 Tf 1 0 0 1 65.0 469.0 Tm (o) Tj ET
-0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 469.0 Tm (A domain email helps keep work and personal mail separate.) Tj ET
-0.6980 0.3647 0.4549 rg BT /F2 11 Tf 1 0 0 1 65.0 447.7 Tm (o) Tj ET
-0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 447.7 Tm (Proper setup reduces missed messages and confusion.) Tj ET
-0.6980 0.3647 0.4549 rg BT /F2 11 Tf 1 0 0 1 65.0 426.4 Tm (o) Tj ET
-0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 426.4 Tm (Signatures and forwarding make daily work easier.) Tj ET
-0.6980 0.3647 0.4549 rg BT /F2 11 Tf 1 0 0 1 65.0 405.1 Tm (o) Tj ET
-0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 405.1 Tm (We check that sending and receiving work correctly.) Tj ET
-0.18 0.18 0.36 rg BT /F2 14 Tf 1 0 0 1 60.0 378.0 Tm (How we'll do it) Tj ET
+1 1 1 RG 4 w 240 663 115 95 re S 254 679 87 65 re S
+285 695 m 310 717 l 285 734 l S
+0.6980 0.3647 0.4549 rg BT /F2 22 Tf 1 0 0 1 170.28 578 Tm (Professional Email Setup) Tj ET
+0.6980 0.3647 0.4549 rg BT /F3 11 Tf 1 0 0 1 178.2 549 Tm (Give your business email a professional home.) Tj ET
+0.16 0.16 0.31 rg BT /F2 14 Tf 1 0 0 1 60 496 Tm (Why have us do it) Tj ET
+0.6980 0.3647 0.4549 RG 0.8 w 60 490 m 535 490 l S
+0.6980 0.3647 0.4549 rg BT /F2 11 Tf 1 0 0 1 67 469 Tm (o) Tj ET
+0.16 0.16 0.31 rg BT /F1 10.3 Tf 1 0 0 1 90 469 Tm (Separate business email from personal messages.) Tj ET
+0.6980 0.3647 0.4549 rg BT /F2 11 Tf 1 0 0 1 67 448 Tm (o) Tj ET
+0.16 0.16 0.31 rg BT /F1 10.3 Tf 1 0 0 1 90 448 Tm (Use an address linked to your own domain.) Tj ET
+0.6980 0.3647 0.4549 rg BT /F2 11 Tf 1 0 0 1 67 427 Tm (o) Tj ET
+0.16 0.16 0.31 rg BT /F1 10.3 Tf 1 0 0 1 90 427 Tm (Make forwarding and signatures work properly.) Tj ET
+0.6980 0.3647 0.4549 rg BT /F2 11 Tf 1 0 0 1 67 406 Tm (o) Tj ET
+0.16 0.16 0.31 rg BT /F1 10.3 Tf 1 0 0 1 90 406 Tm (Know where to find and manage your mail.) Tj ET
+0.16 0.16 0.31 rg BT /F2 14 Tf 1 0 0 1 60 378 Tm (How we'll do it) Tj ET
 0.6980 0.3647 0.4549 RG 0.8 w 60 372 m 535 372 l S
-0.6980 0.3647 0.4549 rg BT /F2 11 Tf 1 0 0 1 65.0 349.0 Tm (1.) Tj ET
-0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 349.0 Tm (We review your domain and email provider options.) Tj ET
-0.6980 0.3647 0.4549 rg BT /F2 11 Tf 1 0 0 1 65.0 327.7 Tm (2.) Tj ET
-0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 327.7 Tm (We configure the mailbox and supported devices.) Tj ET
-0.6980 0.3647 0.4549 rg BT /F2 11 Tf 1 0 0 1 65.0 306.4 Tm (3.) Tj ET
-0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 306.4 Tm (We add signatures, forwarding and basic spam filtering.) Tj ET
-0.6980 0.3647 0.4549 rg BT /F2 11 Tf 1 0 0 1 65.0 285.1 Tm (4.) Tj ET
-0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 285.1 Tm (We test email and show you how to manage it.) Tj ET
-0.18 0.18 0.36 rg BT /F2 14 Tf 1 0 0 1 60.0 258.0 Tm (What we need from you) Tj ET
-0.6980 0.3647 0.4549 RG 0.8 w 60 252 m 535 252 l S
-0.6980 0.3647 0.4549 rg BT /F2 11 Tf 1 0 0 1 65.0 229.0 Tm (o) Tj ET
-0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 229.0 Tm (Your domain name or an agreed plan to obtain one.) Tj ET
-0.6980 0.3647 0.4549 rg BT /F2 11 Tf 1 0 0 1 65.0 207.7 Tm (o) Tj ET
-0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 207.7 Tm (Your chosen mail hosting account.) Tj ET
-0.6980 0.3647 0.4549 rg BT /F2 11 Tf 1 0 0 1 65.0 186.4 Tm (o) Tj ET
-0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 186.4 Tm (Access to the devices needing email.) Tj ET
-0.6980 0.3647 0.4549 rg BT /F2 11 Tf 1 0 0 1 65.0 165.1 Tm (o) Tj ET
-0.31 0.28 0.45 rg BT /F1 10.9 Tf 1 0 0 1 87.0 165.1 Tm (Payment of domain and mailbox provider fees.) Tj ET
-0.6980 0.3647 0.4549 rg BT /F3 12 Tf 1 0 0 1 109.3 137.0 Tm (That's it: you tell us what you need, we set it up and check it.) Tj ET
-0.6980 0.3647 0.4549 rg 45 34 505 63 re f
-1 1 1 rg BT /F1 10 Tf 1 0 0 1 184.8 73.0 Tm (Want us to help with professional email setup?) Tj ET
-1 1 1 rg BT /F2 12 Tf 1 0 0 1 132.1 49.0 Tm (Email us for a free quote: info@groundsupportcrew.com) Tj ET
-0.6980 0.3647 0.4549 rg BT /F3 8 Tf 1 0 0 1 170.1 16.0 Tm (Written by AI, verified by the humans of the Ground Support Crew.) Tj ET
+0.6980 0.3647 0.4549 rg BT /F2 11 Tf 1 0 0 1 67 351 Tm (1.) Tj ET
+0.16 0.16 0.31 rg BT /F1 10.3 Tf 1 0 0 1 90 351 Tm (We review domain and mailbox options.) Tj ET
+0.6980 0.3647 0.4549 rg BT /F2 11 Tf 1 0 0 1 67 330 Tm (2.) Tj ET
+0.16 0.16 0.31 rg BT /F1 10.3 Tf 1 0 0 1 90 330 Tm (We configure email on supported devices.) Tj ET
+0.6980 0.3647 0.4549 rg BT /F2 11 Tf 1 0 0 1 67 309 Tm (3.) Tj ET
+0.16 0.16 0.31 rg BT /F1 10.3 Tf 1 0 0 1 90 309 Tm (We set up forwarding, signatures and filters.) Tj ET
+0.6980 0.3647 0.4549 rg BT /F2 11 Tf 1 0 0 1 67 288 Tm (4.) Tj ET
+0.16 0.16 0.31 rg BT /F1 10.3 Tf 1 0 0 1 90 288 Tm (We test sending and receiving messages.) Tj ET
+0.16 0.16 0.31 rg BT /F2 14 Tf 1 0 0 1 60 260 Tm (What we need from you) Tj ET
+0.6980 0.3647 0.4549 RG 0.8 w 60 254 m 535 254 l S
+0.6980 0.3647 0.4549 rg BT /F2 11 Tf 1 0 0 1 67 233 Tm (o) Tj ET
+0.16 0.16 0.31 rg BT /F1 10.3 Tf 1 0 0 1 90 233 Tm (Your business domain or an agreed plan.) Tj ET
+0.6980 0.3647 0.4549 rg BT /F2 11 Tf 1 0 0 1 67 212 Tm (o) Tj ET
+0.16 0.16 0.31 rg BT /F1 10.3 Tf 1 0 0 1 90 212 Tm (Access to your mailbox provider account.) Tj ET
+0.6980 0.3647 0.4549 rg BT /F2 11 Tf 1 0 0 1 67 191 Tm (o) Tj ET
+0.16 0.16 0.31 rg BT /F1 10.3 Tf 1 0 0 1 90 191 Tm (The devices requiring email.) Tj ET
+0.6980 0.3647 0.4549 rg BT /F2 11 Tf 1 0 0 1 67 170 Tm (o) Tj ET
+0.16 0.16 0.31 rg BT /F1 10.3 Tf 1 0 0 1 90 170 Tm (Payment of any third-party subscriptions.) Tj ET
+0.6980 0.3647 0.4549 rg BT /F3 11 Tf 1 0 0 1 128.04000000000002 136 Tm (That's it: you tell us what you need, we set it up and check it.) Tj ET
+0.6980 0.3647 0.4549 rg 48 35 499 63 re f
+1 1 1 rg BT /F1 9.5 Tf 1 0 0 1 192.12 73 Tm (Want us to help with professional email setup?) Tj ET
+1 1 1 rg BT /F2 11 Tf 1 0 0 1 157.08 48 Tm (Email us for a free quote: info@groundsupportcrew.com) Tj ET
+0.6980 0.3647 0.4549 rg BT /F3 7.5 Tf 1 0 0 1 180 15 Tm (Written by AI, verified by the humans of the Ground Support Crew.) Tj ET
 endstream
 endobj
 xref
@@ -77,5 +75,5 @@ xref
 trailer
 << /Size 8 /Root 1 0 R >>
 startxref
-3975
+3752
 %%EOF
