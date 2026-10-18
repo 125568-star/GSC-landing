@@ -162,12 +162,15 @@
   .resource-table td{padding:0;text-align:left;}
   .resource-space{height:260px;}
   /* The full services catalogue runs in TWO columns for as many rows as needed. */
+  .service-categories{padding:34px 0 58px;}
+  .service-category + .service-category{margin-top:36px;}
+  .service-category-title{font-family:'Big Shoulders Display',sans-serif;font-size:26px;font-weight:800;color:var(--ink);margin:0 0 20px;padding-bottom:10px;border-bottom:1px solid #D9CABB;}
   .service-list{
     display:grid;
     grid-template-columns:repeat(2,minmax(0,1fr));
     align-items:stretch;
     gap:0 30px;
-    padding:34px 0 58px;
+    padding:0;
   }
   .service-item, .service-item + .service-item{
     display:flex;
@@ -278,134 +281,11 @@
         </tr>
         <tr>
           <td>
-            <section class="service-list" aria-label="Our services">
-              <article class="service-item">
-                <a href="assets/shopify-shop-flyer.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open Shopify shop setup flyer (PDF)">
-                  <span class="gsc-icon gsc-icon-shopify" role="img" aria-label="Shopify shopfront illustration"></span>
-                </a>
-                <div class="service-description">
-                  <h2><a href="assets/shopify-shop-flyer.pdf" target="_blank" rel="noopener noreferrer">Shopify Shop Setup</a></h2>
-                  <p>We build your Shopify store, add your products and photos, configure payments and shipping, and test everything so your shop is ready for customers.</p>
-                </div>
-              </article>
-              <article class="service-item">
-                <a href="assets/google-maps-listing-ad.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open Google Maps business listing flyer (PDF)">
-                  <span class="gsc-icon gsc-icon-maps" role="img" aria-label="Colourful Google Maps business listing illustration"></span>
-                </a>
-                <div class="service-description">
-                  <h2><a href="assets/google-maps-listing-ad.pdf" target="_blank" rel="noopener noreferrer">Google Maps Listing</a></h2>
-                  <p>We create or improve your Google Business Profile, update opening hours, services and photos, and help nearby customers find and contact your business.</p>
-                </div>
-              </article>
-              <article class="service-item">
-                <a href="assets/website-creation-flyer.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open website creation service flyer (PDF)">
-                  <span class="gsc-icon gsc-icon-website" role="img" aria-label="Website creation illustration"></span>
-                </a>
-                <div class="service-description">
-                  <h2><a href="assets/website-creation-flyer.pdf" target="_blank" rel="noopener noreferrer">Website Creation</a></h2>
-                  <p>We design a mobile-friendly website, organise your text and photos, add services and contact details, and check the finished site before launch.</p>
-                </div>
-              </article>
-              <article class="service-item">
-                <a href="assets/service-computer-setup-flyer.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open Computer Setup &amp; Optimisation service flyer (PDF)">
-                  <img src="assets/colorful-icons-v2/service-computer-setup.svg" alt="Computer Setup &amp; Optimisation illustration" width="128" height="128" loading="lazy" decoding="async">
-                </a>
-                <div class="service-description">
-                  <h2><a href="assets/service-computer-setup-flyer.pdf" target="_blank" rel="noopener noreferrer">Computer Setup</a></h2>
-                  <p>We set up new computers, install essential software, apply security updates, organise settings and check performance so your computer is ready to use.</p>
-                </div>
-              </article>
-              <article class="service-item">
-                <a href="assets/service-backup-flyer.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open Backup &amp; Data Protection service flyer (PDF)">
-                  <img src="assets/colorful-icons-v2/service-backup.svg" alt="Backup &amp; Data Protection illustration" width="128" height="128" loading="lazy" decoding="async">
-                </a>
-                <div class="service-description">
-                  <h2><a href="assets/service-backup-flyer.pdf" target="_blank" rel="noopener noreferrer">Backup &amp; Protection</a></h2>
-                  <p>We protect important documents and photos by configuring automatic backups to external drives or cloud storage and explaining how to restore files.</p>
-                </div>
-              </article>
-              <article class="service-item">
-                <a href="assets/service-vpn-flyer.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open VPN &amp; Online Privacy service flyer (PDF)">
-                  <img src="assets/colorful-icons-v2/service-vpn.svg" alt="VPN &amp; Online Privacy illustration" width="128" height="128" loading="lazy" decoding="async">
-                </a>
-                <div class="service-description">
-                  <h2><a href="assets/service-vpn-flyer.pdf" target="_blank" rel="noopener noreferrer">VPN &amp; Privacy</a></h2>
-                  <p>We install and configure your VPN, review browser privacy settings, reduce unwanted tracking and explain safer browsing practices for your devices.</p>
-                </div>
-              </article>
-              <article class="service-item">
-                <a href="assets/service-email-flyer.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open Professional Email Setup service flyer (PDF)">
-                  <img src="assets/colorful-icons-v2/service-email.svg" alt="Professional Email Setup illustration" width="128" height="128" loading="lazy" decoding="async">
-                </a>
-                <div class="service-description">
-                  <h2><a href="assets/service-email-flyer.pdf" target="_blank" rel="noopener noreferrer">Business Email Setup</a></h2>
-                  <p>We configure your professional business email, connect devices, create signatures and forwarding rules, and set up practical spam-filtering options.</p>
-                </div>
-              </article>
-              <article class="service-item">
-                <a href="assets/service-cloud-storage-flyer.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open Cloud Storage &amp; File Sharing service flyer (PDF)">
-                  <img src="assets/colorful-icons-v2/service-cloud-storage.svg" alt="Cloud Storage &amp; File Sharing illustration" width="128" height="128" loading="lazy" decoding="async">
-                </a>
-                <div class="service-description">
-                  <h2><a href="assets/service-cloud-storage-flyer.pdf" target="_blank" rel="noopener noreferrer">Cloud Storage</a></h2>
-                  <p>We organise files in Google Drive, OneDrive or Nextcloud, configure syncing between devices, and set up convenient, controlled sharing with others.</p>
-                </div>
-              </article>
-              <article class="service-item">
-                <a href="assets/service-website-maintenance-flyer.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open Website Updates &amp; Maintenance service flyer (PDF)">
-                  <img src="assets/colorful-icons-v2/service-website-maintenance.svg" alt="Website Updates &amp; Maintenance illustration" width="128" height="128" loading="lazy" decoding="async">
-                </a>
-                <div class="service-description">
-                  <h2><a href="assets/service-website-maintenance-flyer.pdf" target="_blank" rel="noopener noreferrer">Website Maintenance</a></h2>
-                  <p>We update website text and images, repair broken links, review mobile pages and fix common issues to keep your website accurate and useful.</p>
-                </div>
-              </article>
-              <article class="service-item">
-                <a href="assets/service-social-flyer.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open Business Social Media Setup service flyer (PDF)">
-                  <img src="assets/colorful-icons-v2/service-social.svg" alt="Business Social Media Setup illustration" width="128" height="128" loading="lazy" decoding="async">
-                </a>
-                <div class="service-description">
-                  <h2><a href="assets/service-social-flyer.pdf" target="_blank" rel="noopener noreferrer">Social Media Setup</a></h2>
-                  <p>We create or configure your Pinterest, Facebook and Instagram business profiles, add branding and contact details, and explain how to manage them.</p>
-                </div>
-              </article>
-              <article class="service-item">
-                <a href="assets/service-store-management-flyer.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open Online Store Management service flyer (PDF)">
-                  <img src="assets/colorful-icons-v2/service-store-management.svg" alt="Online Store Management illustration" width="128" height="128" loading="lazy" decoding="async">
-                </a>
-                <div class="service-description">
-                  <h2><a href="assets/service-store-management-flyer.pdf" target="_blank" rel="noopener noreferrer">Online Store Management</a></h2>
-                  <p>We add and update products, prices and photos, organise shop collections, configure digital downloads and check that customers can browse listings.</p>
-                </div>
-              </article>
-              <article class="service-item">
-                <a href="assets/service-documents-flyer.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open Digital Documents &amp; eBooks service flyer (PDF)">
-                  <img src="assets/colorful-icons-v2/service-documents.svg" alt="Digital Documents &amp; eBooks illustration" width="128" height="128" loading="lazy" decoding="async">
-                </a>
-                <div class="service-description">
-                  <h2><a href="assets/service-documents-flyer.pdf" target="_blank" rel="noopener noreferrer">Documents &amp; eBooks</a></h2>
-                  <p>We create polished PDF brochures, manuals, forms, digital guides and eBooks with consistent formatting, clear information and professional layouts.</p>
-                </div>
-              </article>
-              <article class="service-item">
-                <a href="assets/service-software-flyer.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open Software Installation &amp; Training service flyer (PDF)">
-                  <img src="assets/colorful-icons-v2/service-software.svg" alt="Software Installation &amp; Training illustration" width="128" height="128" loading="lazy" decoding="async">
-                </a>
-                <div class="service-description">
-                  <h2><a href="assets/service-software-flyer.pdf" target="_blank" rel="noopener noreferrer">Software &amp; Training</a></h2>
-                  <p>We install suitable software, including free and open-source options, configure useful settings and show you how to complete everyday tasks.</p>
-                </div>
-              </article>
-              <article class="service-item">
-                <a href="assets/service-wifi-flyer.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open Home Wi-Fi &amp; Network Assistance service flyer (PDF)">
-                  <img src="assets/colorful-icons-v2/service-wifi.svg" alt="Home Wi-Fi &amp; Network Assistance illustration" width="128" height="128" loading="lazy" decoding="async">
-                </a>
-                <div class="service-description">
-                  <h2><a href="assets/service-wifi-flyer.pdf" target="_blank" rel="noopener noreferrer">Home Wi-Fi &amp; Networks</a></h2>
-                  <p>We help configure routers, guest Wi-Fi and security settings, review coverage and troubleshoot common connection problems around your home.</p>
-                </div>
-              </article>
-              <article class="service-item">
+            <section class="service-categories" aria-label="Our services by category">
+              <section class="service-category" aria-labelledby="category-business">
+                <h2 class="service-category-title" id="category-business">Business</h2>
+                <div class="service-list">
+                  <article class="service-item">
                 <a href="assets/service-business-setup-flyer.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open Small Business Digital Setup service flyer (PDF)">
                   <img src="assets/colorful-icons-v2/service-business-setup.svg" alt="Small Business Digital Setup illustration" width="128" height="128" loading="lazy" decoding="async">
                 </a>
@@ -414,6 +294,154 @@
                   <p>We help bring together your website, professional email, Google Business Profile and social media accounts into a practical online business setup.</p>
                 </div>
               </article>
+                  <article class="service-item">
+                <a href="assets/service-email-flyer.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open Professional Email Setup service flyer (PDF)">
+                  <img src="assets/colorful-icons-v2/service-email.svg" alt="Professional Email Setup illustration" width="128" height="128" loading="lazy" decoding="async">
+                </a>
+                <div class="service-description">
+                  <h2><a href="assets/service-email-flyer.pdf" target="_blank" rel="noopener noreferrer">Business Email Setup</a></h2>
+                  <p>We configure your professional business email, connect devices, create signatures and forwarding rules, and set up practical spam-filtering options.</p>
+                </div>
+              </article>
+                  <article class="service-item">
+                <a href="assets/google-maps-listing-ad.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open Google Maps business listing flyer (PDF)">
+                  <span class="gsc-icon gsc-icon-maps" role="img" aria-label="Colourful Google Maps business listing illustration"></span>
+                </a>
+                <div class="service-description">
+                  <h2><a href="assets/google-maps-listing-ad.pdf" target="_blank" rel="noopener noreferrer">Google Maps Listing</a></h2>
+                  <p>We create or improve your Google Business Profile, update opening hours, services and photos, and help nearby customers find and contact your business.</p>
+                </div>
+              </article>
+                  <article class="service-item">
+                <a href="assets/service-social-flyer.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open Business Social Media Setup service flyer (PDF)">
+                  <img src="assets/colorful-icons-v2/service-social.svg" alt="Business Social Media Setup illustration" width="128" height="128" loading="lazy" decoding="async">
+                </a>
+                <div class="service-description">
+                  <h2><a href="assets/service-social-flyer.pdf" target="_blank" rel="noopener noreferrer">Social Media Setup</a></h2>
+                  <p>We create or configure your Pinterest, Facebook and Instagram business profiles, add branding and contact details, and explain how to manage them.</p>
+                </div>
+              </article>
+                </div>
+              </section>
+              <section class="service-category" aria-labelledby="category-e-commerce">
+                <h2 class="service-category-title" id="category-e-commerce">E-Commerce</h2>
+                <div class="service-list">
+                  <article class="service-item">
+                <a href="assets/shopify-shop-flyer.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open Shopify shop setup flyer (PDF)">
+                  <span class="gsc-icon gsc-icon-shopify" role="img" aria-label="Shopify shopfront illustration"></span>
+                </a>
+                <div class="service-description">
+                  <h2><a href="assets/shopify-shop-flyer.pdf" target="_blank" rel="noopener noreferrer">Shopify Shop Setup</a></h2>
+                  <p>We build your Shopify store, add your products and photos, configure payments and shipping, and test everything so your shop is ready for customers.</p>
+                </div>
+              </article>
+                  <article class="service-item">
+                <a href="assets/service-store-management-flyer.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open Online Store Management service flyer (PDF)">
+                  <img src="assets/colorful-icons-v2/service-store-management.svg" alt="Online Store Management illustration" width="128" height="128" loading="lazy" decoding="async">
+                </a>
+                <div class="service-description">
+                  <h2><a href="assets/service-store-management-flyer.pdf" target="_blank" rel="noopener noreferrer">Online Store Management</a></h2>
+                  <p>We add and update products, prices and photos, organise shop collections, configure digital downloads and check that customers can browse listings.</p>
+                </div>
+              </article>
+                </div>
+              </section>
+              <section class="service-category" aria-labelledby="category-personal">
+                <h2 class="service-category-title" id="category-personal">Personal</h2>
+                <div class="service-list">
+                  <article class="service-item">
+                <a href="assets/service-computer-setup-flyer.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open Computer Setup &amp; Optimisation service flyer (PDF)">
+                  <img src="assets/colorful-icons-v2/service-computer-setup.svg" alt="Computer Setup &amp; Optimisation illustration" width="128" height="128" loading="lazy" decoding="async">
+                </a>
+                <div class="service-description">
+                  <h2><a href="assets/service-computer-setup-flyer.pdf" target="_blank" rel="noopener noreferrer">Computer Setup</a></h2>
+                  <p>We set up new computers, install essential software, apply security updates, organise settings and check performance so your computer is ready to use.</p>
+                </div>
+              </article>
+                  <article class="service-item">
+                <a href="assets/service-software-flyer.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open Software Installation &amp; Training service flyer (PDF)">
+                  <img src="assets/colorful-icons-v2/service-software.svg" alt="Software Installation &amp; Training illustration" width="128" height="128" loading="lazy" decoding="async">
+                </a>
+                <div class="service-description">
+                  <h2><a href="assets/service-software-flyer.pdf" target="_blank" rel="noopener noreferrer">Software &amp; Training</a></h2>
+                  <p>We install suitable software, including free and open-source options, configure useful settings and show you how to complete everyday tasks.</p>
+                </div>
+              </article>
+                  <article class="service-item">
+                <a href="assets/service-wifi-flyer.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open Home Wi-Fi &amp; Network Assistance service flyer (PDF)">
+                  <img src="assets/colorful-icons-v2/service-wifi.svg" alt="Home Wi-Fi &amp; Network Assistance illustration" width="128" height="128" loading="lazy" decoding="async">
+                </a>
+                <div class="service-description">
+                  <h2><a href="assets/service-wifi-flyer.pdf" target="_blank" rel="noopener noreferrer">Home Wi-Fi &amp; Networks</a></h2>
+                  <p>We help configure routers, guest Wi-Fi and security settings, review coverage and troubleshoot common connection problems around your home.</p>
+                </div>
+              </article>
+                </div>
+              </section>
+              <section class="service-category" aria-labelledby="category-websites-content">
+                <h2 class="service-category-title" id="category-websites-content">Websites &amp; Content</h2>
+                <div class="service-list">
+                  <article class="service-item">
+                <a href="assets/website-creation-flyer.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open website creation service flyer (PDF)">
+                  <span class="gsc-icon gsc-icon-website" role="img" aria-label="Website creation illustration"></span>
+                </a>
+                <div class="service-description">
+                  <h2><a href="assets/website-creation-flyer.pdf" target="_blank" rel="noopener noreferrer">Website Creation</a></h2>
+                  <p>We design a mobile-friendly website, organise your text and photos, add services and contact details, and check the finished site before launch.</p>
+                </div>
+              </article>
+                  <article class="service-item">
+                <a href="assets/service-website-maintenance-flyer.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open Website Updates &amp; Maintenance service flyer (PDF)">
+                  <img src="assets/colorful-icons-v2/service-website-maintenance.svg" alt="Website Updates &amp; Maintenance illustration" width="128" height="128" loading="lazy" decoding="async">
+                </a>
+                <div class="service-description">
+                  <h2><a href="assets/service-website-maintenance-flyer.pdf" target="_blank" rel="noopener noreferrer">Website Maintenance</a></h2>
+                  <p>We update website text and images, repair broken links, review mobile pages and fix common issues to keep your website accurate and useful.</p>
+                </div>
+              </article>
+                  <article class="service-item">
+                <a href="assets/service-documents-flyer.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open Digital Documents &amp; eBooks service flyer (PDF)">
+                  <img src="assets/colorful-icons-v2/service-documents.svg" alt="Digital Documents &amp; eBooks illustration" width="128" height="128" loading="lazy" decoding="async">
+                </a>
+                <div class="service-description">
+                  <h2><a href="assets/service-documents-flyer.pdf" target="_blank" rel="noopener noreferrer">Documents &amp; eBooks</a></h2>
+                  <p>We create polished PDF brochures, manuals, forms, digital guides and eBooks with consistent formatting, clear information and professional layouts.</p>
+                </div>
+              </article>
+                </div>
+              </section>
+              <section class="service-category" aria-labelledby="category-privacy-data">
+                <h2 class="service-category-title" id="category-privacy-data">Privacy &amp; Data</h2>
+                <div class="service-list">
+                  <article class="service-item">
+                <a href="assets/service-backup-flyer.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open Backup &amp; Data Protection service flyer (PDF)">
+                  <img src="assets/colorful-icons-v2/service-backup.svg" alt="Backup &amp; Data Protection illustration" width="128" height="128" loading="lazy" decoding="async">
+                </a>
+                <div class="service-description">
+                  <h2><a href="assets/service-backup-flyer.pdf" target="_blank" rel="noopener noreferrer">Backup &amp; Protection</a></h2>
+                  <p>We protect important documents and photos by configuring automatic backups to external drives or cloud storage and explaining how to restore files.</p>
+                </div>
+              </article>
+                  <article class="service-item">
+                <a href="assets/service-vpn-flyer.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open VPN &amp; Online Privacy service flyer (PDF)">
+                  <img src="assets/colorful-icons-v2/service-vpn.svg" alt="VPN &amp; Online Privacy illustration" width="128" height="128" loading="lazy" decoding="async">
+                </a>
+                <div class="service-description">
+                  <h2><a href="assets/service-vpn-flyer.pdf" target="_blank" rel="noopener noreferrer">VPN &amp; Privacy</a></h2>
+                  <p>We install and configure your VPN, review browser privacy settings, reduce unwanted tracking and explain safer browsing practices for your devices.</p>
+                </div>
+              </article>
+                  <article class="service-item">
+                <a href="assets/service-cloud-storage-flyer.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open Cloud Storage &amp; File Sharing service flyer (PDF)">
+                  <img src="assets/colorful-icons-v2/service-cloud-storage.svg" alt="Cloud Storage &amp; File Sharing illustration" width="128" height="128" loading="lazy" decoding="async">
+                </a>
+                <div class="service-description">
+                  <h2><a href="assets/service-cloud-storage-flyer.pdf" target="_blank" rel="noopener noreferrer">Cloud Storage</a></h2>
+                  <p>We organise files in Google Drive, OneDrive or Nextcloud, configure syncing between devices, and set up convenient, controlled sharing with others.</p>
+                </div>
+              </article>
+                </div>
+              </section>
             </section>
           </td>
         </tr>
