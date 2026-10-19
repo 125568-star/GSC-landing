@@ -182,7 +182,7 @@
   .mission-copy p + p{margin-top:0;}
   .mission-gallery{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-content:center;}
   .mission-picture{border-radius:12px;display:block;overflow:hidden;min-height:145px;aspect-ratio:1/1;}
-  .mission-picture:first-child{grid-column:1/-1;aspect-ratio:1.6/1;min-height:210px;}
+  .mission-picture:first-child{grid-column:1/-1;aspect-ratio:1/1;min-height:0;width:min(100%,210px);justify-self:center;}
   .mission-picture .gsc-icon{border-radius:12px;}
   @media(max-width:650px){
     .mission-layout{grid-template-columns:minmax(0,1fr);gap:20px;}
