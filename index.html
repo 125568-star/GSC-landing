@@ -183,7 +183,8 @@
   .mission-gallery{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-content:center;}
   .mission-picture{border-radius:12px;display:block;overflow:hidden;min-height:145px;aspect-ratio:1/1;}
   .mission-picture:first-child{grid-column:1/-1;aspect-ratio:1/1;min-height:0;width:min(100%,210px);justify-self:center;}
-  .mission-picture .gsc-icon{border-radius:12px;}
+  .mission-picture{background:transparent;border-radius:0;overflow:visible;display:flex;align-items:center;justify-content:center;}
+  .mission-picture svg{display:block;width:100%;height:100%;max-height:210px;background:transparent;}
   @media(max-width:650px){
     .mission-layout{grid-template-columns:minmax(0,1fr);gap:20px;}
     .mission-gallery{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;}
@@ -223,10 +224,47 @@
           <p>We help individuals and small businesses overcome technical challenges, establish their online presence, protect their digital information, and make better use of modern technology.</p>
           <p>We believe technology should work for people, not the other way around. Through practical solutions, straightforward advice, educational resources, and reliable support, we aim to give our customers the confidence and independence to succeed in an increasingly digital world.</p>
         </div>
-        <div class="mission-gallery" aria-label="Colourful illustrations of our digital services">
-          <div class="mission-picture"><span class="gsc-icon gsc-icon-website" role="img" aria-label="Website design illustration"></span></div>
-          <div class="mission-picture"><span class="gsc-icon gsc-icon-shopify" role="img" aria-label="Online shop illustration"></span></div>
-          <div class="mission-picture"><span class="gsc-icon gsc-icon-software" role="img" aria-label="Digital tools illustration"></span></div>
+        <div class="mission-gallery" aria-label="Colourful digital services illustrations">
+          <div class="mission-picture">
+            <svg viewBox="0 0 200 200" role="img" aria-label="Colourful website design illustration" xmlns="http://www.w3.org/2000/svg">
+              <rect x="14" y="31" width="172" height="117" rx="12" fill="#3277CC"/>
+              <rect x="22" y="39" width="156" height="100" rx="7" fill="#ECF7FF"/>
+              <path d="M22 47a8 8 0 0 1 8-8h140a8 8 0 0 1 8 8v13H22z" fill="#7658C8"/>
+              <circle cx="35" cy="50" r="3" fill="#FFDB68"/><circle cx="46" cy="50" r="3" fill="#FF8A94"/><circle cx="57" cy="50" r="3" fill="#63D9B0"/>
+              <rect x="33" y="73" width="68" height="11" rx="5" fill="#315FB8"/>
+              <rect x="33" y="92" width="69" height="6" rx="3" fill="#B2C9EB"/>
+              <rect x="33" y="103" width="57" height="6" rx="3" fill="#B2C9EB"/>
+              <rect x="33" y="118" width="54" height="14" rx="6" fill="#26C9AF"/>
+              <rect x="112" y="73" width="54" height="59" rx="7" fill="#FFD86A"/>
+              <circle cx="139" cy="99" r="17" fill="#FF79A5"/>
+              <path d="m132 100 5 5 10-12" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M5 151h190l-12 13H17z" fill="#444EA2"/>
+              <path d="M84 151h32l6 7H78z" fill="#A9D9F4"/>
+              <path d="m152 21 6-11m14 21 12-5" stroke="#F7B92B" stroke-width="5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="mission-picture">
+            <svg viewBox="0 0 200 200" role="img" aria-label="Colourful online shopping illustration" xmlns="http://www.w3.org/2000/svg">
+              <rect x="38" y="80" width="124" height="93" rx="8" fill="#387BCF"/>
+              <rect x="49" y="94" width="102" height="69" rx="4" fill="#E7F7FF"/>
+              <path d="M30 80 49 43h102l19 37-8 13c-10 8-19 8-28 0-9 8-20 8-29 0-9 8-20 8-29 0-9 8-20 8-29 0z" fill="#FF77A8" stroke="#5346AD" stroke-width="5" stroke-linejoin="round"/>
+              <path d="M60 47 50 80m45-33-3 33m29-33 7 33m23-33 12 33" stroke="#FFE27A" stroke-width="9"/>
+              <rect x="60" y="115" width="38" height="48" rx="3" fill="#40D4BE"/>
+              <rect x="113" y="113" width="26" height="29" rx="3" fill="#FFCA55"/>
+              <circle cx="90" cy="140" r="3" fill="#206886"/>
+              <path d="M140 25c8-12 21-7 21 3 0 10-21 20-21 20s-21-10-21-20c0-10 13-15 21-3z" fill="#F7618C"/>
+            </svg>
+          </div>
+          <div class="mission-picture">
+            <svg viewBox="0 0 200 200" role="img" aria-label="Colourful digital security illustration" xmlns="http://www.w3.org/2000/svg">
+              <path d="M100 14 166 41v53c0 43-26 74-66 94-40-20-66-51-66-94V41z" fill="#6257C7"/>
+              <path d="M100 27 153 49v45c0 34-19 60-53 79-34-19-53-45-53-79V49z" fill="#44D1C0"/>
+              <path d="M100 42 140 60v34c0 26-13 46-40 62-27-16-40-36-40-62V60z" fill="#D9FBF6"/>
+              <circle cx="100" cy="92" r="31" fill="#FFCE58"/>
+              <path d="m83 93 12 12 24-27" stroke="#3970BE" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="m23 38-9-6m165 3 9-6M24 145l-10 5m167-8 10 5" stroke="#FF7EAB" stroke-width="6" stroke-linecap="round"/>
+            </svg>
+          </div>
         </div>
       </div>
     </div>
