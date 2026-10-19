@@ -181,15 +181,13 @@
   .mission-copy p{max-width:none;font-size:17px;line-height:1.65;margin:0 0 20px;}
   .mission-copy p + p{margin-top:0;}
   .mission-gallery{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-content:center;}
-  .mission-picture{border-radius:12px;padding:18px;display:flex;align-items:center;justify-content:center;overflow:hidden;min-height:145px;}
-  .mission-picture:first-child{grid-column:1/-1;min-height:210px;background:#EADBCB;}
-  .mission-picture:nth-child(2){background:#E2EBE3;}
-  .mission-picture:nth-child(3){background:#F8E5C7;}
-  .mission-picture svg{display:block;width:100%;max-width:240px;height:auto;}
+  .mission-picture{border-radius:12px;display:block;overflow:hidden;min-height:145px;aspect-ratio:1/1;}
+  .mission-picture:first-child{grid-column:1/-1;aspect-ratio:1.6/1;min-height:210px;}
+  .mission-picture .gsc-icon{border-radius:12px;}
   @media(max-width:650px){
     .mission-layout{grid-template-columns:minmax(0,1fr);gap:20px;}
     .mission-gallery{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;}
-    .mission-picture,.mission-picture:first-child{grid-column:auto;min-height:100px;padding:8px;}
+    .mission-picture,.mission-picture:first-child{grid-column:auto;min-height:0;aspect-ratio:1/1;}
   }
 </style>
 <link rel="stylesheet" href="assets/gsc-icons.css">
@@ -225,39 +223,10 @@
           <p>We help individuals and small businesses overcome technical challenges, establish their online presence, protect their digital information, and make better use of modern technology.</p>
           <p>We believe technology should work for people, not the other way around. Through practical solutions, straightforward advice, educational resources, and reliable support, we aim to give our customers the confidence and independence to succeed in an increasingly digital world.</p>
         </div>
-        <div class="mission-gallery" aria-label="Technology, business and digital security illustrations">
-          <div class="mission-picture">
-            <svg viewBox="0 0 260 180" role="img" aria-label="Website design on a laptop" xmlns="http://www.w3.org/2000/svg">
-              <rect x="18" y="12" width="224" height="144" rx="12" fill="#2A1B12"/>
-              <rect x="28" y="23" width="204" height="122" rx="5" fill="#FFF9F1"/>
-              <path d="M28 28q0-5 5-5h194q5 0 5 5v17H28z" fill="#F0C99A"/>
-              <circle cx="42" cy="34" r="4" fill="#D18A50"/><circle cx="56" cy="34" r="4" fill="#D18A50"/>
-              <rect x="43" y="60" width="91" height="12" rx="4" fill="#2A1B12"/>
-              <rect x="43" y="81" width="88" height="6" rx="3" fill="#B8A89A"/>
-              <rect x="43" y="94" width="75" height="6" rx="3" fill="#B8A89A"/>
-              <rect x="43" y="114" width="70" height="22" rx="5" fill="#E8862B"/>
-              <rect x="151" y="59" width="66" height="76" rx="8" fill="#E9DACB"/>
-              <circle cx="184" cy="94" r="22" fill="#E8862B"/>
-              <path d="m173 94 8 8 15-19" stroke="white" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M5 157h250l-17 13H22z" fill="#6B5B4E"/>
-            </svg>
-          </div>
-          <div class="mission-picture">
-            <svg viewBox="0 0 150 150" role="img" aria-label="Online shop" xmlns="http://www.w3.org/2000/svg">
-              <rect x="28" y="53" width="94" height="77" rx="7" fill="#FFF9F1" stroke="#386A5A" stroke-width="5"/>
-              <path d="M22 52 36 22h78l14 30-8 15q-12 9-23-2-12 11-23 0-12 11-23 0-11 11-22 2z" fill="#DEAD66" stroke="#386A5A" stroke-width="4" stroke-linejoin="round"/>
-              <rect x="42" y="83" width="36" height="47" fill="#A5C8B5"/>
-              <rect x="91" y="84" width="19" height="22" rx="2" fill="#DEAD66"/>
-              <circle cx="71" cy="111" r="3" fill="#386A5A"/>
-            </svg>
-          </div>
-          <div class="mission-picture">
-            <svg viewBox="0 0 150 150" role="img" aria-label="Digital protection and security" xmlns="http://www.w3.org/2000/svg">
-              <path d="M75 13 122 32v39c0 31-19 53-47 68-28-15-47-37-47-68V32z" fill="#E8862B" stroke="#70503A" stroke-width="5" stroke-linejoin="round"/>
-              <path d="M75 27 109 41v30c0 22-12 39-34 52-22-13-34-30-34-52V41z" fill="#FFF2DC"/>
-              <path d="m54 74 14 14 29-31" fill="none" stroke="#386A5A" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
+        <div class="mission-gallery" aria-label="Colourful illustrations of our digital services">
+          <div class="mission-picture"><span class="gsc-icon gsc-icon-website" role="img" aria-label="Website design illustration"></span></div>
+          <div class="mission-picture"><span class="gsc-icon gsc-icon-shopify" role="img" aria-label="Online shop illustration"></span></div>
+          <div class="mission-picture"><span class="gsc-icon gsc-icon-software" role="img" aria-label="Digital tools illustration"></span></div>
         </div>
       </div>
     </div>
