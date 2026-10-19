@@ -1,71 +1,80 @@
 %PDF-1.4
+%“Œ‹ž ReportLab Generated PDF document (opensource)
 1 0 obj
-<< /Type /Catalog /Pages 2 0 R >>
+<<
+/F1 2 0 R /F2 3 0 R /F3 4 0 R
+>>
 endobj
 2 0 obj
-<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+<<
+/BaseFont /Helvetica /Encoding /WinAnsiEncoding /Name /F1 /Subtype /Type1 /Type /Font
+>>
 endobj
 3 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>
+<<
+/BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding /Name /F2 /Subtype /Type1 /Type /Font
+>>
 endobj
 4 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+<<
+/BaseFont /Helvetica-Oblique /Encoding /WinAnsiEncoding /Name /F3 /Subtype /Type1 /Type /Font
+>>
 endobj
 5 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+<<
+/Contents 9 0 R /MediaBox [ 0 0 595 842 ] /Parent 8 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>
 endobj
 6 0 obj
-<< /Length 2270 >>
+<<
+/PageMode /UseNone /Pages 8 0 R /Type /Catalog
+>>
+endobj
+7 0 obj
+<<
+/Author (Ground Support Crew) /CreationDate (D:20261019231824+00'00') /Creator (anonymous) /Keywords () /ModDate (D:20261019231824+00'00') /Producer (ReportLab PDF Library - \(opensource\)) 
+  /Subject (Smart Home service flyer) /Title (Smart Home Setup & Automation | Ground Support Crew) /Trapped /False
+>>
+endobj
+8 0 obj
+<<
+/Count 1 /Kids [ 5 0 R ] /Type /Pages
+>
+endobj
+9 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 1789
+>>
 stream
-0.06 0.26 0.38 rg 0 0 595 842 re f
-0.025 0.16 0.25 rg 0 734 595 108 re f
-0.27 0.84 0.7 rg 40 706 515 3 re f
-1 1 1 rg BT /F2 16 Tf 40 794 Td (GROUND SUPPORT CREW) Tj ET
-0.6 0.98 0.85 rg BT /F1 11 Tf 40 768 Td (WE KEEP YOU FLYING) Tj ET
-1 1 1 rg BT /F2 42 Tf 40 654 Td (SMART HOME) Tj ET
-0.51 0.96 0.82 rg BT /F1 17 Tf 40 623 Td (Connected living, made simple.) Tj ET
-1 1 1 rg BT /F1 14 Tf 40 579 Td (Practical help making your home smarter and easier to manage.) Tj ET
-1 1 1 rg BT /F1 14 Tf 40 555 Td (We connect devices and create helpful everyday routines.) Tj ET
-0.30 0.78 0.73 rg 40 512 515 2 re f
-1 1 1 rg BT /F2 20 Tf 40 476 Td (WHAT WE CAN DO) Tj ET
-0.15 0.55 0.58 rg 40 417 42 46 re f
-1 1 1 rg BT /F2 17 Tf 49 434 Td (01) Tj ET
-1 1 1 rg BT /F2 14 Tf 97 445 Td (SMART LIGHTS AND PLUGS) Tj ET
-0.77 0.92 0.94 rg BT /F1 11 Tf 97 425 Td (Install smart lighting, switches, plugs and everyday routines.) Tj ET
-0.15 0.55 0.58 rg 40 349 42 46 re f
-1 1 1 rg BT /F2 17 Tf 49 366 Td (02) Tj ET
-1 1 1 rg BT /F2 14 Tf 97 377 Td (CAMERAS AND SENSORS) Tj ET
-0.77 0.92 0.94 rg BT /F1 11 Tf 97 357 Td (Set up compatible cameras, doorbells and notification alerts.) Tj ET
-0.15 0.55 0.58 rg 40 281 42 46 re f
-1 1 1 rg BT /F2 17 Tf 49 298 Td (03) Tj ET
-1 1 1 rg BT /F2 14 Tf 97 309 Td (VOICE ASSISTANTS) Tj ET
-0.77 0.92 0.94 rg BT /F1 11 Tf 97 289 Td (Connect compatible devices to assistants and scenes.) Tj ET
-0.15 0.55 0.58 rg 40 213 42 46 re f
-1 1 1 rg BT /F2 17 Tf 49 230 Td (04) Tj ET
-1 1 1 rg BT /F2 14 Tf 97 241 Td (HOME WI-FI AND DEVICE PAIRING) Tj ET
-0.77 0.92 0.94 rg BT /F1 11 Tf 97 221 Td (Help connect devices and troubleshoot common problems.) Tj ET
-0.15 0.55 0.58 rg 40 145 42 46 re f
-1 1 1 rg BT /F2 17 Tf 49 162 Td (05) Tj ET
-1 1 1 rg BT /F2 14 Tf 97 173 Td (PRIVACY AND TRAINING) Tj ET
-0.77 0.92 0.94 rg BT /F1 11 Tf 97 153 Td (Review settings and show you how to manage your setup.) Tj ET
-0.12 0.49 0.51 rg 40 77 515 54 re f
-1 1 1 rg BT /F2 15 Tf 54 106 Td (NEED HELP WITH YOUR SMART HOME?) Tj ET
-1 1 1 rg BT /F1 11 Tf 54 87 Td (Ask for a personalised quote: info@groundsupportcrew.com) Tj ET
-1 1 1 rg BT /F1 9 Tf 86 49 Td (Written by AI, verified by the humans of the Ground Support Crew.) Tj ET
-1 1 1 rg BT /F1 10 Tf 220 31 Td (info@groundsupportcrew.com) Tj ET
-endstream
+Gau0FflGh'*ReS7go%$o\0qAs6XJ'PGOiDV,kXc7tuU@-<sN5P3TgN\H#4KG2b>!3hD]T&FOT,EWfQDJ04$)k7uCjC\m"L,cPIj,oMT%f"]Vuoh#?Y)JVhf$;I2_d/8sYh5Z3AX9+8Q6qSnC/T%,`?iiQB]Np55`o:(ts+$k:)bOX7'e,?&Lls0`Ou.XZDRm@@1Qf]"n/4c:XDidcFf:%CQ7i'pWI+LmAHKW]dQusg+iPXcda0RgOQ*6n%cQ.q,0Et^19ipc;W9PdWlC.,LhH.h5Uohb9t_u^W\h8bqF/W+=b;u\O9Xka<J36LSZh`;LEfPC5pR1e![k7]'JeUR@B!/D:Q_)"oEuNr?]^LmVchGSj.`RKFPrb$pAtZ!j4KiA#NC!*l5%O5Nh)Nb99\s=Q,=O"*cYjRim<"iU%JhLeh\:`iG^cuiUG8,bXGP%kn/^Bic&Qk_h#d#<K9&/jD[(mE\:ua`jdB95pVU=PYdU]`&P^VVFA@2JshHPOR"##EM?]JMZ?=m*?PJ7T8A4U^)p#sAEXpNHSC7SP%W$!9;.6JP8YTUW1C\&)@8R!:JO0jEM1WOlJkDH>Jcc(Lf9$@.-qeCP[Wd'_2T(""`!7R":L65e5N>9$B2MtpKj+>_ROKd-92ZA7@8OVoW`r,@W^aDFr(OSKU32o+m5kSl#YkG&GZ_0UIe=@Gd>IIT:K6`%t-^,l54<N![iDf_]7uNnf6tpG[`i&bCLc^R`@ZR_CVf>qY%MCg7I.YQ)/9N*tRuQ]fc!_Q1[REIn/f8[!r!6EB:"d:iiL;/_!.c$IoD[9i9uB^1urek.TSI=e(@qG=>N?Z.'N=TsS:s<Q=BlVPf:dBB4YEL<_CIr1Vk)TFa\)O#Qr?g1Md+a,W%e(&aJmJb3CC$ta[+!YBFK,:>3#J$B?A,m;^8`l:HubTfu;9bjKRg0*W-_>IgXjhio9Z^?JCfL9VOh.oL7(T;-;Z].)rD0'NmF!]_r;j#gpZ?emkiR!G]?L0=T$e)#i2V@skqoH"A"1n,QC!fA]IG\>XTfha*U<_=qdrohNg5j`B4594@]-p(44:T6Fm]4oN4h%KJ*_U7;,O1&!SVqq-R>tNMgN?YGlOm(KIu=5K;1Lt11]RcmJ(>RnG!-Z-ck`N1^I?OrmS[E.I<.m:\9[t[.>Q2[L0Bf`FQ,CI*P@s1Za0L9m!po$m(h$^m%C,h`?iL?koUAl=PRjkKg#=Wm[C5q!6n)Dcef$f`V49XWbp(7Zt+Mtj_7==%WF*1J9tKA7eZ^1?!L6u<OU0?nA_1n"5dR6EMS6G)b9GQ@WuW9_WZ"J]"#<_#D5)q..0&lMdkbV!"L;[)WPKJ(jk$1"<."ci2agBJc6\3!oPfGM\:]#L3D9`4W"6qJ6U4*D(>8VPr-<qGb-6a>(S(8FJ"/\8%X8!k.ZrKG7S=+odJONUmJec-lG,V]YUb'2rhH.mB`PZ(gC4u;c`W$[Q3>M2S5\i'V8!jjpF*%I0i/EhA-@1b>YaD1H.&7bF*q+/qYb].-IK'$@Iolq5'+)eg[2>K%KMjXM]:sE"V1.VSTXrM<Kg%b`OeQ*%,G;o6bKJO7rnVO[%pbQKTsdG\>HKrf/d1U/0_qhGoYEj?:n>lo@pQ8F?hER-l9ga&uMgrMYL$J@^r<=Q&Q]JN?l9/+amtT5:!_12r2[o_5WTm0bE/D=c3d>[D?[j5J@lIGW\a^fT7A<%I',$ocLb8.pQAA4/Ml/@@q(gR@!Vd`Z"#k[`FW>CcFOB)^U.X/ta!T6U%[KgjTW/pbKfc(^r_^J!@D/-~>endstream
 endobj
 xref
-0 7
+0 10
 0000000000 65535 f 
-0000000009 00000 n 
-0000000058 00000 n 
-0000000115 00000 n 
-0000000251 00000 n 
-0000000321 00000 n 
-0000000396 00000 n 
+0000000061 00000 n 
+0000000112 00000 n 
+0000000219 00000 n 
+0000000331 00000 n 
+0000000446 00000 n 
+0000000639 00000 n 
+0000000707 00000 n 
+0000001034 00000 n 
+0000001093 00000 n 
 trailer
-<< /Size 7 /Root 1 0 R >>
+<<
+/ID 
+[<22f2a45f19eda7db479c05c7eddc96cf><22f2a45f19eda7db479c05c7eddc96cf>]
+% ReportLab generated PDF document -- digest (opensource)
+
+/Info 7 0 R
+/Root 6 0 R
+/Size 10
+>>
 startxref
-2717
+2973
 %%EOF
