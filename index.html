@@ -109,7 +109,12 @@
     opacity:0.3;
     margin:8px 0 48px;
   }
-  .work{ padding:0 0 56px; }
+  .work{padding:0 0 56px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:28px;row-gap:28px}
+  .work .item{padding:0;min-width:0}
+  .work .feature-layout{gap:12px}
+  .work .feature-picture{flex-basis:72px;width:72px;height:72px}
+  .work .feature-picture svg{width:100%;height:100%}
+  @media(max-width:650px){.work{grid-template-columns:1fr;row-gap:26px}.work .feature-picture{flex-basis:68px;width:68px;height:68px}}
   .item h3 a{color:inherit;text-decoration:underline;text-underline-offset:3px;}
   .item h3 a:hover,.item h3 a:focus-visible{color:#A55618;}
   .item{
@@ -281,7 +286,6 @@
           </div>
         </div>
       </div>
-      <hr class="home-item-divider">
       <div class="item">
         <div class="feature-layout">
           <a class="feature-picture" href="resources.html" aria-label="Explore Education and Resources">
@@ -293,7 +297,6 @@
           </div>
         </div>
       </div>
-      <hr class="home-item-divider">
       <div class="item">
         <div class="feature-layout">
           <a class="feature-picture" href="websites.html" aria-label="Explore Our Websites" style="background:#e8f3ff;display:flex;align-items:center;justify-content:center">
@@ -312,7 +315,7 @@
             <p>Explore websites created and operated by Ground Support Crew.</p>
           </div>
         </div>
-      <hr class="home-item-divider">
+      </div>
       <div class="item">
         <div class="feature-layout">
           <a class="feature-picture" href="others-about-us.html" aria-label="Read Others About Us" style="background:#e7f4fd;display:flex;align-items:center;justify-content:center">
@@ -330,7 +333,6 @@
             <p>Read news articles, media coverage and other mentions of Ground Support Crew and our websites.</p>
           </div>
         </div>
-      </div>
       </div>
     </section>
           </td>
