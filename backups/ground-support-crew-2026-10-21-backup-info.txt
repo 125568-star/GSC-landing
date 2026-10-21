@@ -1,0 +1,6 @@
+Ground Support Crew website backup — 21 October 2026
+Source repository: https://github.com/125568-star/GSC-landing
+Website snapshot commit: f0c52582be37cd161b635383373f45f588339058
+ZIP contents: entire source repository tree at that commit, including HTML, CSS, JS, images, PDFs, nested Brisbane guide, and deployment files.
+Extract preserving folders to restore the repository's website files.
+External websites, third-party services, DNS settings, external databases, domain control, and files outside this GitHub repository are not included.
