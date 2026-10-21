@@ -1,0 +1,36 @@
+name: Back up Ground Support Crew website 2026-10-21
+on:
+  push:
+    paths:
+      - '.github/workflows/create-2026-10-21-website-backup.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  create-zip:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out complete website repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Create and verify ZIP from fixed website snapshot
+        run: |
+          mkdir -p backups
+          git archive --format=zip --output=backups/ground-support-crew-2026-10-21-backup.zip f0c52582be37cd161b635383373f45f588339058
+          unzip -t backups/ground-support-crew-2026-10-21-backup.zip
+          cat > backups/ground-support-crew-2026-10-21-backup-info.txt <<'ENDNOTE'
+          Ground Support Crew website backup — 21 October 2026
+          Source repository: https://github.com/125568-star/GSC-landing
+          Website snapshot commit: f0c52582be37cd161b635383373f45f588339058
+          ZIP contents: entire source repository tree at that commit, including HTML, CSS, JS, images, PDFs, nested Brisbane guide, and deployment files.
+          Extract preserving folders to restore the repository's website files.
+          External websites, third-party services, DNS settings, external databases, domain control, and files outside this GitHub repository are not included.
+          ENDNOTE
+      - name: Commit archive to GitHub backups folder
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add backups/ground-support-crew-2026-10-21-backup.zip backups/ground-support-crew-2026-10-21-backup-info.txt
+          git commit -m "Preserve 2026-10-21 Ground Support Crew website backup ZIP"
+          git push
