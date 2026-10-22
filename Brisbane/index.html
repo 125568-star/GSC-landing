@@ -5,8 +5,8 @@
      crossorigin="anonymous"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="A balanced Brisbane city review: South Bank, river views, food, culture, parks, practical travel tips and a one-day itinerary, with photographs.">
-<title>Discover Brisbane | The River City</title><meta name="theme-color" content="#092c45"><link rel="canonical" href="https://groundsupportcrew.com/Brisbane/">
+<meta name="description" content="Explore Brisbane's river, South Bank, parks, neighbourhoods, attractions and travel tips across seven easy-to-navigate pages.">
+<title>The River City | Discover Brisbane</title><meta name="theme-color" content="#092c45"><link rel="canonical" href="https://groundsupportcrew.com/Brisbane/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Fraunces:ital,opsz@1,9..144&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -96,17 +96,44 @@ body{background:linear-gradient(180deg,#e7f4f8 0,#fbfdfd 520px,#f2f8fa 100%);col
 .quick-take{background:#e1f1f3;border-color:#087d95}.section{border-color:#d1e2e8}.pullquote{background:#eaf6f8;color:#12677f}
 footer{border-color:#d1e2e8}.city-footer-brand{font-weight:800;font-size:17px;color:#1c536d}
 @media(max-width:650px){.hero-inner{min-height:55svh;padding-bottom:32px}.site-hero{min-height:55svh}.city-links a{padding:7px 10px;font-size:11px}.city-logo{font-size:16px}}
+
+/* Consistent multi-page Brisbane chapter navigation and responsive chapters. */
+.site-nav{flex-direction:column;align-items:stretch;justify-content:flex-start;gap:10px}
+.city-links{width:100%;max-width:100%;display:flex;flex-wrap:nowrap;gap:8px;overflow-x:auto;padding:5px 1px 10px;scrollbar-width:thin;scrollbar-color:#9bd3dc transparent}
+.city-links a{flex:0 0 auto;white-space:nowrap}
+.city-links a[aria-current="page"]{background:#c8f2f3;color:#06344a;border-color:#c8f2f3}
+.chapter-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin:20px 0 45px}
+.chapter-card{display:block;text-decoration:none;background:#fff;border:1px solid #c9e1e8;border-radius:9px;padding:23px;box-shadow:0 8px 22px #153e5509;transition:border-color .15s,transform .15s}
+.chapter-card:hover,.chapter-card:focus-visible{border-color:#087d95;transform:translateY(-2px)}
+.chapter-number{font-family:'Big Shoulders Display',sans-serif;font-size:37px;line-height:1;color:#087d95;font-weight:800;display:block;margin-bottom:9px}
+.chapter-title{display:block;font-size:20px;font-weight:700;line-height:1.3;color:#132f40;margin-bottom:7px}
+.chapter-desc{display:block;color:#547282;font-size:14px;line-height:1.6}
+.section-heading{font-family:'Big Shoulders Display',sans-serif;font-size:clamp(38px,6vw,59px);font-weight:800;line-height:1.13;margin:0 0 19px}
+.inner-page .site-hero,.inner-page .hero-inner{min-height:290px}
+.inner-page .hero-inner{padding-bottom:24px;gap:25px}
+.inner-page .city-headline{padding:0}
+.inner-page .city-headline h2{font-size:clamp(43px,7vw,69px);margin:5px 0}
+.inner-page .city-headline p{font-size:clamp(15px,2.2vw,19px)}
+.inner-page .section{padding-top:18px}
+.chapter-controls{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;padding:32px 0 24px}
+.chapter-controls a{display:inline-block;border:1px solid #91bfcb;border-radius:5px;background:#fff;color:#19536c;padding:11px 15px;text-decoration:none;font-weight:700;font-size:13px}
+.chapter-controls a:hover{background:#e3f4f8}
+.chapter-breadcrumb{font-size:13px;color:#547282;margin:28px 0 8px}
+.chapter-breadcrumb a{color:#176b83}
+.chapter-note{font-size:12px;color:#547282;line-height:1.7;padding:0 0 22px}
+@media(max-width:650px){.chapter-grid{grid-template-columns:1fr}.chapter-card{padding:18px}.inner-page .site-hero,.inner-page .hero-inner{min-height:260px}.city-links a{padding:9px 12px;font-size:12px}}
+@media print{.city-links,.chapter-controls{display:none}}
 </style>
 </head>
 <body>
 <header class="site-hero" id="top">
 <div class="hero-inner">
-<nav class="site-nav" aria-label="Main Brisbane navigation"><a class="city-logo" href="./" aria-label="Discover Brisbane home">BRISBANE <span style="color:#9ee8ea">✦</span></a>
-<div class="city-links"><a href="#south-bank">See &amp; do</a><a href="#character">Eat &amp; explore</a><a href="#day">One-day guide</a><a href="#practical">Travel tips</a></div></nav>
+<nav class="site-nav" aria-label="Discover Brisbane pages"><a class="city-logo" href="index.html" aria-label="Discover Brisbane home">BRISBANE <span style="color:#9ee8ea">✦</span></a>
+<div class="city-links"><a href="index.html" aria-current="page">Home</a><a href="01-south-bank.html">01 South Bank</a><a href="02-brisbane-river.html">02 The river</a><a href="03-parks-gardens.html">03 Parks & gardens</a><a href="04-neighbourhoods.html">04 Neighbourhoods</a><a href="05-city-review.html">05 City review</a><a href="06-one-day-guide.html">06 One-day guide</a><a href="07-travel-tips.html">07 Travel tips</a></div></nav>
 <div class="city-headline"><p class="eyebrow">Queensland, Australia · The River City</p><h2>Discover<br>Brisbane.</h2><p>River breezes, vibrant neighbourhoods and a subtropical way of life.</p></div>
 </div></header>
 <main class="container article">
-  <nav class="navrow" aria-label="On this page"><a class="button" href="#south-bank">Explore Brisbane</a><a class="button" href="#day">Plan a day</a></nav>
+  <nav class="navrow" aria-label="Quick links"><a class="button" href="01-south-bank.html">Start exploring →</a><a class="button" href="06-one-day-guide.html">Plan a day →</a></nav>
   <p class="kicker">Australia / Queensland / City review</p>
   <h1>BRISBANE: THE RIVER CITY</h1>
   <p class="dek">Sunny river walks, big-city culture and a surprisingly laid-back rhythm. Is Queensland’s capital worth your time?</p>
@@ -130,119 +157,20 @@ footer{border-color:#d1e2e8}.city-footer-brand{font-weight:800;font-size:17px;co
     </aside>
   </div>
 
-  <section class="section" aria-labelledby="south-bank">
-    <p class="section-label">01 / The essential stop</p>
-    <h2 id="south-bank">South Bank is Brisbane at its best</h2>
-    <div class="photo-split">
-      <div class="section-copy">
-        <p>South Bank packs an extraordinary amount into one riverfront precinct: sprawling lawns, picnic spots, walking paths, restaurants, the bougainvillea-covered Arbour and a sandy swimming lagoon called Streets Beach. The pool is especially unusual: a place to swim with skyscrapers in view.</p>
-        <p>Just nearby is Brisbane's cultural heart. The Queensland Art Gallery and Gallery of Modern Art (QAGOMA), Queensland Museum, State Library and performing arts venues make it easy to combine a casual day in the sun with exhibitions or a show.</p>
-        <p><strong>Why we like it:</strong> Few central-city neighbourhoods combine a beach-style swim, public green space and serious cultural institutions so comfortably. On busy weekends, though, it can be crowded.</p>
-      </div>
-      <figure class="photo">
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Streets_Beach_at_South_Bank_Parklands%2C_Brisbane_01.jpg?width=900" alt="Streets Beach artificial swimming lagoon in Brisbane's South Bank Parklands" width="900" height="675" loading="lazy">
-        <figcaption>Streets Beach at South Bank. Photo: <a href="https://commons.wikimedia.org/wiki/File:Streets_Beach_at_South_Bank_Parklands,_Brisbane_01.jpg" target="_blank" rel="noopener">Kgbo / Wikimedia Commons (CC BY-SA 4.0)</a>.</figcaption>
-      </figure>
-    </div>
-  </section>
 
-  <section class="section" aria-labelledby="river">
-    <p class="section-label">02 / The city's signature</p>
-    <h2 id="river">Follow the river — then see it from the water</h2>
-    <p class="section-copy">Brisbane's riverfront walks are one of its greatest strengths. A CityCat ferry ride provides another perspective on the bridges, apartments, parks and bends that define the city. Instead of treating transport as something to get through, the journey becomes part of the sightseeing.</p>
-    <p class="section-copy">Around dusk, the Story Bridge and Howard Smith Wharves are particularly atmospheric. Under the bridge, former wharf buildings now sit among places to eat, drink and meet friends. It is lively and scenic, although waterfront dining can be more expensive than exploring on foot.</p>
-    <figure class="photo" style="margin-top:24px">
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Story_Bridge_at_night%2C_Brisbane_02.jpg?width=1200" alt="Story Bridge illuminated over the Brisbane River after dark" width="1200" height="900" style="aspect-ratio:16/8.5;object-position:center 57%" loading="lazy">
-      <figcaption>Story Bridge after dark. Photo: <a href="https://commons.wikimedia.org/wiki/File:Story_Bridge_at_night,_Brisbane_02.jpg" target="_blank" rel="noopener">Kgbo / Wikimedia Commons (CC BY-SA 4.0)</a>.</figcaption>
-    </figure>
-  </section>
-
-  <section class="section" aria-labelledby="green">
-    <p class="section-label">03 / The green side</p>
-    <h2 id="green">Parks, gardens and the big view</h2>
-    <p class="section-copy">A rewarding thing about Brisbane is how quickly city life gives way to trees and open space. The City Botanic Gardens provide a peaceful riverside escape close to the central business district, with winding paths and mature plantings.</p>
-    <div class="place-grid">
-      <div>
-        <figure class="photo">
-          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Brisbane_City_Botanic_Gardens_%2805%29.jpg?width=800" alt="Trees and gardens in Brisbane's City Botanic Gardens" width="800" height="600" loading="lazy">
-          <figcaption>City Botanic Gardens. Photo: <a href="https://commons.wikimedia.org/wiki/File:Brisbane_City_Botanic_Gardens_(05).jpg" target="_blank" rel="noopener">Batsv / Wikimedia Commons (CC BY-SA 4.0)</a>.</figcaption>
-        </figure>
-        <h3>City Botanic Gardens</h3>
-        <p>Central, leafy and an easy place to escape the pace of the CBD. A particularly good choice for a slower morning or a relaxed riverside stroll.</p>
-      </div>
-      <div>
-        <figure class="photo">
-          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Mount_Coot-tha_Lookout%2C_Brisbane%2C_2021.jpg?width=800" alt="Wide view over Brisbane from Mount Coot-tha lookout" width="800" height="600" loading="lazy">
-          <figcaption>Mount Coot-tha Lookout. Photo: <a href="https://commons.wikimedia.org/wiki/File:Mount_Coot-tha_Lookout,_Brisbane,_2021.jpg" target="_blank" rel="noopener">Kgbo / Wikimedia Commons (CC BY-SA 4.0)</a>.</figcaption>
-        </figure>
-        <h3>Mount Coot-tha</h3>
-        <p>For the broader picture, head west to the lookout for sweeping views across Brisbane. The nearby botanic gardens are also worth visiting, with free entry.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="character">
-    <p class="section-label">04 / Beyond the landmarks</p>
-    <h2 id="character">Neighbourhoods, food and local character</h2>
-    <div class="two-col">
-      <div>
-        <h3>West End and the inner suburbs</h3>
-        <p>West End offers a more eclectic food-and-café scene than the polished riverfront. New Farm and Teneriffe make good neighbourhoods for slower walks, bakeries and a glimpse of everyday Brisbane. Fortitude Valley supplies the late-night energy, music venues and busy streets.</p>
-      </div>
-      <div>
-        <h3>Food without the fuss</h3>
-        <p>There is plenty to enjoy beyond fine dining: casual multicultural restaurants, markets, coffee and outdoor tables. The best plan is to pick a neighbourhood, take your time and explore rather than rushing from one famous address to the next.</p>
-      </div>
-    </div>
-    <blockquote class="pullquote">“The best Brisbane itinerary leaves room for an unplanned hour by the river.”</blockquote>
-  </section>
-
-  <section class="section" aria-labelledby="tradeoffs">
-    <p class="section-label">05 / A balanced review</p>
-    <h2 id="tradeoffs">What Brisbane gets right — and where it falls short</h2>
-    <div class="two-col">
-      <div>
-        <h3>What stands out</h3>
-        <p><strong>Outdoor living:</strong> Riverfront walks and parks are central to the experience, not afterthoughts. <strong>Accessible culture:</strong> Major galleries and museums sit close together. <strong>Relaxed pace:</strong> The city rewards slow discovery more than frantic sightseeing.</p>
-      </div>
-      <div>
-        <h3>What to plan around</h3>
-        <p><strong>Weather:</strong> Summer can be very hot and humid, with storms. <strong>Distance:</strong> Greater Brisbane sprawls beyond the compact tourist core. <strong>Budget:</strong> Some waterfront venues and paid activities can cost a fair bit; balance them with excellent free public spaces.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="day">
-    <p class="section-label">06 / Make a day of it</p>
-    <h2 id="day">A memorable day in Brisbane</h2>
-    <ol class="day-plan">
-      <li><strong>Morning · Gardens and coffee</strong><span>Start in the City Botanic Gardens before the day becomes hot. Wander towards the river and stop for breakfast.</span></li>
-      <li><strong>Late morning · Cross to South Bank</strong><span>Walk the promenade, explore the Arbour and make time for Streets Beach or a shady park bench.</span></li>
-      <li><strong>Afternoon · Art or a ferry</strong><span>Choose QAGOMA and the cultural precinct, or take a CityCat to admire Brisbane from the river.</span></li>
-      <li><strong>Sunset · Mount Coot-tha or Story Bridge</strong><span>Choose the city panorama from the lookout if transport suits, or stay central and watch the riverfront lights come on.</span></li>
-      <li><strong>Evening · Eat somewhere local</strong><span>Explore West End, Fortitude Valley or Howard Smith Wharves depending on your preferred atmosphere and budget.</span></li>
-    </ol>
-  </section>
-
-  <section class="section" aria-labelledby="practical">
-    <p class="section-label">07 / Before you go</p>
-    <h2 id="practical">Practical things worth knowing</h2>
-    <p><strong>Best season:</strong> The cooler, generally drier months are often more comfortable for long walks; summer rewards early starts, shade and a backup plan for storms.</p>
-    <p><strong>Getting around:</strong> The inner-city attractions work well in clusters on foot, by ferry or by public transport. Check current services, fares and service alerts with Translink before travelling.</p>
-    <p><strong>Accessibility:</strong> Many prominent attractions offer accessible routes or facilities, but ferry terminals, slopes, walking distances and individual venues vary. Check each location's current accessibility information in advance.</p>
-    <p><strong>With extra time:</strong> Consider Moreton Island, Lone Pine Koala Sanctuary or surrounding coastal destinations. Each needs its own transport and time planning.</p>
-    <p><strong>Final verdict:</strong> Brisbane's charm is not one blockbuster attraction; it is the combination of river scenery, culture, green space and an unhurried atmosphere. Plan for the climate and distances, and it is an easy city to enjoy.</p>
-    <div class="links" aria-label="Official travel resources">
-      <a href="https://visit.brisbane.qld.au/en/places-to-go/inner-city/south-bank" target="_blank" rel="noopener">Visit Brisbane: South Bank ↗</a>
-      <a href="https://www.brisbane.qld.gov.au/about-council/your-brisbane/things-to-do-and-see/lifestyle/top-10-things-to-do-in-brisbane" target="_blank" rel="noopener">Brisbane City Council: things to do ↗</a>
-      <a href="https://translink.com.au/" target="_blank" rel="noopener">Translink: plan a trip ↗</a>
-    </div>
-  </section>
+<section aria-labelledby="explore-heading" class="section"><p class="section-label">The complete city guide</p><h2 id="explore-heading">Explore Brisbane, one topic at a time</h2><p class="section-copy">Choose a section below. Each one has its own page, with the same menu at the top to help you find your way around.</p>
+<nav class="chapter-grid" aria-label="Brisbane guide sections"><a class="chapter-card" href="01-south-bank.html"><span class="chapter-number">01</span><span class="chapter-title">South Bank</span><span class="chapter-desc">Streets Beach, South Bank Parklands and the cultural precinct.</span></a>
+<a class="chapter-card" href="02-brisbane-river.html"><span class="chapter-number">02</span><span class="chapter-title">The river</span><span class="chapter-desc">CityCat ferries, river walks and Story Bridge after dark.</span></a>
+<a class="chapter-card" href="03-parks-gardens.html"><span class="chapter-number">03</span><span class="chapter-title">Parks & gardens</span><span class="chapter-desc">City Botanic Gardens and the big view from Mount Coot-tha.</span></a>
+<a class="chapter-card" href="04-neighbourhoods.html"><span class="chapter-number">04</span><span class="chapter-title">Neighbourhoods</span><span class="chapter-desc">West End, New Farm, Fortitude Valley and local food.</span></a>
+<a class="chapter-card" href="05-city-review.html"><span class="chapter-number">05</span><span class="chapter-title">City review</span><span class="chapter-desc">What Brisbane does well, plus the trade-offs to know.</span></a>
+<a class="chapter-card" href="06-one-day-guide.html"><span class="chapter-number">06</span><span class="chapter-title">One-day guide</span><span class="chapter-desc">A relaxed morning-to-evening itinerary across the city.</span></a>
+<a class="chapter-card" href="07-travel-tips.html"><span class="chapter-number">07</span><span class="chapter-title">Travel tips</span><span class="chapter-desc">Seasons, getting around, accessibility and extra time.</span></a></nav></section>
   <section class="credits" aria-labelledby="photo-credits">
     <h2 id="photo-credits">Photography &amp; editorial notes</h2>
-    <p>All photos are real Brisbane images sourced from Wikimedia Commons and linked to their individual file and licence pages in the captions. The skyline photo by King Eliot is CC0; the photos by Kgbo and Batsv are licensed <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>. Images are displayed with responsive visual framing. This review is an editorial overview; hours, costs and access details can change, so check the official links before visiting.</p>
+    <p>Photographs throughout these Brisbane pages are sourced from Wikimedia Commons, with individual file and licence links in their captions. The skyline photo by King Eliot is CC0; the photos by Kgbo and Batsv are licensed <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>. Images are displayed with responsive visual framing. This review is an editorial overview; hours, costs and access details can change, so check the official links before visiting.</p>
   </section>
-  <nav class="navrow" aria-label="Back navigation"><a class="button" href="#top">Back to top</a><a class="button" href="https://groundsupportcrew.com/websites.html">Other websites</a></nav>
+<nav class="navrow" aria-label="Back navigation"><a class="button" href="#top">Back to top</a><a class="button" href="https://groundsupportcrew.com/websites.html">Other websites</a></nav>
   <footer>
     <p class="city-footer-brand">DISCOVER BRISBANE</p>
     <p>A Brisbane city guide · <a href="https://groundsupportcrew.com/websites.html">Part of the Ground Support Crew website collection</a></p>
