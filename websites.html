@@ -38,25 +38,6 @@ footer .verification{font-size:12px;font-style:italic;margin-top:14px}
 .listing-note{font-size:13px;color:#6B5B4E;line-height:1.6;margin:3px 0 12px}
 .newest-tag{display:inline-block;font-size:11px;text-transform:uppercase;font-weight:700;letter-spacing:.1em;color:#145b70;background:#d7f3f5;border-radius:3px;padding:4px 8px;margin:0 0 8px}
 
-/* Match the realistic laptop frames shown for the other websites */
-.preview.simpletools-preview{background:linear-gradient(140deg,#d9f6fa,#e3e1ff);padding:23px 10px 17px;min-height:220px;display:flex;align-items:center;justify-content:center}
-.simpletools-laptop{width:100%;max-width:290px;margin:0 auto 5px;filter:drop-shadow(0 13px 9px rgba(23,35,49,.28));perspective:700px}
-.simpletools-screen{border:6px solid #161a20;border-top-width:9px;border-bottom-width:10px;border-radius:10px 10px 3px 3px;background:#131923;box-shadow:inset 0 0 0 1px #6a747e,0 1px 2px #fff7}
-.simpletools-screen::before{top:-7px;width:3px;height:3px;background:#63707e}
-.simpletools-screen-window{aspect-ratio:16/10;border-radius:1px}
-.simpletools-base{height:13px;width:119%;margin-left:-9.5%;background:linear-gradient(180deg,#eaf0f5 0%,#c2ccd7 34%,#7f8996 72%,#495564 88%,#cbd3dc 100%);border-radius:1px 1px 55% 55% / 1px 1px 100% 100%;box-shadow:inset 0 1px 1px #fff8}
-.simpletools-base::before{height:4px;left:38%;width:24%;background:linear-gradient(#8a96a4,#c6d0d9);border-radius:0 0 7px 7px}
-</style>
-<style>
-.preview.simpletools-preview{background:linear-gradient(135deg,#dceeff,#eaf5ff);position:relative;overflow:hidden;padding:20px 12px 24px}
-.simpletools-laptop{position:relative;max-width:270px;margin:10px auto 8px;filter:drop-shadow(0 10px 10px #3561a633)}
-.simpletools-screen{border:8px solid #202c3e;border-top-width:13px;border-bottom-width:11px;border-radius:10px 10px 4px 4px;background:white;position:relative}
-.simpletools-screen::before{content:"";position:absolute;top:-9px;left:50%;width:3px;height:3px;background:#75869c;border-radius:50%}
-.simpletools-screen-window{width:100%;aspect-ratio:16/10;position:relative;overflow:hidden;background:linear-gradient(120deg,#eef6ff,#d9edff)}
-.simpletools-screen-window iframe{position:absolute;left:0;top:0;width:1200px;height:750px;border:0;transform:scale(var(--screenshot-scale,.2));transform-origin:top left;pointer-events:none}
-.simpletools-base{height:9px;width:110%;margin-left:-5%;border-radius:0 0 70% 70%;background:linear-gradient(#ebf2f8,#a8b6c7);position:relative}
-.simpletools-base::before{content:"";position:absolute;top:0;left:40%;width:20%;height:3px;background:#96a5b7;border-radius:0 0 5px 5px}
-.simpletools-preview .preview-click{position:absolute;inset:0;z-index:2}
 </style></head>
 <body>
 <header class="hero">
@@ -72,13 +53,7 @@ footer .verification{font-size:12px;font-style:italic;margin-top:14px}
     <p class="listing-note">Explore our websites, with the newest additions at the top. This page also serves as a history of our website projects.</p>
     <!-- Website catalogue is ordered newest first. When publishing a new website, prepend its article here. -->
     <article class="website-card">
-  <div class="preview simpletools-preview">
-    <div class="simpletools-laptop" role="img" aria-label="SimpleTools homepage shown on a laptop screen">
-      <div class="simpletools-screen"><div class="simpletools-screen-window"><iframe src="simpletools/index.html?preview=laptop" title="SimpleTools homepage preview" tabindex="-1" loading="lazy" aria-hidden="true"></iframe></div></div>
-      <div class="simpletools-base"></div>
-    </div>
-    <a class="preview-click" href="simpletools/" aria-label="Visit SimpleTools"></a>
-  </div>
+  <a class="preview" href="simpletools/" aria-label="Explore our SimpleTools website"><img src="assets/simpletools-laptop.svg" alt="SimpleTools homepage displayed on the same laptop frame used for the other websites" width="350" height="263" loading="lazy"></a>
   <div class="website-copy">
     <div class="newest-tag">New website · 22 October 2026</div>
     <h2><a href="simpletools/">SimpleTools</a></h2>
@@ -119,11 +94,5 @@ footer .verification{font-size:12px;font-style:italic;margin-top:14px}
     <p>groundsupportcrew.com</p>
     <p class="verification">Written by AI, verified by the humans of the Ground Support Crew.</p>
   </footer>
-</main>
-<script>
-(function(){
- const fit=()=>document.querySelectorAll('.simpletools-screen-window').forEach(el=>el.style.setProperty('--screenshot-scale',String(el.clientWidth/1200)));
- fit();window.addEventListener('resize',fit);
-})();
-</script></body>
+</main></body>
 </html>
