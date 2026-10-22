@@ -33,7 +33,18 @@
 .tool-a{top:15px;left:12%}.tool-b{right:8%;top:55px}.tool-c{bottom:15px;right:22%}
 .homepage-bottom{padding-top:58px;padding-bottom:78px;text-align:center}.intro-block{max-width:700px;margin:auto}.intro-block h2{font-size:30px;letter-spacing:-.9px}.intro-block p{line-height:1.8;color:#60718a;font-size:16px}
 @media(max-width:760px){.welcome{padding:56px 0 54px}.welcome-layout{grid-template-columns:1fr}.welcome-art{min-height:275px}.orbit-one{width:250px;height:250px}.orbit-two{width:180px;height:180px}.hero-badge{width:150px;height:150px}.welcome-copy>p{font-size:16px}.welcome-copy h1{letter-spacing:-1.6px}}
-</style></head><body>
+</style><style>
+.laptop-preview{position:relative;z-index:1;width:min(100%,480px);margin:auto}
+.laptop-display{background:#1e293b;border:10px solid #1e293b;border-top-width:17px;border-radius:16px 16px 5px 5px;box-shadow:0 25px 45px rgba(25,69,130,.2);position:relative}
+.laptop-camera{position:absolute;width:5px;height:5px;background:#64748b;border-radius:50%;top:-11px;left:calc(50% - 2px)}
+.laptop-viewport{position:relative;overflow:hidden;background:white;aspect-ratio:16/9}
+.laptop-viewport iframe{display:block;width:1600px;height:900px;border:0;position:absolute;top:0;left:0;transform:scale(var(--preview-scale,.285));transform-origin:top left;pointer-events:none}
+.laptop-keyboard{height:17px;background:linear-gradient(#e6ecf3,#a6b6c8);border-radius:0 0 55% 55% / 0 0 100% 100%;width:110%;position:relative;left:-5%;box-shadow:0 9px 15px #20437222}
+.laptop-notch{position:absolute;left:41%;width:18%;height:5px;background:#8d9caf;border-radius:0 0 8px 8px}
+.laptop-caption{position:relative;z-index:1;text-align:center;line-height:1.65;color:#59718d;font-size:14px;max-width:440px;margin:22px auto 0}
+.welcome-art{display:flex;flex-direction:column;justify-content:center;gap:0}
+@media(max-width:760px){.laptop-preview{width:min(100%,430px)}}
+</style><script>if(new URLSearchParams(location.search).get('preview')==='laptop'){document.documentElement.classList.add('is-laptop-preview')}</script><style>.is-laptop-preview .welcome-art,.is-laptop-preview .homepage-bottom{display:none!important}.is-laptop-preview .welcome{padding:75px 0}.is-laptop-preview .welcome-layout{display:block}.is-laptop-preview .welcome-copy{width:900px;max-width:none}.is-laptop-preview .welcome-copy h1{font-size:73px}.is-laptop-preview .welcome-copy>p{max-width:750px}.is-laptop-preview .wrap{max-width:1500px}.is-laptop-preview body{overflow:hidden}</style></head><body>
 <header><div class="wrap nav"><a class="brand" href="./"><span class="mark">✦</span> SimpleTools</a><span class="navsmall">Useful tools. No fuss. Always free.</span></div></header><nav class="tools-nav" aria-label="Main navigation"><a href="./" aria-current="page">Home</a><a href="calculator.html">🧮 Calculator</a><a href="password-generator.html">🔐 Password Generator</a><a href="word-counter.html">📝 Word Counter</a><a href="text-converter.html">🔠 Text Case Converter</a><a href="percentage-calculator.html">📊 Percentage Calculator</a><a href="countdown-timer.html">⏱️ Countdown Timer</a></nav><div class="bookmark-bar"><button type="button" class="bookmark-link" id="bookmark-link">⭐ Click here to bookmark this page so you can come back to it easier</button><p class="bookmark-help" id="bookmark-help" role="status" aria-live="polite"></p></div>
 <section class="welcome"><div class="wrap welcome-layout">
 <div class="welcome-copy"><div class="eyebrow">WELCOME TO SIMPLETOOLS</div>
@@ -41,10 +52,16 @@
 <p>Handy, free tools for the little things you do every day. No sign-ups, no complicated menus — just open a tool and get things done.</p>
 <div class="welcome-actions"><a href="calculator.html" class="primary-link">Start with Calculator →</a><a href="password-generator.html" class="outline-link">Generate a Password</a></div>
 <div class="trustline">✓ Free to use &nbsp; ✓ Mobile friendly &nbsp; ✓ Works in your browser</div></div>
-<div class="welcome-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
-<div class="hero-badge"><svg viewBox="0 0 120 120" width="92" height="92" aria-hidden="true"><rect x="21" y="19" width="78" height="82" rx="21" fill="#fff" opacity=".14"/><path d="M40 42h40M40 58h40M40 74h23" stroke="#fff" stroke-width="8" stroke-linecap="round"/><path d="M81 69l5 9 10 1-7 7 2 10-10-5-9 5 2-10-7-7 10-1z" fill="#facc15"/></svg></div>
-<div class="floating-tool tool-a">🧮</div><div class="floating-tool tool-b">🔐</div><div class="floating-tool tool-c">⏱️</div></div>
-</div></section>
+<div class="welcome-art">
+<div class="laptop-preview" role="img" aria-label="SimpleTools homepage displayed inside a laptop">
+  <div class="laptop-display"><div class="laptop-camera"></div>
+    <div class="laptop-viewport"><iframe src="index.html?preview=laptop" title="Preview of the SimpleTools homepage" tabindex="-1" loading="lazy" aria-hidden="true"></iframe></div>
+  </div>
+  <div class="laptop-keyboard"><span class="laptop-notch"></span></div>
+</div>
+<p class="laptop-caption">SimpleTools brings free, useful everyday tools together in one easy-to-use website. Open any tool directly from the menu.</p>
+</div>
+</section>
 <section class="homepage-bottom wrap"><div class="intro-block"><span class="eyebrow">BUILT FOR CONVENIENCE</span><h2>Everything you need, a click away.</h2><p>Choose any tool from the navigation menu above. Each tool has its own page, so you can bookmark your favourites and come straight back.</p></div></section>
 <footer>© <span id="year"></span> SimpleTools · Free browser tools · No account required</footer>
 <script>
@@ -66,4 +83,4 @@
   help.classList.add('visible');
  });
 })();
-</script></body></html>
+</script><script>(function(){const vp=document.querySelector('.laptop-viewport');if(!vp)return;const update=()=>vp.style.setProperty('--preview-scale',String(vp.clientWidth/1600));update();window.addEventListener('resize',update);})();</script></body></html>
