@@ -227,7 +227,8 @@
       </table>
     </div>
   </div>
-  <main>
+  <div class="gsc-bookmark" style="text-align:center;padding:12px 16px;background:#f4f8fc;color:#16466b;border-block:1px solid #dce5ef"><button type="button" class="gsc-bookmark-button" style="background:none;border:0;color:#17579c;text-decoration:underline;text-underline-offset:3px;font:600 14px system-ui,sans-serif;cursor:pointer">⭐ Click here to bookmark this page so you can come back to it easier</button><p class="gsc-bookmark-help" role="status" aria-live="polite" style="display:none;font:14px/1.5 system-ui,sans-serif;margin:8px auto 0;max-width:600px"></p></div>
+<main>
     <table class="resource-table" role="presentation">
       <tbody>
         <tr>
@@ -366,5 +367,6 @@
       </tbody>
     </table>
   </main>
+<script>(function(){const b=document.querySelector(".gsc-bookmark-button"),h=document.querySelector(".gsc-bookmark-help");if(!b||!h)return;b.addEventListener("click",function(){const a=navigator.userAgent||"";h.textContent=/iPhone|iPad|iPod/i.test(a)?"Tap Share, then Add Bookmark or Add to Favorites.":/Android/i.test(a)?"Open your browser menu and select Bookmark or Add to bookmarks.":/Macintosh|Mac OS X/i.test(a)?"Press Command (⌘) + D to bookmark this page.":"Press Ctrl + D to bookmark this page.";h.style.display="block";});})();</script>
 </body>
 </html>
