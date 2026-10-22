@@ -152,6 +152,27 @@ footer{border-color:#d1e2e8}.city-footer-brand{font-weight:800;font-size:17px;co
 .brisbane-footer-operator a:hover,.brisbane-footer-operator a:focus-visible{color:#09556e}
 @media(max-width:760px){.brisbane-footer-row{flex-direction:column;gap:20px}.brisbane-footer-about{flex:auto}.brisbane-footer-nav{justify-content:flex-start;padding-top:0}.brisbane-footer{padding:27px 0 30px}.brisbane-footer-wrap{padding:0 18px}}
 </style>
+<style>
+.weather-current{background:linear-gradient(130deg,#07334c,#125d79);color:#fff;border-radius:18px;padding:clamp(22px,5vw,38px);margin:25px 0}
+.weather-current .temp{font-size:clamp(64px,12vw,112px);font-weight:800;line-height:1;font-family:'Big Shoulders Display',sans-serif}
+.weather-now-head{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.weather-icon{font-size:62px;line-height:1.2}
+.weather-description{font-size:23px;font-weight:650;margin:10px 0}
+.weather-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:24px}
+.weather-fact{background:#ffffff1a;border:1px solid #ffffff40;border-radius:12px;padding:14px}
+.weather-fact strong{display:block;font-size:21px;margin-top:5px}
+.weather-fact span{font-size:12px;opacity:.88}
+.weather-days{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:12px;margin:18px 0 22px}
+.weather-day{border:1px solid #c8dae4;border-radius:13px;background:#f4fafc;padding:17px 13px;text-align:center}
+.weather-day .weather-symbol{font-size:35px;margin:10px 0}
+.weather-day strong{display:block;font-size:16px}
+.weather-day .range{font-size:20px;font-weight:750;color:#063c58;margin:7px 0}
+.weather-day .chance{font-size:12px;color:#456275}
+.weather-status{padding:15px 18px;border-radius:9px;background:#edf6fb;color:#173d50;margin:20px 0}
+.weather-source{font-size:13px;color:#416071;line-height:1.65;margin:20px 0 36px}
+.weather-source a{color:#075c85}
+@media(max-width:500px){.weather-facts{grid-template-columns:1fr 1fr}.weather-fact:last-child{grid-column:span 2}}
+</style>
 </head>
 <body>
 <header class="site-hero" id="top">
@@ -161,12 +182,17 @@ footer{border-color:#d1e2e8}.city-footer-brand{font-weight:800;font-size:17px;co
 <div class="city-headline"><p class="eyebrow">Queensland, Australia · The River City</p><h2>Discover<br>Brisbane.</h2><p>River breezes, vibrant neighbourhoods and a subtropical way of life.</p></div>
 </div></header>
 <main class="container article" id="weather-content">
-  <h1>Brisbane weather</h1>
-  <p class="dek">Brisbane weather and forecasts in one place.</p>
-  <section class="section" aria-label="Weather forecast">
-    <div style="min-height:460px;display:flex;align-items:center;justify-content:center;border:1px solid #cadde6;border-radius:12px;background:#f6fbfd;padding:24px;text-align:center">
-      <p style="max-width:440px;margin:0;color:#426071">The weather forecast will appear here once the weather provider is connected.</p>
+  <p class="kicker">Australia / Queensland / Weather</p>
+  <h1>BRISBANE WEATHER</h1>
+  <p class="dek">Current conditions and the seven-day forecast for Brisbane, Queensland. Temperatures in Celsius, wind in km/h.</p>
+  <p id="weather-status" class="weather-status" role="status" aria-live="polite">Loading live Brisbane weather…</p>
+  <section id="weather-results" hidden aria-label="Live Brisbane weather">
+    <div class="weather-current">
+      <div class="weather-now-head"><div><div style="font-size:13px;letter-spacing:.1em;text-transform:uppercase">Right now in Brisbane</div><div class="temp" id="weather-temp">—</div><p class="weather-description" id="weather-summary"></p></div><div class="weather-icon" id="weather-icon" aria-hidden="true"></div></div>
+      <div class="weather-facts"><div class="weather-fact"><span>Feels like</span><strong id="weather-feels">—</strong></div><div class="weather-fact"><span>Humidity</span><strong id="weather-humidity">—</strong></div><div class="weather-fact"><span>Wind</span><strong id="weather-wind">—</strong></div></div>
     </div>
+    <section class="section" aria-label="Seven-day forecast"><h2>Next 7 days</h2><div class="weather-days" id="weather-days"></div></section>
+    <p class="weather-source">Forecast data: <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a> (CC BY 4.0). Forecasts are model estimates and may change. <span id="weather-updated"></span></p>
   </section>
 </main>
 <footer class="brisbane-footer">
@@ -190,5 +216,62 @@ footer{border-color:#d1e2e8}.city-footer-brand{font-weight:800;font-size:17px;co
   </div>
   <div class="brisbane-footer-wrap" style="text-align:center;margin-top:18px"><p class="brisbane-footer-verification" style="margin:0">Written by AI, verified by the humans of the <a href="https://groundsupportcrew.com" target="_blank" rel="noopener noreferrer">Ground Support Crew</a>.</p></div>
 </footer>
+<script>
+(function(){
+  "use strict";
+  const $ = id => document.getElementById(id);
+  const descriptions = {
+    0:["Clear sky","☀️"],1:["Mainly clear","🌤️"],2:["Partly cloudy","⛅"],3:["Overcast","☁️"],
+    45:["Fog","🌫️"],48:["Depositing rime fog","🌫️"],51:["Light drizzle","🌦️"],53:["Drizzle","🌦️"],55:["Dense drizzle","🌧️"],
+    56:["Freezing drizzle","🌧️"],57:["Freezing drizzle","🌧️"],61:["Light rain","🌦️"],63:["Rain","🌧️"],65:["Heavy rain","🌧️"],
+    66:["Freezing rain","🌧️"],67:["Freezing rain","🌧️"],71:["Light snow","🌨️"],73:["Snow","🌨️"],75:["Heavy snow","🌨️"],77:["Snow grains","🌨️"],
+    80:["Light showers","🌦️"],81:["Showers","🌧️"],82:["Heavy showers","🌧️"],85:["Snow showers","🌨️"],86:["Heavy snow showers","🌨️"],
+    95:["Thunderstorm","⛈️"],96:["Thunderstorm with hail","⛈️"],99:["Severe thunderstorm","⛈️"]
+  };
+  const number = value => Number.isFinite(Number(value)) ? Math.round(Number(value)) : "—";
+  const conditions = code => descriptions[code] || ["Variable conditions","🌦️"];
+  const dayLabel = date => new Date(date+"T12:00:00+10:00").toLocaleDateString("en-AU",{weekday:"short",timeZone:"Australia/Brisbane"});
+  // Open-Meteo public endpoint is for non-commercial evaluation only.
+  // Commercial deployment must use a licensed customer endpoint and API key.
+  const API_BASE = "https://api.open-meteo.com/v1/forecast";
+  const params = new URLSearchParams({
+    latitude:"-27.4698",longitude:"153.0251",timezone:"Australia/Brisbane",
+    current:"temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,is_day",
+    daily:"weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max",
+    forecast_days:"7",temperature_unit:"celsius",wind_speed_unit:"kmh"
+  });
+  const status = $("weather-status");
+  fetch(API_BASE+"?"+params.toString(),{headers:{Accept:"application/json"}})
+    .then(response=>{if(!response.ok) throw new Error("Weather provider unavailable");return response.json()})
+    .then(data=>{
+      if(!data.current || !data.daily || !Array.isArray(data.daily.time)) throw new Error("Incomplete weather data");
+      const now=data.current, daily=data.daily, info=conditions(now.weather_code);
+      $("weather-temp").textContent=number(now.temperature_2m)+"°";
+      $("weather-summary").textContent=info[0];
+      $("weather-icon").textContent=now.is_day===0 && now.weather_code===0?"🌙":info[1];
+      $("weather-feels").textContent=number(now.apparent_temperature)+"°C";
+      $("weather-humidity").textContent=number(now.relative_humidity_2m)+"%";
+      $("weather-wind").textContent=number(now.wind_speed_10m)+" km/h";
+      const fragment=document.createDocumentFragment();
+      daily.time.forEach((date,i)=>{
+        const condition=conditions(daily.weather_code[i]);
+        const card=document.createElement("div");card.className="weather-day";
+        const title=document.createElement("strong");title.textContent=i===0?"Today":dayLabel(date);
+        const symbol=document.createElement("div");symbol.className="weather-symbol";symbol.textContent=condition[1];symbol.setAttribute("aria-hidden","true");
+        const range=document.createElement("div");range.className="range";range.textContent=number(daily.temperature_2m_max[i])+"° / "+number(daily.temperature_2m_min[i])+"°";
+        const desc=document.createElement("div");desc.textContent=condition[0];desc.style.fontSize="13px";
+        const rain=document.createElement("div");rain.className="chance";rain.textContent="Rain chance: "+number(daily.precipitation_probability_max[i])+"%";
+        card.append(title,symbol,range,desc,rain);fragment.append(card);
+      });
+      $("weather-days").replaceChildren(fragment);
+      $("weather-updated").textContent="Updated: "+(now.time||"").replace("T"," ")+" Brisbane time.";
+      $("weather-results").hidden=false;status.hidden=true;
+    })
+    .catch(()=>{
+      status.textContent="The live forecast is temporarily unavailable. Please try again later.";
+      const link=document.createElement("a");link.href="https://www.bom.gov.au/qld/forecasts/brisbane.shtml";link.textContent=" Check the Bureau of Meteorology Brisbane forecast.";link.target="_blank";link.rel="noopener noreferrer";status.append(link);
+    });
+})();
+</script>
 </body>
 </html>
