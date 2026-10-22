@@ -123,6 +123,24 @@ footer{border-color:#d1e2e8}.city-footer-brand{font-weight:800;font-size:17px;co
 .chapter-note{font-size:12px;color:#547282;line-height:1.7;padding:0 0 22px}
 @media(max-width:650px){.chapter-grid{grid-template-columns:1fr}.chapter-card{padding:18px}.inner-page .site-hero,.inner-page .hero-inner{min-height:260px}.city-links a{padding:9px 12px;font-size:12px}}
 @media print{.city-links,.chapter-controls{display:none}}
+
+/* Consistent footer layout used by Ground Support Crew websites. */
+.brisbane-footer{background:#fff;border-top:1px solid #d1e2e8;padding:31px 0 35px;color:#132f40;font-size:13px}
+.brisbane-footer-wrap{max-width:1068px;margin:0 auto;padding:0 24px}
+.brisbane-footer-row{display:flex;justify-content:space-between;align-items:flex-start;gap:32px}
+.brisbane-footer-about{flex:0 1 385px;min-width:0}
+.brisbane-footer-brand{display:inline-flex;align-items:center;gap:10px;color:#123f59;text-decoration:none;font-size:20px;font-weight:800;line-height:1.3;letter-spacing:-.4px}
+.brisbane-footer-brand:hover,.brisbane-footer-brand:focus-visible{color:#087d95}
+.brisbane-footer-emblem{display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:10px;background:#087d95;color:#fff;font-size:21px;font-weight:800}
+.brisbane-footer-about p{color:#67808e;font-size:12px;line-height:1.6;margin:10px 0 0}
+.brisbane-footer-about .brisbane-footer-verification{font-size:11px;font-style:italic;margin-top:8px}
+.brisbane-footer-nav{display:flex;flex-wrap:wrap;justify-content:flex-end;align-content:flex-start;gap:12px 20px;max-width:610px;padding-top:8px}
+.brisbane-footer-nav a{font-size:12px;font-weight:650;text-decoration:none;color:#547282}
+.brisbane-footer-nav a:hover,.brisbane-footer-nav a:focus-visible{color:#087d95;text-decoration:underline}
+.brisbane-footer-operator{margin-top:22px;padding-top:16px;border-top:1px solid #d1e2e8;text-align:center;font-size:12px;color:#547282;line-height:1.6}
+.brisbane-footer-operator a{font-weight:800;color:#087d95;text-decoration:underline;text-underline-offset:2px}
+.brisbane-footer-operator a:hover,.brisbane-footer-operator a:focus-visible{color:#09556e}
+@media(max-width:760px){.brisbane-footer-row{flex-direction:column;gap:20px}.brisbane-footer-about{flex:auto}.brisbane-footer-nav{justify-content:flex-start;padding-top:0}.brisbane-footer{padding:27px 0 30px}.brisbane-footer-wrap{padding:0 18px}}
 </style>
 </head>
 <body class="inner-page">
@@ -146,11 +164,27 @@ footer{border-color:#d1e2e8}.city-footer-brand{font-weight:800;font-size:17px;co
   </section>
 <nav class="chapter-controls" aria-label="Section navigation"><a href="01-south-bank.html">← South Bank</a><a href="index.html">All sections</a><a href="03-parks-gardens.html">Parks & gardens →</a></nav>
 <p class="chapter-note">Discover Brisbane is an editorial city guide. Image attributions appear in photo captions; travel conditions, fares and venue information may change.</p>
-  <footer>
-    <p class="city-footer-brand">DISCOVER BRISBANE</p>
-    <p>A Brisbane city guide · <a href="https://groundsupportcrew.com/websites.html">Part of the Ground Support Crew website collection</a></p>
-    <p class="verification">Written by AI, verified by the humans of the Ground Support Crew.</p>
-  </footer>
+  
 </main>
+<footer class="brisbane-footer">
+  <div class="brisbane-footer-wrap brisbane-footer-row">
+    <div class="brisbane-footer-about">
+      <a class="brisbane-footer-brand" href="index.html"><span class="brisbane-footer-emblem" aria-hidden="true">B</span> Discover Brisbane</a>
+      <p>Explore the River City, from South Bank and the river to local neighbourhoods and travel tips.</p>
+      <p class="brisbane-footer-verification">Written by AI, verified by the humans of the Ground Support Crew.</p>
+    </div>
+    <nav class="brisbane-footer-nav" aria-label="Footer navigation">
+      <a href="index.html">Home</a>
+      <a href="01-south-bank.html">01 South Bank</a>
+      <a href="02-brisbane-river.html">02 The river</a>
+      <a href="03-parks-gardens.html">03 Parks &amp; gardens</a>
+      <a href="04-neighbourhoods.html">04 Neighbourhoods</a>
+      <a href="05-city-review.html">05 City review</a>
+      <a href="06-one-day-guide.html">06 One-day guide</a>
+      <a href="07-travel-tips.html">07 Travel tips</a>
+    </nav>
+  </div>
+  <div class="brisbane-footer-wrap brisbane-footer-operator">Operated by <a href="https://GroundSupportCrew.com" target="_blank" rel="noopener noreferrer">GroundSupportCrew.com</a>.</div>
+</footer>
 </body>
 </html>
