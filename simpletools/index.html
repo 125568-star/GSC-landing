@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#2563eb">
+<meta name="description" content="SimpleTools: free, fast everyday tools in your browser.">
+<title>SimpleTools — Everyday tools, made simple</title>
+<style>
+:root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#17253e;background:#f5f8ff}*{box-sizing:border-box}body{margin:0}button,input,textarea,select{font:inherit}button{cursor:pointer}.wrap{max-width:1150px;margin:auto;padding:0 24px}header{background:white;border-bottom:1px solid #e5ebf5}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:flex;align-items:center;gap:12px;font-size:24px;font-weight:850;letter-spacing:-1px;color:#102f66;text-decoration:none}.mark{width:42px;height:42px;border-radius:13px;background:#2563eb;color:white;display:grid;place-items:center;font-size:25px;box-shadow:0 7px 18px #2563eb30}.navsmall{color:#69788f;font-size:14px}.hero{padding:64px 0 48px;text-align:center;background:linear-gradient(145deg,#eaf2ff 0%,#f8fbff 75%)}.eyebrow{font-size:12px;font-weight:800;letter-spacing:2px;color:#2563eb;text-transform:uppercase}.hero h1{margin:14px 0;font-size:clamp(33px,5vw,58px);letter-spacing:-2px;color:#13284a}.hero h1 span{color:#2563eb}.hero p{font-size:17px;color:#61718b;margin:0 0 28px}.search{max-width:480px;width:100%;border-radius:13px;border:1px solid #d4dff1;padding:15px 18px;background:white;box-shadow:0 6px 24px #153e7b0c;outline-color:#2563eb}.section{padding:34px 0 72px}.section h2{font-size:22px;letter-spacing:-.6px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.card{padding:24px;border:1px solid #e3eaf6;background:white;border-radius:18px;box-shadow:0 7px 25px #2c4b8a0b}.ic{font-size:25px;background:#ecf3ff;width:50px;height:50px;display:grid;place-items:center;border-radius:14px}.card h3{margin:18px 0 7px;font-size:19px}.card p{font-size:14px;color:#708099;line-height:1.5;min-height:42px;margin:0 0 18px}.field{display:block;width:100%;padding:12px;border:1px solid #d9e3f1;border-radius:10px;background:#fff;color:#17253e;margin:8px 0;min-width:0}.btn{background:#2563eb;color:#fff;border:0;border-radius:10px;padding:11px 15px;font-weight:700;margin-top:6px}.btn:hover{background:#174cc0}.btn.secondary{background:#eef4ff;color:#2153a7}.result{margin-top:13px;background:#f2f7ff;padding:13px;border-radius:10px;word-break:break-word;min-height:44px;color:#173a74;font-size:14px}.inline{display:flex;gap:8px}.inline>*{flex:1;min-width:0}.inline .field{margin:0}.small{font-size:12px;color:#718199}footer{text-align:center;padding:30px;color:#708099;border-top:1px solid #e4eaf5}.empty{display:none;text-align:center;color:#718199;padding:35px}.hidden{display:none!important}@media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:620px){.grid{grid-template-columns:1fr}.hero{padding:48px 0 35px}.navsmall{display:none}.wrap{padding:0 17px}.card{padding:20px}}
+</style><style>.tools-nav{max-width:1150px;margin:auto;display:flex;gap:8px;padding:11px 24px;overflow-x:auto;white-space:nowrap;scrollbar-width:thin}.tools-nav a{font-size:13px;font-weight:700;color:#28558f;background:#edf4ff;text-decoration:none;padding:10px 12px;border-radius:9px}.tools-nav a:hover,.tools-nav a[aria-current="page"]{background:#2563eb;color:white}@media(max-width:620px){.tools-nav{padding:10px 17px}}</style><style>
+.bookmark-bar{border-top:1px solid #e7eef8;background:#f5f9ff;text-align:center;padding:11px 15px;font-size:14px}
+.bookmark-link{color:#1956ba;font-weight:700;text-decoration:underline;text-underline-offset:3px;background:none;border:0;padding:3px;cursor:pointer}
+.bookmark-help{display:none;margin:8px auto 2px;color:#445a7a;max-width:650px;line-height:1.5}
+.bookmark-help.visible{display:block}
+</style><style>
+.brand .mark{border-radius:12px 4px 12px 4px;transform:rotate(-8deg);background:linear-gradient(135deg,#173f99,#08a6cc);box-shadow:0 8px 18px #0e85bd35;font-size:0}
+.brand .mark::after{content:"";width:23px;height:23px;border:3px solid white;border-radius:6px 2px 6px 2px;transform:rotate(8deg);background:linear-gradient(90deg,transparent 37%,#fff 37%,#fff 48%,transparent 48%);clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}
+.welcome{background:radial-gradient(circle at 83% 25%,#d9edff 0,#edf5ff 35%,#f9fbff 78%);padding:82px 0 96px;overflow:hidden}
+.welcome-layout{display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:38px}
+.welcome-copy h1{font-size:clamp(40px,5vw,66px);letter-spacing:-2.7px;line-height:1.11;margin:18px 0 22px;color:#12254b}
+.welcome-copy h1 span{color:#1873dc}
+.welcome-copy>p{font-size:18px;line-height:1.8;color:#60718a;max-width:560px}
+.welcome-actions{display:flex;gap:12px;flex-wrap:wrap;margin:32px 0 28px}
+.primary-link,.outline-link{display:inline-block;padding:15px 21px;border-radius:12px;text-decoration:none;font-weight:750}
+.primary-link{background:#206de1;color:white;box-shadow:0 7px 22px #236cdb34}
+.outline-link{border:1px solid #b7d0f5;color:#24558f;background:white}
+.primary-link:hover{background:#164eb4}.outline-link:hover{background:#eaf3ff}
+.trustline{font-size:13px;color:#627d9a;line-height:2}
+.welcome-art{position:relative;min-height:350px;display:grid;place-items:center}
+.orbit{position:absolute;border-radius:50%;border:2px dashed #b8d6fa}.orbit-one{width:310px;height:310px}.orbit-two{width:210px;height:210px;border-style:solid;border-color:#cee2fa}
+.hero-badge{width:183px;height:183px;border-radius:44px;background:linear-gradient(145deg,#0d3d91,#08afd4);display:grid;place-items:center;transform:rotate(-8deg);box-shadow:0 25px 45px #1465bb42}
+.floating-tool{position:absolute;background:white;border:1px solid #e2eefa;border-radius:18px;box-shadow:0 14px 28px #1e579b20;width:67px;height:67px;display:grid;place-items:center;font-size:29px}
+.tool-a{top:15px;left:12%}.tool-b{right:8%;top:55px}.tool-c{bottom:15px;right:22%}
+.homepage-bottom{padding-top:58px;padding-bottom:78px;text-align:center}.intro-block{max-width:700px;margin:auto}.intro-block h2{font-size:30px;letter-spacing:-.9px}.intro-block p{line-height:1.8;color:#60718a;font-size:16px}
+@media(max-width:760px){.welcome{padding:56px 0 54px}.welcome-layout{grid-template-columns:1fr}.welcome-art{min-height:275px}.orbit-one{width:250px;height:250px}.orbit-two{width:180px;height:180px}.hero-badge{width:150px;height:150px}.welcome-copy>p{font-size:16px}.welcome-copy h1{letter-spacing:-1.6px}}
+</style></head><body>
+<header><div class="wrap nav"><a class="brand" href="./"><span class="mark">✦</span> SimpleTools</a><span class="navsmall">Useful tools. No fuss. Always free.</span></div></header><nav class="tools-nav" aria-label="Main navigation"><a href="./" aria-current="page">Home</a><a href="calculator.html">🧮 Calculator</a><a href="password-generator.html">🔐 Password Generator</a><a href="word-counter.html">📝 Word Counter</a><a href="text-converter.html">🔠 Text Case Converter</a><a href="percentage-calculator.html">📊 Percentage Calculator</a><a href="countdown-timer.html">⏱️ Countdown Timer</a></nav><div class="bookmark-bar"><button type="button" class="bookmark-link" id="bookmark-link">⭐ Click here to bookmark this page so you can come back to it easier</button><p class="bookmark-help" id="bookmark-help" role="status" aria-live="polite"></p></div>
+<section class="welcome"><div class="wrap welcome-layout">
+<div class="welcome-copy"><div class="eyebrow">WELCOME TO SIMPLETOOLS</div>
+<h1>Everyday tasks.<br><span>Made simple.</span></h1>
+<p>Handy, free tools for the little things you do every day. No sign-ups, no complicated menus — just open a tool and get things done.</p>
+<div class="welcome-actions"><a href="calculator.html" class="primary-link">Start with Calculator →</a><a href="password-generator.html" class="outline-link">Generate a Password</a></div>
+<div class="trustline">✓ Free to use &nbsp; ✓ Mobile friendly &nbsp; ✓ Works in your browser</div></div>
+<div class="welcome-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+<div class="hero-badge"><svg viewBox="0 0 120 120" width="92" height="92" aria-hidden="true"><rect x="21" y="19" width="78" height="82" rx="21" fill="#fff" opacity=".14"/><path d="M40 42h40M40 58h40M40 74h23" stroke="#fff" stroke-width="8" stroke-linecap="round"/><path d="M81 69l5 9 10 1-7 7 2 10-10-5-9 5 2-10-7-7 10-1z" fill="#facc15"/></svg></div>
+<div class="floating-tool tool-a">🧮</div><div class="floating-tool tool-b">🔐</div><div class="floating-tool tool-c">⏱️</div></div>
+</div></section>
+<section class="homepage-bottom wrap"><div class="intro-block"><span class="eyebrow">BUILT FOR CONVENIENCE</span><h2>Everything you need, a click away.</h2><p>Choose any tool from the navigation menu above. Each tool has its own page, so you can bookmark your favourites and come straight back.</p></div></section>
+<footer>© <span id="year"></span> SimpleTools · Free browser tools · No account required</footer>
+<script>
+(function(){
+ const link=document.getElementById('bookmark-link');
+ const help=document.getElementById('bookmark-help');
+ if(!link||!help)return;
+ link.addEventListener('click',function(){
+  const ua=navigator.userAgent||'';
+  const apple=/iPad|iPhone|iPod/.test(ua);
+  const mac=/Macintosh|Mac OS X/.test(ua);
+  const mobile=/Android|iPhone|iPad|iPod/i.test(ua);
+  const safari=/Safari/i.test(ua)&&!/Chrome|CriOS|Edg|FxiOS/i.test(ua);
+  if(apple&&safari){help.textContent='On iPhone or iPad: tap Share (the square with an arrow), then Add Bookmark or Add to Favorites.';}
+  else if(/Android/i.test(ua)){help.textContent='On Android: open your browser menu (⋮), then tap the star or Add to bookmarks.';}
+  else if(mobile){help.textContent='Open your browser menu or Share button and choose Add Bookmark / Add to Favorites.';}
+  else if(mac){help.textContent='Press Command (⌘) + D to bookmark this page.';}
+  else{help.textContent='Press Ctrl + D to bookmark this page.';}
+  help.classList.add('visible');
+ });
+})();
+</script></body></html>
