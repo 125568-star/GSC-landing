@@ -71,6 +71,25 @@
  .science-key.function{font-size:11px}
 }
 </style>
+<style>
+/* Compact calculator.net-style layout, in SimpleTools blue and white */
+.science-shell{max-width:1080px;margin:0 auto}
+.science-panel{padding:22px}
+.science-keyboards{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:16px;align-items:start}
+.science-keygroup-title{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#647996;font-weight:800;margin:0 0 9px}
+.science-functions{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:7px}
+.science-numbers{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}
+.science-key{min-height:51px;border-radius:8px;background:#fff}
+.science-key.function{background:#edf4ff}
+.science-key.operator{background:#dceaff;font-size:22px}
+.science-key.span-two{grid-column:span 2}
+.science-screen{background:#f4f8ff;border:1px solid #ccd9eb;border-radius:11px}
+.science-answer{font-size:clamp(29px,4vw,44px)}
+.science-tip{margin-top:14px}
+.science-intro{margin-bottom:16px}
+@media(max-width:840px){.science-keyboards{grid-template-columns:1fr;gap:20px}.science-shell{max-width:650px}.science-key{min-height:50px}}
+@media(max-width:460px){.science-panel{padding:13px}.science-functions,.science-numbers{gap:5px}.science-functions .science-key{min-height:45px;padding:4px 1px;font-size:11px}.science-functions .science-key sup{font-size:9px}.science-numbers .science-key{min-height:50px}.science-top{margin-bottom:9px}}
+</style>
 </head><body>
 <header><div class="wrap nav"><a class="brand" href="./"><span class="mark">✦</span> SimpleTools</a><span class="navsmall">Useful tools. No fuss. Always free.</span></div></header><nav class="tools-nav" aria-label="Main navigation"><a href="./">Home</a><a href="calculator.html" aria-current="page">🧮 Calculator</a><a href="password-generator.html">🔐 Password Generator</a><a href="word-counter.html">📝 Word Counter</a><a href="text-converter.html">🔠 Text Case Converter</a><a href="percentage-calculator.html">📊 Percentage Calculator</a><a href="countdown-timer.html">⏱️ Countdown Timer</a></nav><div class="bookmark-bar"><button type="button" class="bookmark-link" id="bookmark-link">⭐ Click here to bookmark this page so you can come back to it easier</button><p class="bookmark-help" id="bookmark-help" role="status" aria-live="polite"></p></div>
 <section class="hero"><div class="wrap"><div class="eyebrow">Your everyday toolkit</div><h1>🧮 <span>Calculator</span></h1><p>Everyday maths, powerful scientific functions, and an easy-to-use keypad.</p><input class="search" id="search" placeholder="🔎  Search tools..." aria-label="Search tools"></div></section>
@@ -92,56 +111,74 @@
         <div class="science-answer" id="sci-answer" aria-live="polite">0</div>
         <div class="science-status" id="sci-status" role="status">DEG mode · Enter an expression or use the buttons</div>
       </div>
-      <div class="science-toolbar" aria-label="Clear and memory functions">
-        <button type="button" class="science-key danger" data-action="clear" title="Clear all">AC</button>
-        <button type="button" class="science-key danger" data-action="delete" title="Delete one character">DEL</button>
-        <button type="button" class="science-key function" data-action="mc" title="Clear memory">MC</button>
-        <button type="button" class="science-key function" data-action="mr" title="Recall memory">MR</button>
-        <button type="button" class="science-key function" data-action="mplus" title="Add to memory">M+</button>
-        <button type="button" class="science-key function" data-action="mminus" title="Subtract from memory">M−</button>
-      </div>
-      <div class="science-keys" aria-label="Calculator keypad">
-        <button type="button" class="science-key function" data-insert="sin(">sin</button>
-        <button type="button" class="science-key function" data-insert="cos(">cos</button>
-        <button type="button" class="science-key function" data-insert="tan(">tan</button>
-        <button type="button" class="science-key" data-insert="7">7</button>
-        <button type="button" class="science-key" data-insert="8">8</button>
-        <button type="button" class="science-key" data-insert="9">9</button>
+      <div class="science-keyboards">
+        <div class="science-group">
+          <div class="science-keygroup-title">Scientific functions</div>
+          <div class="science-functions" aria-label="Scientific function keypad">
+            <button type="button" class="science-key function" data-insert="sin(">sin</button>
+            <button type="button" class="science-key function" data-insert="cos(">cos</button>
+            <button type="button" class="science-key function" data-insert="tan(">tan</button>
+            <button type="button" class="science-key function" data-insert="asin(" title="Inverse sine">sin<sup>−1</sup></button>
+            <button type="button" class="science-key function" data-insert="acos(" title="Inverse cosine">cos<sup>−1</sup></button>
+            <button type="button" class="science-key function" data-insert="atan(" title="Inverse tangent">tan<sup>−1</sup></button>
 
-        <button type="button" class="science-key function" data-insert="asin(" title="Inverse sine">sin<sup>−1</sup></button>
-        <button type="button" class="science-key function" data-insert="acos(" title="Inverse cosine">cos<sup>−1</sup></button>
-        <button type="button" class="science-key function" data-insert="atan(" title="Inverse tangent">tan<sup>−1</sup></button>
-        <button type="button" class="science-key" data-insert="4">4</button>
-        <button type="button" class="science-key" data-insert="5">5</button>
-        <button type="button" class="science-key" data-insert="6">6</button>
+            <button type="button" class="science-key function" data-insert="^2">x²</button>
+            <button type="button" class="science-key function" data-insert="^3">x³</button>
+            <button type="button" class="science-key function" data-insert="^">xʸ</button>
+            <button type="button" class="science-key function" data-insert="sqrt(">√x</button>
+            <button type="button" class="science-key function" data-insert="cbrt(">∛x</button>
+            <button type="button" class="science-key function" data-insert="inv(">1/x</button>
 
-        <button type="button" class="science-key function" data-insert="ln(">ln</button>
-        <button type="button" class="science-key function" data-insert="log(">log</button>
-        <button type="button" class="science-key function" data-insert="sqrt(" title="Square root">√x</button>
-        <button type="button" class="science-key" data-insert="1">1</button>
-        <button type="button" class="science-key" data-insert="2">2</button>
-        <button type="button" class="science-key" data-insert="3">3</button>
+            <button type="button" class="science-key function" data-insert="ln(">ln</button>
+            <button type="button" class="science-key function" data-insert="log(">log</button>
+            <button type="button" class="science-key function" data-insert="10^(">10ˣ</button>
+            <button type="button" class="science-key function" data-insert="e^(">eˣ</button>
+            <button type="button" class="science-key function" data-insert="abs(">abs</button>
+            <button type="button" class="science-key function" data-insert="!">n!</button>
 
-        <button type="button" class="science-key function" data-insert="^2">x²</button>
-        <button type="button" class="science-key function" data-insert="^">xʸ</button>
-        <button type="button" class="science-key function" data-insert="!">n!</button>
-        <button type="button" class="science-key" data-insert="0">0</button>
-        <button type="button" class="science-key" data-insert=".">.</button>
-        <button type="button" class="science-key operator" data-action="sign">±</button>
+            <button type="button" class="science-key function" data-insert="π">π</button>
+            <button type="button" class="science-key function" data-insert="e">e</button>
+            <button type="button" class="science-key function" data-insert="(">(</button>
+            <button type="button" class="science-key function" data-insert=")">)</button>
+            <button type="button" class="science-key function" data-insert="%">%</button>
+            <button type="button" class="science-key function" data-insert="Ans">Ans</button>
 
-        <button type="button" class="science-key function" data-insert="π">π</button>
-        <button type="button" class="science-key function" data-insert="e">e</button>
-        <button type="button" class="science-key function" data-insert="(">(</button>
-        <button type="button" class="science-key function" data-insert=")">)</button>
-        <button type="button" class="science-key operator" data-insert="÷">÷</button>
-        <button type="button" class="science-key operator" data-insert="×">×</button>
+            <button type="button" class="science-key function" data-action="exp" title="Enter scientific exponent">EXP</button>
+            <button type="button" class="science-key function" data-action="random" title="Random number">RND</button>
+            <button type="button" class="science-key function" data-action="mc" title="Memory clear">MC</button>
+            <button type="button" class="science-key function" data-action="mr" title="Memory recall">MR</button>
+            <button type="button" class="science-key function" data-action="mplus" title="Memory add">M+</button>
+            <button type="button" class="science-key function" data-action="mminus" title="Memory subtract">M−</button>
+          </div>
+        </div>
+        <div class="science-group">
+          <div class="science-keygroup-title">Number pad</div>
+          <div class="science-numbers" aria-label="Numeric keypad">
+            <button type="button" class="science-key" data-insert="7">7</button>
+            <button type="button" class="science-key" data-insert="8">8</button>
+            <button type="button" class="science-key" data-insert="9">9</button>
+            <button type="button" class="science-key operator" data-insert="÷">÷</button>
 
-        <button type="button" class="science-key function" data-insert="Ans">Ans</button>
-        <button type="button" class="science-key function" data-insert="inv(" title="Reciprocal">1/x</button>
-        <button type="button" class="science-key function" data-insert="%">%</button>
-        <button type="button" class="science-key operator" data-insert="−">−</button>
-        <button type="button" class="science-key operator" data-insert="+">+</button>
-        <button type="button" class="science-key equal" data-action="equals">=</button>
+            <button type="button" class="science-key" data-insert="4">4</button>
+            <button type="button" class="science-key" data-insert="5">5</button>
+            <button type="button" class="science-key" data-insert="6">6</button>
+            <button type="button" class="science-key operator" data-insert="×">×</button>
+
+            <button type="button" class="science-key" data-insert="1">1</button>
+            <button type="button" class="science-key" data-insert="2">2</button>
+            <button type="button" class="science-key" data-insert="3">3</button>
+            <button type="button" class="science-key operator" data-insert="−">−</button>
+
+            <button type="button" class="science-key" data-insert="0">0</button>
+            <button type="button" class="science-key" data-insert=".">.</button>
+            <button type="button" class="science-key" data-action="sign" title="Change sign">±</button>
+            <button type="button" class="science-key operator" data-insert="+">+</button>
+
+            <button type="button" class="science-key danger" data-action="clear" title="Clear">AC</button>
+            <button type="button" class="science-key danger" data-action="delete" title="Backspace">DEL</button>
+            <button type="button" class="science-key equal span-two" data-action="equals">=</button>
+          </div>
+        </div>
       </div>
       <p class="science-tip">Enter evaluates · Esc clears · Backspace deletes · DEG/RAD changes trigonometric units. Calculations stay in your browser.</p>
     </section>
@@ -319,6 +356,8 @@
     return evaluate(input.value);
   }
   function action(which) {
+    if (which === 'exp') { insert('E'); return; }
+    if (which === 'random') { insert(String(Number(Math.random().toPrecision(8)))); return; }
     if (which === 'clear') { input.value = ''; justCalculated = false; preview(); input.focus(); return; }
     if (which === 'delete') {
       const a = input.selectionStart ?? input.value.length, b = input.selectionEnd ?? a;
