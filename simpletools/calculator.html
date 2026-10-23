@@ -22,30 +22,358 @@
 .bookmark-link{color:#1956ba;font-weight:700;text-decoration:underline;text-underline-offset:3px;background:none;border:0;padding:3px;cursor:pointer}
 .bookmark-help{display:none;margin:8px auto 2px;color:#445a7a;max-width:650px;line-height:1.5}
 .bookmark-help.visible{display:block}
-</style></head><body>
+</style><style>
+/* Scientific calculator: SimpleTools colour palette and layout */
+.science-shell{max-width:760px;margin:0 auto}
+.science-panel{background:#fff;border:1px solid #dfe8f7;border-radius:22px;padding:25px;box-shadow:0 14px 45px #234a8312}
+.science-intro{margin:0 0 19px;color:#65758e;font-size:14px;line-height:1.6;text-align:center}
+.science-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:15px;flex-wrap:wrap}
+.science-modes{display:inline-flex;gap:4px;background:#ecf3ff;border-radius:11px;padding:4px}
+.science-modes button{font-size:12px;font-weight:800;letter-spacing:.5px;padding:9px 16px;border:0;background:transparent;color:#42658f;border-radius:8px}
+.science-modes button[aria-pressed="true"]{background:#2563eb;color:#fff;box-shadow:0 2px 8px #2563eb25}
+.science-memory-status{font-size:12px;color:#708099}
+.science-memory-status strong{color:#1956ba}
+.science-screen{border:1px solid #d6e2f3;border-radius:15px;background:linear-gradient(145deg,#f3f7ff,#fff);padding:17px 19px 15px;margin-bottom:15px}
+.science-screen label{display:block;color:#647996;font-weight:700;letter-spacing:.4px;text-transform:uppercase;font-size:11px;margin-bottom:7px}
+#sci-expression{display:block;width:100%;background:transparent;border:0;border-bottom:1px solid #e1e8f4;border-radius:0;color:#182b48;font-size:clamp(19px,4vw,27px);font-weight:650;outline-offset:5px;padding:6px 0 12px;min-height:48px;min-width:0}
+#sci-expression::placeholder{color:#a0acc0}
+.science-answer-label{font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:#718199;margin:14px 0 4px;font-weight:750}
+.science-answer{min-height:43px;text-align:right;font-size:clamp(25px,5vw,38px);color:#1956ba;font-weight:800;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+.science-status{font-size:12px;min-height:18px;color:#667990;margin-top:7px}
+.science-status.is-error{color:#ba344c}
+.science-toolbar,.science-keys{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:9px}
+.science-toolbar{margin-bottom:10px}
+.science-keys{margin-bottom:6px}
+.science-key{display:flex;align-items:center;justify-content:center;width:100%;min-width:0;min-height:54px;padding:7px 4px;border-radius:11px;border:1px solid #dce5f2;background:#f6f9fe;color:#203b61;font-size:17px;font-weight:700;transition:background .12s ease,transform .1s ease}
+.science-key:hover{background:#e8f1ff}
+.science-key:active{transform:scale(.96)}
+.science-key:focus-visible,.science-modes button:focus-visible{outline:3px solid #88b2ff;outline-offset:2px}
+.science-key.function{background:#edf4ff;color:#28558f;font-size:14px}
+.science-key.function:hover{background:#dfebff}
+.science-key.operator{background:#e4edff;color:#174a9d}
+.science-key.danger{background:#fff0f1;color:#aa354b}
+.science-key.equal{background:#2563eb;border-color:#2563eb;color:#fff;font-size:23px}
+.science-key.equal:hover{background:#174cc0}
+.science-key sup{font-size:10px;margin-left:1px}
+.science-tip{margin:15px 0 0;color:#708099;text-align:center;font-size:12px;line-height:1.6}
+@media(max-width:600px){
+ .science-panel{padding:13px;border-radius:16px}
+ .science-shell{max-width:100%}
+ .science-toolbar,.science-keys{gap:5px}
+ .science-key{min-height:48px;border-radius:9px;font-size:15px}
+ .science-key.function{font-size:12px}
+ .science-toolbar .science-key{font-size:12px}
+ .science-screen{padding:13px;margin-bottom:10px}
+ .science-intro{font-size:13px}
+}
+@media(max-width:380px){
+ .science-key{min-height:44px;font-size:14px}
+ .science-key.function{font-size:11px}
+}
+</style>
+</head><body>
 <header><div class="wrap nav"><a class="brand" href="./"><span class="mark">✦</span> SimpleTools</a><span class="navsmall">Useful tools. No fuss. Always free.</span></div></header><nav class="tools-nav" aria-label="Main navigation"><a href="./">Home</a><a href="calculator.html" aria-current="page">🧮 Calculator</a><a href="password-generator.html">🔐 Password Generator</a><a href="word-counter.html">📝 Word Counter</a><a href="text-converter.html">🔠 Text Case Converter</a><a href="percentage-calculator.html">📊 Percentage Calculator</a><a href="countdown-timer.html">⏱️ Countdown Timer</a></nav><div class="bookmark-bar"><button type="button" class="bookmark-link" id="bookmark-link">⭐ Click here to bookmark this page so you can come back to it easier</button><p class="bookmark-help" id="bookmark-help" role="status" aria-live="polite"></p></div>
-<section class="hero"><div class="wrap"><div class="eyebrow">Your everyday toolkit</div><h1>🧮 <span>Calculator</span></h1><p>A free, easy-to-use tool that runs right in your browser.</p><input class="search" id="search" placeholder="🔎  Search tools..." aria-label="Search tools"></div></section>
-<main class="wrap section"><h2>All tools</h2><div class="grid" id="grid">
-<article class="card" data-name="calculator maths arithmetic"><div class="ic">🧮</div><h3>Calculator</h3><p>Add, subtract, multiply or divide two numbers.</p><input class="field" id="ca" type="number" placeholder="First number"><select class="field" id="cop"><option value="+">Add (+)</option><option value="-">Subtract (−)</option><option value="*">Multiply (×)</option><option value="/">Divide (÷)</option></select><input class="field" id="cb" type="number" placeholder="Second number"><button class="btn" id="calc">Calculate</button><div class="result" id="cres" aria-live="polite">Your result will appear here.</div></article>
-<article class="card" data-name="password generator secure random"><div class="ic">🔐</div><h3>Password Generator</h3><p>Generate a random password securely on your device.</p><label class="small" for="plen">Password length (8–64)</label><input class="field" id="plen" type="number" min="8" max="64" value="16"><button class="btn" id="gen">Generate password</button><button class="btn secondary" id="copy" type="button">Copy</button><div class="result" id="pout" aria-live="polite">Click generate to begin.</div></article>
-<article class="card" data-name="word counter characters text"><div class="ic">📝</div><h3>Word Counter</h3><p>Instantly count words and characters as you type.</p><textarea class="field" id="words" rows="5" placeholder="Type or paste your text..."></textarea><div class="result" id="wout">0 words · 0 characters</div></article>
-<article class="card" data-name="text case converter uppercase lowercase title"><div class="ic">🔠</div><h3>Text Case Converter</h3><p>Change text to uppercase, lowercase or title case.</p><textarea class="field" id="casein" rows="4" placeholder="Paste text here..."></textarea><div class="inline"><button class="btn" id="upper">UPPER</button><button class="btn" id="lower">lower</button><button class="btn" id="title">Title</button></div><div class="result" id="caseout" aria-live="polite">Converted text appears here.</div></article>
-<article class="card" data-name="percentage calculator percent discount"><div class="ic">📊</div><h3>Percentage Calculator</h3><p>Find a percentage of any number.</p><input class="field" id="pct" type="number" placeholder="Percentage, e.g. 15"><input class="field" id="base" type="number" placeholder="Number, e.g. 200"><button class="btn" id="percent">Calculate</button><div class="result" id="pctout" aria-live="polite">Your result will appear here.</div></article>
-<article class="card" data-name="timer countdown minutes seconds"><div class="ic">⏱️</div><h3>Countdown Timer</h3><p>Set a timer for studying, cooking or quick tasks.</p><input class="field" id="mins" type="number" min="1" max="1440" value="5" aria-label="Minutes"><div class="inline"><button class="btn" id="start">Start</button><button class="btn secondary" id="stop">Reset</button></div><div class="result" id="timer" aria-live="polite">05:00</div></article>
-</div><p id="empty" class="empty">No matching tools found.</p></main>
+<section class="hero"><div class="wrap"><div class="eyebrow">Your everyday toolkit</div><h1>🧮 <span>Scientific Calculator</span></h1><p>Everyday maths, powerful scientific functions, and an easy-to-use keypad.</p><input class="search" id="search" placeholder="🔎  Search tools..." aria-label="Search tools"></div></section>
+<main class="wrap section" id="calculator-main">
+  <div class="science-shell">
+    <p class="science-intro">A proper calculator with buttons for everyday maths and scientific functions. Click the keys or type an expression.</p>
+    <section class="science-panel" aria-label="Scientific calculator">
+      <div class="science-top">
+        <div class="science-modes" aria-label="Angle mode">
+          <button type="button" id="sci-deg" aria-pressed="true">DEG</button>
+          <button type="button" id="sci-rad" aria-pressed="false">RAD</button>
+        </div>
+        <span class="science-memory-status" id="sci-memory" aria-live="polite">Memory: <strong>0</strong></span>
+      </div>
+      <div class="science-screen">
+        <label for="sci-expression">Expression</label>
+        <input id="sci-expression" type="text" inputmode="text" autocomplete="off" spellcheck="false" placeholder="e.g. sin(30) + 2^3" aria-describedby="sci-status">
+        <div class="science-answer-label">Result</div>
+        <div class="science-answer" id="sci-answer" aria-live="polite">0</div>
+        <div class="science-status" id="sci-status" role="status">DEG mode · Enter an expression or use the buttons</div>
+      </div>
+      <div class="science-toolbar" aria-label="Clear and memory functions">
+        <button type="button" class="science-key danger" data-action="clear" title="Clear all">AC</button>
+        <button type="button" class="science-key danger" data-action="delete" title="Delete one character">DEL</button>
+        <button type="button" class="science-key function" data-action="mc" title="Clear memory">MC</button>
+        <button type="button" class="science-key function" data-action="mr" title="Recall memory">MR</button>
+        <button type="button" class="science-key function" data-action="mplus" title="Add to memory">M+</button>
+        <button type="button" class="science-key function" data-action="mminus" title="Subtract from memory">M−</button>
+      </div>
+      <div class="science-keys" aria-label="Calculator keypad">
+        <button type="button" class="science-key function" data-insert="sin(">sin</button>
+        <button type="button" class="science-key function" data-insert="cos(">cos</button>
+        <button type="button" class="science-key function" data-insert="tan(">tan</button>
+        <button type="button" class="science-key" data-insert="7">7</button>
+        <button type="button" class="science-key" data-insert="8">8</button>
+        <button type="button" class="science-key" data-insert="9">9</button>
+
+        <button type="button" class="science-key function" data-insert="asin(" title="Inverse sine">sin<sup>−1</sup></button>
+        <button type="button" class="science-key function" data-insert="acos(" title="Inverse cosine">cos<sup>−1</sup></button>
+        <button type="button" class="science-key function" data-insert="atan(" title="Inverse tangent">tan<sup>−1</sup></button>
+        <button type="button" class="science-key" data-insert="4">4</button>
+        <button type="button" class="science-key" data-insert="5">5</button>
+        <button type="button" class="science-key" data-insert="6">6</button>
+
+        <button type="button" class="science-key function" data-insert="ln(">ln</button>
+        <button type="button" class="science-key function" data-insert="log(">log</button>
+        <button type="button" class="science-key function" data-insert="sqrt(" title="Square root">√x</button>
+        <button type="button" class="science-key" data-insert="1">1</button>
+        <button type="button" class="science-key" data-insert="2">2</button>
+        <button type="button" class="science-key" data-insert="3">3</button>
+
+        <button type="button" class="science-key function" data-insert="^2">x²</button>
+        <button type="button" class="science-key function" data-insert="^">xʸ</button>
+        <button type="button" class="science-key function" data-insert="!">n!</button>
+        <button type="button" class="science-key" data-insert="0">0</button>
+        <button type="button" class="science-key" data-insert=".">.</button>
+        <button type="button" class="science-key operator" data-action="sign">±</button>
+
+        <button type="button" class="science-key function" data-insert="π">π</button>
+        <button type="button" class="science-key function" data-insert="e">e</button>
+        <button type="button" class="science-key function" data-insert="(">(</button>
+        <button type="button" class="science-key function" data-insert=")">)</button>
+        <button type="button" class="science-key operator" data-insert="÷">÷</button>
+        <button type="button" class="science-key operator" data-insert="×">×</button>
+
+        <button type="button" class="science-key function" data-insert="Ans">Ans</button>
+        <button type="button" class="science-key function" data-insert="inv(" title="Reciprocal">1/x</button>
+        <button type="button" class="science-key function" data-insert="%">%</button>
+        <button type="button" class="science-key operator" data-insert="−">−</button>
+        <button type="button" class="science-key operator" data-insert="+">+</button>
+        <button type="button" class="science-key equal" data-action="equals">=</button>
+      </div>
+      <p class="science-tip">Enter evaluates · Esc clears · Backspace deletes · DEG/RAD changes trigonometric units. Calculations stay in your browser.</p>
+    </section>
+  </div>
+</main>
 <footer><div class="gsc-footer-credit" style="display:block;box-sizing:border-box;width:100%;max-width:none;clear:both;text-align:center!important;font-size:13px;line-height:1.6;padding:18px 18px 12px;margin:20px auto 0;border-top:1px solid #e4eaf5;color:#687991">Written by AI, verified by the humans of the <a href="https://groundsupportcrew.com" target="_blank" rel="noopener noreferrer" style="color:#1956ba;font-weight:700;text-decoration:underline">Ground Support Crew</a>.</div></footer>
 <script>
-const el=id=>document.getElementById(id);
-el('year').textContent=new Date().getFullYear();
-el('search').addEventListener('input',e=>{let n=0;document.querySelectorAll('.card').forEach(c=>{let show=c.dataset.name.includes(e.target.value.toLowerCase().trim())||c.querySelector('h3').textContent.toLowerCase().includes(e.target.value.toLowerCase().trim());c.classList.toggle('hidden',!show);if(show)n++});el('empty').style.display=n?'none':'block'});
-el('calc').onclick=()=>{const a=Number(el('ca').value),b=Number(el('cb').value),op=el('cop').value;if(el('ca').value===''||el('cb').value===''){el('cres').textContent='Enter both numbers.';return}if(op==='/'&&b===0){el('cres').textContent='Cannot divide by zero.';return}let r=op==='+'?a+b:op==='-'?a-b:op==='*'?a*b:a/b;el('cres').textContent=String(Number(r.toPrecision(12)))};
-el('gen').onclick=()=>{const n=Math.min(64,Math.max(8,Number(el('plen').value)||16));el('plen').value=n;const chars='ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789!@#$%&*?';const vals=new Uint32Array(n);crypto.getRandomValues(vals);const threshold=Math.floor(4294967296/chars.length)*chars.length;let pass='';for(let i=0;i<n;i++){let v=vals[i];while(v>=threshold){let temp=new Uint32Array(1);crypto.getRandomValues(temp);v=temp[0]}pass+=chars[v%chars.length]}el('pout').textContent=pass};
-el('copy').onclick=async()=>{const t=el('pout').textContent;if(t==='Click generate to begin.')return;try{await navigator.clipboard.writeText(t);el('copy').textContent='Copied!';setTimeout(()=>el('copy').textContent='Copy',1500)}catch{el('copy').textContent='Select to copy'}};
-el('words').oninput=()=>{const t=el('words').value;el('wout').textContent=(t.trim()?t.trim().split(/\s+/u).length:0)+' words · '+Array.from(t).length+' characters'};
-function convert(mode){const t=el('casein').value;el('caseout').textContent=mode==='upper'?t.toUpperCase():mode==='lower'?t.toLowerCase():t.toLowerCase().replace(/\b\w/g,c=>c.toUpperCase())}
-el('upper').onclick=()=>convert('upper');el('lower').onclick=()=>convert('lower');el('title').onclick=()=>convert('title');
-el('percent').onclick=()=>{if(el('pct').value===''||el('base').value===''){el('pctout').textContent='Enter both values.';return}el('pctout').textContent=String(Number((Number(el('pct').value)*Number(el('base').value)/100).toPrecision(12)))};
-let countdown=null,remaining=300;function render(){el('timer').textContent=String(Math.floor(remaining/60)).padStart(2,'0')+':'+String(remaining%60).padStart(2,'0')}el('start').onclick=()=>{if(countdown)return;remaining=Math.max(1,Math.min(1440,Number(el('mins').value)||5))*60;render();let target=Date.now()+remaining*1000;countdown=setInterval(()=>{remaining=Math.max(0,Math.ceil((target-Date.now())/1000));render();if(!remaining){clearInterval(countdown);countdown=null;el('timer').textContent='Time is up!'}},250)};el('stop').onclick=()=>{clearInterval(countdown);countdown=null;remaining=Math.max(1,Math.min(1440,Number(el('mins').value)||5))*60;render()};
+(() => {
+  'use strict';
+  const input = document.getElementById('sci-expression');
+  const answer = document.getElementById('sci-answer');
+  const status = document.getElementById('sci-status');
+  const memStatus = document.getElementById('sci-memory');
+  const degButton = document.getElementById('sci-deg');
+  const radButton = document.getElementById('sci-rad');
+  const panel = document.querySelector('.science-panel');
+  let angleMode = 'deg';
+  let lastAnswer = 0;
+  let memory = 0;
+  let justCalculated = false;
+
+  function format(n) {
+    if (!Number.isFinite(n)) throw Error('Undefined result');
+    if (Math.abs(n) < 1e-14) return '0';
+    return String(Number(n.toPrecision(12)));
+  }
+
+  function evaluate(source) {
+    const s = source.replace(/[×·]/g, '*').replace(/÷/g, '/').replace(/[−–]/g, '-');
+    const tokens = [];
+    for (let i = 0; i < s.length;) {
+      if (/\s/.test(s[i])) { i++; continue; }
+      const rest = s.slice(i);
+      const number = /^(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?/.exec(rest);
+      if (number) { tokens.push({type:'num',value:Number(number[0])}); i += number[0].length; continue; }
+      const name = /^(?:[a-zA-Z]+|π)/.exec(rest);
+      if (name) { tokens.push(name[0].toLowerCase()); i += name[0].length; continue; }
+      if ('+-*/^()!%'.includes(s[i])) { tokens.push(s[i]); i++; continue; }
+      throw Error('Unrecognised character: ' + s[i]);
+    }
+    let at = 0;
+    const peek = () => tokens[at];
+    const take = value => {if (peek() === value) {at++; return true;} return false;};
+    const expect = value => {if (!take(value)) throw Error('Missing ' + value);};
+    function addSub() {
+      let v = multiply();
+      while (peek() === '+' || peek() === '-') {
+        const op = tokens[at++], rhs = multiply();
+        v = op === '+' ? v + rhs : v - rhs;
+      }
+      return v;
+    }
+    function implicitStart(t) {
+      return (t && typeof t === 'object' && t.type === 'num') ||
+        t === '(' || t === 'pi' || t === 'π' || t === 'e' || t === 'ans' ||
+        ['sin','cos','tan','asin','acos','atan','sqrt','ln','log','inv','abs','exp','cbrt'].includes(t);
+    }
+    function multiply() {
+      let v = unary();
+      while (true) {
+        if (take('*')) v *= unary();
+        else if (take('/')) {
+          const divisor = unary();
+          if (divisor === 0) throw Error('Cannot divide by zero');
+          v /= divisor;
+        } else if (implicitStart(peek())) v *= unary();
+        else return v;
+      }
+    }
+    function unary() {
+      if (take('+')) return unary();
+      if (take('-')) return -unary();
+      return power();
+    }
+    function power() {
+      let v = postfix();
+      if (take('^')) v = Math.pow(v, unary());
+      return v;
+    }
+    function postfix() {
+      let v = primary();
+      while (true) {
+        if (take('%')) v /= 100;
+        else if (take('!')) {
+          if (!Number.isInteger(v) || v < 0 || v > 170) throw Error('Factorial requires an integer from 0 to 170');
+          let f = 1; for (let k = 2; k <= v; k++) f *= k;
+          v = f;
+        } else return v;
+      }
+    }
+    function primary() {
+      const t = tokens[at++];
+      if (typeof t === 'object' && t.type === 'num') return t.value;
+      if (t === 'pi' || t === 'π') return Math.PI;
+      if (t === 'e') return Math.E;
+      if (t === 'ans') return lastAnswer;
+      if (t === '(') { const v = addSub(); expect(')'); return v; }
+      const funcs = ['sin','cos','tan','asin','acos','atan','sqrt','ln','log','inv','abs','exp','cbrt'];
+      if (funcs.includes(t)) {
+        expect('(');
+        const v = addSub();
+        expect(')');
+        const rad = angleMode === 'deg' ? v * Math.PI / 180 : v;
+        const result = {
+          sin: () => Math.sin(rad), cos: () => Math.cos(rad),
+          tan: () => {if (Math.abs(Math.cos(rad)) < 1e-12) throw Error('Tangent is undefined for this angle'); return Math.tan(rad);},
+          asin: () => (angleMode === 'deg' ? 180 / Math.PI : 1) * Math.asin(v),
+          acos: () => (angleMode === 'deg' ? 180 / Math.PI : 1) * Math.acos(v),
+          atan: () => (angleMode === 'deg' ? 180 / Math.PI : 1) * Math.atan(v),
+          sqrt: () => Math.sqrt(v), cbrt: () => Math.cbrt(v),
+          ln: () => Math.log(v), log: () => Math.log10(v),
+          inv: () => {if (v === 0) throw Error('Cannot divide by zero'); return 1/v;},
+          abs: () => Math.abs(v), exp: () => Math.exp(v)
+        }[t]();
+        if (!Number.isFinite(result)) throw Error('Undefined result for this function');
+        return result;
+      }
+      if (t === undefined) throw Error('Incomplete expression');
+      throw Error('Unexpected value: ' + (typeof t === 'object' ? t.value : t));
+    }
+    if (!tokens.length) throw Error('Enter an expression');
+    const v = addSub();
+    if (at !== tokens.length) throw Error('Check the expression near ' + (typeof peek() === 'object' ? peek().value : peek()));
+    if (!Number.isFinite(v)) throw Error('Undefined result');
+    return v;
+  }
+
+  function show(message, error = false) {
+    status.textContent = message;
+    status.classList.toggle('is-error', error);
+  }
+  function preview() {
+    const expr = input.value.trim();
+    if (!expr) { answer.textContent = '0'; show(angleMode.toUpperCase() + ' mode · Enter an expression or use the buttons'); return; }
+    try {
+      answer.textContent = format(evaluate(expr));
+      show('Preview · press = or Enter to save as Ans');
+    } catch {
+      answer.textContent = '—';
+      show('Finish the expression, then press =');
+    }
+  }
+  function compute() {
+    try {
+      const v = evaluate(input.value);
+      const rendered = format(v);
+      lastAnswer = v;
+      answer.textContent = rendered;
+      justCalculated = true;
+      show('Result saved as Ans');
+      return v;
+    } catch (err) {
+      answer.textContent = '—';
+      show(err.message || 'Invalid expression', true);
+      justCalculated = false;
+      return null;
+    }
+  }
+  function insert(value) {
+    if (justCalculated && /^[\d.]$/.test(value)) {
+      input.value = '';
+      input.setSelectionRange(0, 0);
+    }
+    justCalculated = false;
+    const start = input.selectionStart ?? input.value.length;
+    const end = input.selectionEnd ?? start;
+    input.value = input.value.slice(0, start) + value + input.value.slice(end);
+    const position = start + value.length;
+    input.focus();
+    input.setSelectionRange(position, position);
+    preview();
+  }
+  function getValue() {
+    if (!input.value.trim()) return lastAnswer;
+    return evaluate(input.value);
+  }
+  function action(which) {
+    if (which === 'clear') { input.value = ''; justCalculated = false; preview(); input.focus(); return; }
+    if (which === 'delete') {
+      const a = input.selectionStart ?? input.value.length, b = input.selectionEnd ?? a;
+      if (a !== b) { input.value = input.value.slice(0,a) + input.value.slice(b); input.setSelectionRange(a,a); }
+      else if (a > 0) { input.value = input.value.slice(0,a-1) + input.value.slice(a); input.setSelectionRange(a-1,a-1); }
+      justCalculated = false; input.focus(); preview(); return;
+    }
+    if (which === 'equals') { compute(); return; }
+    if (which === 'sign') {
+      if (!input.value.trim()) insert('-');
+      else {
+        input.value = '-(' + input.value + ')';
+        justCalculated = false;
+        input.focus();
+        preview();
+      }
+      return;
+    }
+    if (which === 'mc') memory = 0;
+    else if (which === 'mr') { insert('(' + format(memory) + ')'); return; }
+    else if (which === 'mplus' || which === 'mminus') {
+      try { memory += (which === 'mplus' ? 1 : -1) * getValue(); }
+      catch (err) {show(err.message, true);return;}
+    }
+    if (!Number.isFinite(memory)) memory = 0;
+    memStatus.innerHTML = 'Memory: <strong>' + format(memory) + '</strong>';
+    show('Memory updated');
+  }
+  function setMode(mode) {
+    angleMode = mode;
+    degButton.setAttribute('aria-pressed', String(mode === 'deg'));
+    radButton.setAttribute('aria-pressed', String(mode === 'rad'));
+    preview();
+  }
+  degButton.addEventListener('click', () => setMode('deg'));
+  radButton.addEventListener('click', () => setMode('rad'));
+  panel.addEventListener('click', event => {
+    const button = event.target.closest('button[data-insert], button[data-action]');
+    if (!button) return;
+    if (button.dataset.insert !== undefined) insert(button.dataset.insert);
+    else action(button.dataset.action);
+  });
+  input.addEventListener('input', () => { justCalculated = false; preview(); });
+  document.addEventListener('keydown', event => {
+    if (event.ctrlKey || event.metaKey || event.altKey) return;
+    const inInput = document.activeElement === input;
+    if (event.key === 'Enter' && inInput) {event.preventDefault();compute();return;}
+    if (event.key === 'Escape') {event.preventDefault();action('clear');return;}
+    if (inInput || /INPUT|TEXTAREA|SELECT/.test(document.activeElement?.tagName || '')) return;
+    if (/^[\d.+\-*/^()%!]$/.test(event.key)) {event.preventDefault();insert(event.key);}
+    else if (event.key === 'Enter' || event.key === '=') {event.preventDefault();compute();}
+    else if (event.key === 'Backspace') {event.preventDefault();action('delete');}
+  });
+  preview();
+})();
 </script><script>
 (function(){
  const link=document.getElementById('bookmark-link');
