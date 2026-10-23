@@ -165,7 +165,7 @@
 
   function format(n) {
     if (!Number.isFinite(n)) throw Error('Undefined result');
-    if (Math.abs(n) < 1e-14) return '0';
+    if (n === 0 || Object.is(n, -0)) return '0';
     return String(Number(n.toPrecision(12)));
   }
 
