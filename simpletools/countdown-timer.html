@@ -36,7 +36,7 @@
 <footer><div class="wrap" style="text-align:center;font-size:13px;margin-top:20px">Written by AI, verified by the humans of the <a href="https://groundsupportcrew.com" target="_blank" rel="noopener noreferrer">Ground Support Crew</a>.</div></footer>
 <script>
 const el=id=>document.getElementById(id);
-el('year').textContent=new Date().getFullYear();
+// The former copyright-year element was removed from the footer.
 el('search').addEventListener('input',e=>{let n=0;document.querySelectorAll('.card').forEach(c=>{let show=c.dataset.name.includes(e.target.value.toLowerCase().trim())||c.querySelector('h3').textContent.toLowerCase().includes(e.target.value.toLowerCase().trim());c.classList.toggle('hidden',!show);if(show)n++});el('empty').style.display=n?'none':'block'});
 el('calc').onclick=()=>{const a=Number(el('ca').value),b=Number(el('cb').value),op=el('cop').value;if(el('ca').value===''||el('cb').value===''){el('cres').textContent='Enter both numbers.';return}if(op==='/'&&b===0){el('cres').textContent='Cannot divide by zero.';return}let r=op==='+'?a+b:op==='-'?a-b:op==='*'?a*b:a/b;el('cres').textContent=String(Number(r.toPrecision(12)))};
 el('gen').onclick=()=>{const n=Math.min(64,Math.max(8,Number(el('plen').value)||16));el('plen').value=n;const chars='ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789!@#$%&*?';const vals=new Uint32Array(n);crypto.getRandomValues(vals);const threshold=Math.floor(4294967296/chars.length)*chars.length;let pass='';for(let i=0;i<n;i++){let v=vals[i];while(v>=threshold){let temp=new Uint32Array(1);crypto.getRandomValues(temp);v=temp[0]}pass+=chars[v%chars.length]}el('pout').textContent=pass};
