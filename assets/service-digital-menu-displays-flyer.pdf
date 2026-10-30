@@ -10,7 +10,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> /Contents 4 0 R >>
 endobj
 4 0 obj
-<< /Length 3975 >>
+<< /Length 4081 >>
 stream
 1.000 0.970 0.935 rg
 0 0 595 842 re f
@@ -65,39 +65,44 @@ BT /F2 11 Tf 1 0 0 1 60 342 Tm (Installation and handover) Tj ET
 0.430 0.360 0.310 rg
 BT /F1 10 Tf 1 0 0 1 60 326 Tm (with practical guidance) Tj ET
 0.160 0.200 0.200 rg
-332 335 216 232 re f
-0.250 0.280 0.280 rg
-339 342 202 218 re f
+314 322 240 204 re f
+0.950 0.940 0.910 rg
+324 328 220 192 re f
+0.120 0.170 0.250 rg
+333 386 202 122 re f
+0.200 0.300 0.460 rg
+341 394 186 106 re f
 0.940 0.510 0.150 rg
-339 519 202 41 re f
+341 470 186 30 re f
 0.170 0.110 0.075 rg
-BT /F2 14 Tf 1 0 0 1 352 537 Tm (TODAY'S MENU) Tj ET
+BT /F2 14 Tf 1 0 0 1 352 482 Tm (TODAY'S MENU) Tj ET
 1.000 1.000 1.000 rg
-BT /F2 11 Tf 1 0 0 1 351 492 Tm (Espresso) Tj ET
-BT /F1 10 Tf 1 0 0 1 484 492 Tm ($4.00) Tj ET
-0.420 0.460 0.450 RG
-0.6 w
-351 479 m 526 479 l S
-BT /F2 11 Tf 1 0 0 1 351 455 Tm (Cappuccino) Tj ET
-BT /F1 10 Tf 1 0 0 1 484 455 Tm ($5.50) Tj ET
-0.420 0.460 0.450 RG
-0.6 w
-351 442 m 526 442 l S
-BT /F2 11 Tf 1 0 0 1 351 418 Tm (Fresh sandwich) Tj ET
-BT /F1 10 Tf 1 0 0 1 484 418 Tm ($9.50) Tj ET
-0.420 0.460 0.450 RG
-0.6 w
-351 405 m 526 405 l S
-BT /F2 11 Tf 1 0 0 1 351 381 Tm (Daily special) Tj ET
-BT /F1 10 Tf 1 0 0 1 484 381 Tm ($12.00) Tj ET
-0.420 0.460 0.450 RG
-0.6 w
-351 368 m 526 368 l S
-0.220 0.230 0.230 rg
-421 328 38 7 re f
-397 320 86 7 re f
+BT /F2 10 Tf 1 0 0 1 350 452 Tm (Espresso) Tj ET
+BT /F1 9 Tf 1 0 0 1 487 452 Tm ($4.00) Tj ET
+0.720 0.840 0.970 RG
+0.5 w
+350 444 m 519 444 l S
+BT /F2 10 Tf 1 0 0 1 350 431 Tm (Cappuccino) Tj ET
+BT /F1 9 Tf 1 0 0 1 487 431 Tm ($5.50) Tj ET
+0.720 0.840 0.970 RG
+0.5 w
+350 423 m 519 423 l S
+BT /F2 10 Tf 1 0 0 1 350 410 Tm (Fresh sandwich) Tj ET
+BT /F1 9 Tf 1 0 0 1 487 410 Tm ($9.50) Tj ET
+0.720 0.840 0.970 RG
+0.5 w
+350 402 m 519 402 l S
+BT /F2 10 Tf 1 0 0 1 350 389 Tm (Daily special) Tj ET
+BT /F1 9 Tf 1 0 0 1 487 389 Tm ($12.00) Tj ET
+0.720 0.840 0.970 RG
+0.5 w
+350 381 m 519 381 l S
+0.190 0.220 0.240 rg
+428 375 12 11 re f
+0.190 0.220 0.240 rg
+410 367 48 8 re f
 0.430 0.360 0.310 rg
-BT /F1 9 Tf 1 0 0 1 344 302 Tm (Illustrative screen - menu is customised) Tj ET
+BT /F1 9 Tf 1 0 0 1 336 346 Tm (Illustrative 16:9 screen - menu is customised) Tj ET
 0.860 0.780 0.700 RG
 1 w
 44 279 m 551 279 l S
@@ -124,7 +129,7 @@ BT /F2 11 Tf 1 0 0 1 55 123 Tm (Perfect for cafes, bakeries, food trucks and sma
 1.000 1.000 1.000 rg
 BT /F2 15 Tf 1 0 0 1 44 67 Tm (LET US QUOTE YOUR DIGITAL MENU) Tj ET
 1.000 0.760 0.500 rg
-BT /F1 11 Tf 1 0 0 1 44 45 Tm (hello@groundsupportcrew.com   |   groundsupportcrew.com) Tj ET
+BT /F1 11 Tf 1 0 0 1 44 45 Tm (info@groundsupportcrew.com   |   groundsupportcrew.com) Tj ET
 0.770 0.720 0.660 rg
 BT /F1 9 Tf 1 0 0 1 44 22 Tm (Equipment, installation and any ongoing service are quoted to suit.) Tj ET
 endstream
@@ -142,10 +147,10 @@ xref
 0000000086 00000 n 
 0000000143 00000 n 
 0000000279 00000 n 
-0000004305 00000 n 
-0000004375 00000 n 
+0000004411 00000 n 
+0000004481 00000 n 
 trailer
 << /Size 7 /Root 1 0 R >>
 startxref
-4450
+4556
 %%EOF
