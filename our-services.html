@@ -185,6 +185,17 @@
   .service-category[open] .service-category-title::after{content:'−';}
   .service-category-title:focus-visible{outline:3px solid var(--amber);outline-offset:-3px;}
   .service-category .service-list{padding:20px;}
+  /* Service finder: show relevant services with an unmistakable red outline. */
+  .service-search-panel{display:flex;align-items:center;gap:16px;margin:0 0 10px;}
+  .service-search-panel label{flex:0 0 auto;font-family:'Big Shoulders Display',sans-serif;font-size:26px;font-weight:800;color:var(--ink);}
+  .service-search-panel input{flex:1;min-width:0;width:100%;padding:13px 14px;border:1px solid #BFA891;border-radius:7px;background:#fff;color:var(--ink);font:500 16px 'Inter',system-ui,sans-serif;}
+  .service-search-panel input:focus-visible{outline:3px solid var(--amber);outline-offset:2px;}
+  .service-search-results{font-size:14px;color:var(--slate);margin:0 0 18px;line-height:1.5;}
+  .service-search-results[hidden]{display:none;}
+  .service-category[hidden],.service-item[hidden]{display:none!important;}
+  .service-item.service-search-hit{outline:3px solid #C62828;outline-offset:-3px;border-radius:7px;background:#FFF0F0;padding:16px 12px;}
+  @media(max-width:600px){.service-search-panel{align-items:stretch;flex-direction:column;gap:7px;}.service-search-panel label{font-size:25px;}}
+
   .service-list{
     display:grid;
     grid-template-columns:repeat(2,minmax(0,1fr));
@@ -310,6 +321,11 @@
         <tr>
           <td>
             <section class="service-categories" aria-label="Our services by category">
+              <div class="service-search-panel" role="search" aria-label="Find a service">
+                <label for="service-search">What can we do for you?</label>
+                <input id="service-search" type="search" placeholder="Try website, backup, business…" autocomplete="off" aria-controls="service-search-results" aria-describedby="service-search-results">
+              </div>
+              <p id="service-search-results" class="service-search-results" role="status" aria-live="polite" hidden></p>
               <details class="service-category" name="services" aria-labelledby="category-advertising">
                 <summary class="service-category-title" id="category-advertising"><h2>Advertising</h2></summary>
                 <div class="service-list">
@@ -515,15 +531,69 @@
     </table>
   </main>
 <script>
-// Keep exactly one service category expanded, including in older browsers.
-document.querySelectorAll('.service-category').forEach(function (category) {
-  category.addEventListener('toggle', function () {
-    if (!category.open) return;
-    document.querySelectorAll('.service-category').forEach(function (other) {
-      if (other !== category) other.open = false;
+(function () {
+  var search = document.getElementById('service-search');
+  var status = document.getElementById('service-search-results');
+  var categories = Array.from(document.querySelectorAll('.service-category'));
+
+  // Ordinary browsing: one category at a time. Searching: open every matching category.
+  categories.forEach(function (category) {
+    category.addEventListener('toggle', function () {
+      if (!category.open || search.value.trim()) return;
+      categories.forEach(function (other) {
+        if (other !== category) other.open = false;
+      });
     });
   });
-});
+
+  function updateServiceSearch() {
+    var query = search.value.trim().toLocaleLowerCase();
+    var searching = query.length > 0;
+    var hits = 0;
+    var matchedCategories = 0;
+
+    categories.forEach(function (category) {
+      // The shared name normally enforces a single expanded accordion.
+      // Remove it during search so all matching categories can expand together.
+      if (searching) category.removeAttribute('name');
+      else category.setAttribute('name', 'services');
+
+      var heading = category.querySelector('.service-category-title h2');
+      var categoryMatches = searching && heading.textContent.toLocaleLowerCase().includes(query);
+      var categoryHits = 0;
+
+      category.querySelectorAll('.service-item').forEach(function (item) {
+        var description = item.querySelector('.service-description');
+        var itemMatches = searching && (categoryMatches ||
+          description.textContent.toLocaleLowerCase().includes(query));
+
+        item.classList.toggle('service-search-hit', itemMatches);
+        item.hidden = searching && !itemMatches;
+        if (itemMatches) categoryHits++;
+      });
+
+      category.hidden = searching && categoryHits === 0;
+      category.open = searching && categoryHits > 0;
+      if (categoryHits > 0) {
+        hits += categoryHits;
+        matchedCategories++;
+      }
+    });
+
+    status.hidden = !searching;
+    if (searching) {
+      status.textContent = hits === 0
+        ? 'No matching services found. Try a different word.'
+        : hits + (hits === 1 ? ' matching service' : ' matching services') +
+          ' in ' + matchedCategories +
+          (matchedCategories === 1 ? ' category.' : ' categories.');
+    } else {
+      status.textContent = '';
+    }
+  }
+
+  search.addEventListener('input', updateServiceSearch);
+})();
 </script>
 <script>(function(){let b=document.querySelector(".gsc-bookmark-button"),h=document.querySelector(".gsc-bookmark-help");if(!b||!h)return;b.onclick=function(){let a=navigator.userAgent||"";h.textContent=/iPhone|iPad|iPod/i.test(a)?"Tap Share, then Add Bookmark.":/Android/i.test(a)?"Open the browser menu and choose Add to bookmarks.":/Macintosh|Mac OS X/i.test(a)?"Press Command (⌘) + D to bookmark this page.":"Press Ctrl + D to bookmark this page.";h.style.display="block"}})();</script></body>
 </html>
