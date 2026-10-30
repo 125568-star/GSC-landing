@@ -19,7 +19,7 @@
 <title>Our Services | Ground Support Crew</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Fraunces:ital,opsz@1,9..144&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Big+Shoulders+Display:wght@700;800&family=Fraunces:ital,opsz@1,9..144&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#2A1B12;
@@ -290,6 +290,17 @@
 .spacer-row{display:none!important}
 .resource-table{margin-bottom:0!important}
 .resource-section{padding-bottom:20px!important}
+
+/* Section label beneath the Ground Support Crew logo (main section pages only). */
+.page-script-title{
+  margin:8px 0 0;
+  font-family:'Dancing Script','Segoe Script',cursive;
+  font-size:clamp(29px,4.5vw,42px);
+  font-weight:700;
+  line-height:1.2;
+  color:#FFF6EC;
+  text-shadow:0 2px 12px rgba(0,0,0,.6);
+}
 </style>
 <link rel="stylesheet" href="assets/gsc-icons.css">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20261028">
@@ -299,9 +310,12 @@
   <div class="hero">
     <div class="scrim"></div>
     <div class="wrap" style="position:relative;z-index:2;display:flex;flex-direction:column;justify-content:space-between;flex:1;">
-      <div class="site-brand">
+      <div class="hero-branding">
+<div class="site-brand">
         <a class="site-logo" href="index.html" aria-label="Ground Support Crew home"><img src="assets/gsc-badge-logo.webp" alt="Ground Support Crew logo" width="66" height="66"></a>
         <a class="brand" href="https://groundsupportcrew.com/" aria-label="Ground Support Crew home">GROUND SUPPORT CREW</a>
+      </div>
+        <div class="page-script-title">Our Services</div>
       </div>
       <table class="hero-slogan-table" role="presentation">
         <tbody>
