@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="140" viewBox="0 0 560 140" role="img" aria-labelledby="title desc">
+<title id="title">Ground Support Crew — We Keep You Flying</title><desc id="desc">Ground Support Crew partner banner</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2A1B12"/><stop offset="1" stop-color="#714329"/></linearGradient></defs>
+<rect width="560" height="140" rx="14" fill="url(#bg)"/>
+<path d="M0 119 Q135 48 280 106 T560 79 V140 H0 Z" fill="#FFB769" opacity=".16"/>
+<path d="M0 128 Q135 67 278 114 T560 94" fill="none" stroke="#F6C184" stroke-width="2" opacity=".65"/>
+<circle cx="72" cy="70" r="44" fill="#F7B573"/>
+<path d="M38 74 61 64 72 39 79 64 105 72 79 81 72 105 61 82Z" fill="#2A1B12"/>
+<text x="138" y="64" fill="#FFF6EC" font-size="33" font-weight="800" font-family="Arial,sans-serif" letter-spacing=".5">GROUND SUPPORT</text>
+<text x="138" y="101" fill="#FFF6EC" font-size="33" font-weight="800" font-family="Arial,sans-serif" letter-spacing=".5">CREW</text>
+<text x="362" y="125" fill="#F6C184" font-size="16" font-family="Georgia,serif" font-style="italic">We Keep You Flying</text>
+</svg>
