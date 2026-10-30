@@ -175,8 +175,16 @@
   .resource-space{height:260px;}
   /* The full services catalogue runs in TWO columns for as many rows as needed. */
   .service-categories{padding:34px 0 58px;}
-  .service-category + .service-category{margin-top:36px;}
-  .service-category-title{font-family:'Big Shoulders Display',sans-serif;font-size:26px;font-weight:800;color:var(--ink);margin:0 0 20px;padding-bottom:10px;border-bottom:1px solid #D9CABB;}
+  .service-category + .service-category{margin-top:12px;}
+  .service-category{border:1px solid #D9CABB;border-radius:7px;background:#FFFBF6;overflow:hidden;}
+  .service-category-title{display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:'Big Shoulders Display',sans-serif;font-size:26px;font-weight:800;color:var(--ink);margin:0;padding:16px 20px;cursor:pointer;list-style:none;}
+  .service-category-title::-webkit-details-marker{display:none;}
+  .service-category-title h2{font:inherit;margin:0;}
+  .service-category-title::after{content:'+';font-family:'Inter',sans-serif;font-size:25px;font-weight:500;line-height:1;}
+  .service-category[open] .service-category-title{background:#FFF0DC;border-bottom:1px solid #D9CABB;}
+  .service-category[open] .service-category-title::after{content:'−';}
+  .service-category-title:focus-visible{outline:3px solid var(--amber);outline-offset:-3px;}
+  .service-category .service-list{padding:20px;}
   .service-list{
     display:grid;
     grid-template-columns:repeat(2,minmax(0,1fr));
@@ -302,8 +310,8 @@
         <tr>
           <td>
             <section class="service-categories" aria-label="Our services by category">
-              <section class="service-category" aria-labelledby="category-advertising">
-                <h2 class="service-category-title" id="category-advertising">Advertising</h2>
+              <details class="service-category" name="services" aria-labelledby="category-advertising">
+                <summary class="service-category-title" id="category-advertising"><h2>Advertising</h2></summary>
                 <div class="service-list">
                   <article class="service-item">
                 <a href="assets/google-maps-listing-ad.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open Google Maps business listing flyer (PDF)">
@@ -324,9 +332,9 @@
                 </div>
               </article>
                 </div>
-              </section>
-              <section class="service-category" aria-labelledby="category-business">
-                <h2 class="service-category-title" id="category-business">Business</h2>
+              </details>
+              <details class="service-category" name="services" aria-labelledby="category-business">
+                <summary class="service-category-title" id="category-business"><h2>Business</h2></summary>
                 <div class="service-list">
                   <article class="service-item">
                 <a href="assets/service-business-setup-flyer.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open Small Business Digital Setup service flyer (PDF)">
@@ -356,9 +364,9 @@
                 </div>
               </article>
                 </div>
-              </section>
-              <section class="service-category" aria-labelledby="category-e-commerce">
-                <h2 class="service-category-title" id="category-e-commerce">E-Commerce</h2>
+              </details>
+              <details class="service-category" name="services" aria-labelledby="category-e-commerce">
+                <summary class="service-category-title" id="category-e-commerce"><h2>E-Commerce</h2></summary>
                 <div class="service-list">
                   <article class="service-item">
                 <a href="assets/shopify-shop-flyer.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open Shopify shop setup flyer (PDF)">
@@ -379,9 +387,9 @@
                 </div>
               </article>
                 </div>
-              </section>
-              <section class="service-category" aria-labelledby="category-personal">
-                <h2 class="service-category-title" id="category-personal">Personal</h2>
+              </details>
+              <details class="service-category" name="services" aria-labelledby="category-personal">
+                <summary class="service-category-title" id="category-personal"><h2>Personal</h2></summary>
                 <div class="service-list">
                   <article class="service-item">
                 <a href="assets/service-computer-setup-flyer.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open Computer Setup &amp; Optimisation service flyer (PDF)">
@@ -420,9 +428,9 @@
                 </div>
               </article>
                 </div>
-              </section>
-              <section class="service-category" aria-labelledby="category-websites-content">
-                <h2 class="service-category-title" id="category-websites-content">Websites &amp; Content</h2>
+              </details>
+              <details class="service-category" name="services" aria-labelledby="category-websites-content">
+                <summary class="service-category-title" id="category-websites-content"><h2>Websites &amp; Content</h2></summary>
                 <div class="service-list">
                   <article class="service-item">
                 <a href="assets/website-creation-flyer.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open website creation service flyer (PDF)">
@@ -452,9 +460,9 @@
                 </div>
               </article>
                 </div>
-              </section>
-              <section class="service-category" aria-labelledby="category-privacy-data">
-                <h2 class="service-category-title" id="category-privacy-data">Privacy &amp; Data</h2>
+              </details>
+              <details class="service-category" name="services" aria-labelledby="category-privacy-data">
+                <summary class="service-category-title" id="category-privacy-data"><h2>Privacy &amp; Data</h2></summary>
                 <div class="service-list">
                   <article class="service-item">
                 <a href="assets/service-backup-flyer.pdf" target="_blank" rel="noopener noreferrer" class="service-preview" aria-label="Open Backup &amp; Data Protection service flyer (PDF)">
@@ -484,7 +492,7 @@
                 </div>
               </article>
                 </div>
-              </section>
+              </details>
             </section>
           </td>
         </tr>
@@ -506,5 +514,16 @@
       </tbody>
     </table>
   </main>
+<script>
+// Keep exactly one service category expanded, including in older browsers.
+document.querySelectorAll('.service-category').forEach(function (category) {
+  category.addEventListener('toggle', function () {
+    if (!category.open) return;
+    document.querySelectorAll('.service-category').forEach(function (other) {
+      if (other !== category) other.open = false;
+    });
+  });
+});
+</script>
 <script>(function(){let b=document.querySelector(".gsc-bookmark-button"),h=document.querySelector(".gsc-bookmark-help");if(!b||!h)return;b.onclick=function(){let a=navigator.userAgent||"";h.textContent=/iPhone|iPad|iPod/i.test(a)?"Tap Share, then Add Bookmark.":/Android/i.test(a)?"Open the browser menu and choose Add to bookmarks.":/Macintosh|Mac OS X/i.test(a)?"Press Command (⌘) + D to bookmark this page.":"Press Ctrl + D to bookmark this page.";h.style.display="block"}})();</script></body>
 </html>
