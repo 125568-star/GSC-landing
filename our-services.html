@@ -185,15 +185,18 @@
   .service-category[open] .service-category-title::after{content:'−';}
   .service-category-title:focus-visible{outline:3px solid var(--amber);outline-offset:-3px;}
   .service-category .service-list{padding:20px;}
-  /* Service finder: show relevant services with an unmistakable red outline. */
+  /* Search results are simple category links; original accordion service cards remain unchanged. */
   .service-search-panel{display:flex;align-items:center;gap:16px;margin:0 0 10px;}
   .service-search-panel label{flex:0 0 auto;font-family:'Big Shoulders Display',sans-serif;font-size:26px;font-weight:800;color:var(--ink);}
   .service-search-panel input{flex:1;min-width:0;width:100%;padding:13px 14px;border:1px solid #BFA891;border-radius:7px;background:#fff;color:var(--ink);font:500 16px 'Inter',system-ui,sans-serif;}
   .service-search-panel input:focus-visible{outline:3px solid var(--amber);outline-offset:2px;}
-  .service-search-results{font-size:14px;color:var(--slate);margin:0 0 18px;line-height:1.5;}
+  .service-search-results{font-size:15px;color:var(--slate);margin:0 0 18px;line-height:1.5;}
   .service-search-results[hidden]{display:none;}
-  .service-category[hidden],.service-item[hidden]{display:none!important;}
-  .service-item.service-search-hit{outline:3px solid #C62828;outline-offset:-3px;border-radius:7px;background:#FFF0F0;padding:16px 12px;}
+  .service-search-results p{margin:0 0 8px;}
+  .service-search-matches{display:flex;flex-direction:column;align-items:flex-start;gap:5px;}
+  .service-search-match{font:600 16px 'Inter',system-ui,sans-serif;color:var(--ink);text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:3px 0;}
+  .service-search-match:hover{color:#98551C;}
+  .service-search-match:focus-visible{outline:3px solid var(--amber);outline-offset:2px;}
   @media(max-width:600px){.service-search-panel{align-items:stretch;flex-direction:column;gap:7px;}.service-search-panel label{font-size:25px;}}
 
   .service-list{
@@ -325,7 +328,10 @@
                 <label for="service-search">What can we do for you?</label>
                 <input id="service-search" type="search" placeholder="Try website, backup, business…" autocomplete="off" aria-controls="service-search-results" aria-describedby="service-search-results">
               </div>
-              <p id="service-search-results" class="service-search-results" role="status" aria-live="polite" hidden></p>
+              <div id="service-search-results" class="service-search-results" hidden>
+                <p id="service-search-status" role="status" aria-live="polite"></p>
+                <nav id="service-search-matches" class="service-search-matches" aria-label="Matching service categories"></nav>
+              </div>
               <details class="service-category" name="services" aria-labelledby="category-advertising">
                 <summary class="service-category-title" id="category-advertising"><h2>Advertising</h2></summary>
                 <div class="service-list">
@@ -357,8 +363,8 @@
                   <img src="assets/colorful-icons-v2/service-business-setup.svg" alt="Small Business Digital Setup illustration" width="128" height="128" loading="lazy" decoding="async">
                 </a>
                 <div class="service-description">
-                  <h2><a href="assets/service-business-setup-flyer.pdf" target="_blank" rel="noopener noreferrer">Small Business Setup</a></h2>
-                  <p>We help bring together your website, professional email, Google Business Profile and social media accounts into a practical online business setup.</p>
+                  <h2><a href="assets/service-business-setup-flyer.pdf" target="_blank" rel="noopener noreferrer">Small Business Internet &amp; Network Setup</a></h2>
+                  <p>We set up your small business internet and network, including configuring your modem, router, Wi-Fi, wired connections, computers, printers and other connected devices. We can also improve your existing network to provide better coverage, reliability and security.</p>
                 </div>
               </article>
                   <article class="service-item">
@@ -533,63 +539,50 @@
 <script>
 (function () {
   var search = document.getElementById('service-search');
-  var status = document.getElementById('service-search-results');
+  var results = document.getElementById('service-search-results');
+  var status = document.getElementById('service-search-status');
+  var matches = document.getElementById('service-search-matches');
   var categories = Array.from(document.querySelectorAll('.service-category'));
 
-  // Ordinary browsing: one category at a time. Searching: open every matching category.
-  categories.forEach(function (category) {
-    category.addEventListener('toggle', function () {
-      if (!category.open || search.value.trim()) return;
-      categories.forEach(function (other) {
-        if (other !== category) other.open = false;
-      });
-    });
-  });
+  // All categories start closed, and the native shared name keeps just one open.
+  categories.forEach(function (category) { category.open = false; });
 
   function updateServiceSearch() {
     var query = search.value.trim().toLocaleLowerCase();
-    var searching = query.length > 0;
-    var hits = 0;
-    var matchedCategories = 0;
+    matches.replaceChildren();
+    if (!query) {
+      results.hidden = true;
+      status.textContent = '';
+      return;
+    }
 
+    var count = 0;
     categories.forEach(function (category) {
-      // The shared name normally enforces a single expanded accordion.
-      // Remove it during search so all matching categories can expand together.
-      if (searching) category.removeAttribute('name');
-      else category.setAttribute('name', 'services');
+      var title = category.querySelector('.service-category-title h2');
+      var serviceText = Array.from(category.querySelectorAll('.service-description')).map(function (description) {
+        return description.textContent;
+      }).join(' ');
+      if (!(title.textContent + ' ' + serviceText).toLocaleLowerCase().includes(query)) return;
 
-      var heading = category.querySelector('.service-category-title h2');
-      var categoryMatches = searching && heading.textContent.toLocaleLowerCase().includes(query);
-      var categoryHits = 0;
-
-      category.querySelectorAll('.service-item').forEach(function (item) {
-        var description = item.querySelector('.service-description');
-        var itemMatches = searching && (categoryMatches ||
-          description.textContent.toLocaleLowerCase().includes(query));
-
-        item.classList.toggle('service-search-hit', itemMatches);
-        item.hidden = searching && !itemMatches;
-        if (itemMatches) categoryHits++;
+      count++;
+      var link = document.createElement('a');
+      link.className = 'service-search-match';
+      link.href = '#' + category.querySelector('.service-category-title').id;
+      link.textContent = title.textContent;
+      link.addEventListener('click', function (event) {
+        event.preventDefault();
+        search.value = '';
+        updateServiceSearch();
+        category.open = true;
+        category.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
-
-      category.hidden = searching && categoryHits === 0;
-      category.open = searching && categoryHits > 0;
-      if (categoryHits > 0) {
-        hits += categoryHits;
-        matchedCategories++;
-      }
+      matches.appendChild(link);
     });
 
-    status.hidden = !searching;
-    if (searching) {
-      status.textContent = hits === 0
-        ? 'No matching services found. Try a different word.'
-        : hits + (hits === 1 ? ' matching service' : ' matching services') +
-          ' in ' + matchedCategories +
-          (matchedCategories === 1 ? ' category.' : ' categories.');
-    } else {
-      status.textContent = '';
-    }
+    results.hidden = false;
+    status.textContent = count
+      ? 'Matching ' + (count === 1 ? 'category' : 'categories') + ':'
+      : 'No matching categories found. Try a different word.';
   }
 
   search.addEventListener('input', updateServiceSearch);
