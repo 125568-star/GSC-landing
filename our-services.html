@@ -185,18 +185,13 @@
   .service-category[open] .service-category-title::after{content:'−';}
   .service-category-title:focus-visible{outline:3px solid var(--amber);outline-offset:-3px;}
   .service-category .service-list{padding:20px;}
-  /* Search results are simple category links; original accordion service cards remain unchanged. */
+  /* Search filters the existing accordion; it does not create separate links or highlights. */
   .service-search-panel{display:flex;align-items:center;gap:16px;margin:0 0 10px;}
   .service-search-panel label{flex:0 0 auto;font-family:'Big Shoulders Display',sans-serif;font-size:26px;font-weight:800;color:var(--ink);}
   .service-search-panel input{flex:1;min-width:0;width:100%;padding:13px 14px;border:1px solid #BFA891;border-radius:7px;background:#fff;color:var(--ink);font:500 16px 'Inter',system-ui,sans-serif;}
   .service-search-panel input:focus-visible{outline:3px solid var(--amber);outline-offset:2px;}
-  .service-search-results{font-size:15px;color:var(--slate);margin:0 0 18px;line-height:1.5;}
-  .service-search-results[hidden]{display:none;}
-  .service-search-results p{margin:0 0 8px;}
-  .service-search-matches{display:flex;flex-direction:column;align-items:flex-start;gap:5px;}
-  .service-search-match{font:600 16px 'Inter',system-ui,sans-serif;color:var(--ink);text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:3px 0;}
-  .service-search-match:hover{color:#98551C;}
-  .service-search-match:focus-visible{outline:3px solid var(--amber);outline-offset:2px;}
+  .service-search-status{font-size:14px;color:var(--slate);margin:0 0 18px;line-height:1.5;}
+  .service-search-status[hidden],.service-category[hidden],.service-item[hidden]{display:none!important;}
   @media(max-width:600px){.service-search-panel{align-items:stretch;flex-direction:column;gap:7px;}.service-search-panel label{font-size:25px;}}
 
   .service-list{
@@ -326,12 +321,9 @@
             <section class="service-categories" aria-label="Our services by category">
               <div class="service-search-panel" role="search" aria-label="Find a service">
                 <label for="service-search">What can we do for you?</label>
-                <input id="service-search" type="search" placeholder="Try website, backup, business…" autocomplete="off" aria-controls="service-search-results" aria-describedby="service-search-results">
+                <input id="service-search" type="search" placeholder="Try website, backup, business…" autocomplete="off">
               </div>
-              <div id="service-search-results" class="service-search-results" hidden>
-                <p id="service-search-status" role="status" aria-live="polite"></p>
-                <nav id="service-search-matches" class="service-search-matches" aria-label="Matching service categories"></nav>
-              </div>
+              <p id="service-search-status" class="service-search-status" role="status" aria-live="polite" hidden></p>
               <details class="service-category" name="services" aria-labelledby="category-advertising">
                 <summary class="service-category-title" id="category-advertising"><h2>Advertising</h2></summary>
                 <div class="service-list">
@@ -539,50 +531,47 @@
 <script>
 (function () {
   var search = document.getElementById('service-search');
-  var results = document.getElementById('service-search-results');
   var status = document.getElementById('service-search-status');
-  var matches = document.getElementById('service-search-matches');
   var categories = Array.from(document.querySelectorAll('.service-category'));
 
-  // All categories start closed, and the native shared name keeps just one open.
+  // Normal browsing: all sections start closed and only one can be open.
   categories.forEach(function (category) { category.open = false; });
 
   function updateServiceSearch() {
     var query = search.value.trim().toLocaleLowerCase();
-    matches.replaceChildren();
-    if (!query) {
-      results.hidden = true;
-      status.textContent = '';
-      return;
-    }
+    var searching = query.length > 0;
+    var matches = 0;
 
-    var count = 0;
     categories.forEach(function (category) {
-      var title = category.querySelector('.service-category-title h2');
-      var serviceText = Array.from(category.querySelectorAll('.service-description')).map(function (description) {
-        return description.textContent;
-      }).join(' ');
-      if (!(title.textContent + ' ' + serviceText).toLocaleLowerCase().includes(query)) return;
+      var heading = category.querySelector('.service-category-title h2');
+      var categoryMatches = searching && heading.textContent.toLocaleLowerCase().includes(query);
+      var categoryHits = 0;
 
-      count++;
-      var link = document.createElement('a');
-      link.className = 'service-search-match';
-      link.href = '#' + category.querySelector('.service-category-title').id;
-      link.textContent = title.textContent;
-      link.addEventListener('click', function (event) {
-        event.preventDefault();
-        search.value = '';
-        updateServiceSearch();
-        category.open = true;
-        category.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      category.querySelectorAll('.service-item').forEach(function (item) {
+        var description = item.querySelector('.service-description');
+        var itemMatches = categoryMatches ||
+          description.textContent.toLocaleLowerCase().includes(query);
+        item.hidden = searching && !itemMatches;
+        if (searching && itemMatches) categoryHits++;
       });
-      matches.appendChild(link);
+
+      category.hidden = searching && categoryHits === 0;
+
+      if (searching) {
+        // Search may expand multiple matching categories, but never adds duplicate links.
+        category.removeAttribute('name');
+        category.open = categoryHits > 0;
+        matches += categoryHits;
+      } else {
+        category.open = false;
+        category.setAttribute('name', 'services');
+      }
     });
 
-    results.hidden = false;
-    status.textContent = count
-      ? 'Matching ' + (count === 1 ? 'category' : 'categories') + ':'
-      : 'No matching categories found. Try a different word.';
+    status.hidden = !searching || matches > 0;
+    status.textContent = searching && matches === 0
+      ? 'No matching services found. Try a different word.'
+      : '';
   }
 
   search.addEventListener('input', updateServiceSearch);
