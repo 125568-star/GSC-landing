@@ -5,7 +5,7 @@
 <g clip-path="url(#screen)"><svg x="62" y="35" width="356" height="207" viewBox="0 0 1200 698" preserveAspectRatio="none">
 <rect width="1200" height="698" fill="#fff"/>
 <rect width="1200" height="87" fill="#fff"/>
-<path d="M50 30 Q35 5 21 30 Q20 47 49 68 Q78 47 77 30 Q65 7 50 30Z" fill="#f74e70" stroke="#112b59" stroke-width="5"/><circle cx="49" cy="31" r="13" fill="#fff"/><path d="M17 66 L48 54 L81 65 V78 H17Z" fill="#5ed29e" stroke="#173a6b" stroke-width="4"/>
+<svg x="13" y="10" width="76" height="76" viewBox="0 0 64 64"><rect width="64" height="64" rx="13" fill="#fff"/><path d="M32 6C19 6 10 16 10 29c0 17 22 31 22 31s22-14 22-31C54 16 45 6 32 6Z" fill="#fa4b65" stroke="#12355b" stroke-width="3"/><circle cx="32" cy="28" r="9" fill="white"/><path d="M7 52l15-8 20 6 15-8v14L42 61l-20-6-15 6Z" fill="#59c78f" stroke="#12355b" stroke-width="2"/><path d="M22 44v11M42 50v11" stroke="#fff" stroke-width="3"/></svg>
 <text x="105" y="42" font-family="Arial" font-size="35" font-weight="bold" fill="#102a59">Business Discovery</text><text x="105" y="76" font-family="Arial" font-size="35" font-weight="bold" fill="#102a59">Network</text>
 <g font-family="Arial" font-size="22" fill="#152a51"><text x="810" y="50">Directory</text><text x="913" y="50">How it works</text><text x="1084" y="50">Join free</text></g>
 <rect x="0" y="87" width="1200" height="448" fill="url(#brisbaneSky)"/>
