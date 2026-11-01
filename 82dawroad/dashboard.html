@@ -8,7 +8,7 @@
 <section class="hero"><h1>Community dashboard</h1><p>Your notices, maintenance requests and community account in one place.</p></section>
 <main class="wrap"><p><a href="./">← Back to 82 Daw Road homepage</a></p>
 <section id="pending" class="card hidden"><h2>Membership pending</h2><p>Your account has been created. The admin must verify and approve your membership before you can access the portal.</p><p>Contact the admin separately if you need help.</p></section>
-<section id="dashboard" class="hidden"><div class="card"><h2 id="welcome">Community dashboard</h2><p id="identity" class="muted"></p></div>
+<section id="dashboard" class="hidden"><div class="card"><h2 id="welcome">Community dashboard</h2><p id="identity" class="muted"></p><div id="admin-views" class="hidden"><p><strong>View dashboard as:</strong> <a href="#admin" data-view="admin">Admin</a> · <a href="#owner36" data-view="owner36">Owner of Unit 36</a> · <a href="#resident36" data-view="resident36">Renter of Unit 36</a></p><p id="preview-note" class="muted"></p></div></div>
 <div class="grid" style="margin-top:18px">
 <div class="card"><h3>📢 Community notices</h3><div id="notices"></div></div>
 <div class="card"><h3>🔧 Maintenance requests</h3>
@@ -22,7 +22,7 @@
 <script>
 const client=window.supabase.createClient('https://pulbcpjwxliwnmkiyfhe.supabase.co','sb_publishable_ljmRZCY1QvS4G64eDgTuUQ_GfWXky0x');
 const $=id=>document.getElementById(id),show=(id,on)=>$(id).classList.toggle('hidden',!on);
-let me=null,profile=null;
+let me=null,profile=null,viewMode="admin";
 const safe=(s)=>{const d=document.createElement('div');d.textContent=String(s??'');return d.innerHTML};
 const message=(s)=>{$('app-message').textContent=s};
 async function refresh(){
@@ -36,15 +36,25 @@ async function refresh(){
  if(!data.approved)return;
  $('welcome').textContent='Welcome'+(data.display_name?', '+data.display_name:'');
  $('identity').textContent=[data.role.replaceAll('_',' '),data.unit_number&&('Townhouse '+data.unit_number)].filter(Boolean).join(' · ');
- const committee=['body_corp','admin'].includes(data.role);
- show('add-request',['resident','admin'].includes(data.role));show('admin',data.role==='admin');$('requests-explainer').textContent=data.role==='admin'?'All townhouse maintenance requests':data.role==='owner'?'Requests for your townhouse only':'Your submitted maintenance requests';
+ show('admin-views',data.role==='admin');renderView();
  await Promise.all([loadNotices(),loadRequests(),data.role==='admin'?loadMembers():Promise.resolve()]);
 }
+function renderView(){
+ const isAdmin=profile.role==='admin', preview=isAdmin&&viewMode!=='admin';
+ show('admin',isAdmin&&!preview);
+ show('add-request',!preview&&['resident','admin'].includes(profile.role));
+ $('requests-explainer').textContent=preview?'Preview: requests for townhouse 36 only (no changes allowed)':isAdmin?'All townhouse maintenance requests':profile.role==='owner'?'Requests for your townhouse only':'Your submitted maintenance requests';
+ $('preview-note').textContent=preview?'Preview only — you remain signed in as Admin. Switch back to Admin to manage requests and accounts.':'';
+ $('identity').textContent=preview?(viewMode==='owner36'?'Owner of Unit 36 — preview':'Renter of Unit 36 — preview'):[profile.role.replaceAll('_',' '),profile.unit_number&&('Townhouse '+profile.unit_number)].filter(Boolean).join(' · ');
+ loadRequests();
+}
+document.getElementById('admin-views').onclick=e=>{const mode=e.target.closest('a[data-view]')?.dataset.view;if(!mode||profile?.role!=='admin')return;e.preventDefault();viewMode=mode;renderView()};
 async function loadNotices(){const {data,error}=await client.from('daw82_notices').select('title,body,created_at').order('created_at',{ascending:false}).limit(30);$('notices').innerHTML=error?safe(error.message):data.length?data.map(x=>'<div class="notice"><strong>'+safe(x.title)+'</strong><p>'+safe(x.body)+'</p><small class="muted">'+new Date(x.created_at).toLocaleDateString('en-AU')+'</small></div>').join(''):'<p class="muted">No notices yet.</p>'}
 async function loadRequests(){
  const {data,error}=await client.from('daw82_requests').select('id,title,details,status,unit_number,created_at').order('created_at',{ascending:false}).limit(100);
  if(error){$('requests').textContent=error.message;return}
- $('requests').innerHTML=data.length?data.map(x=>'<div class="notice"><strong>'+safe(x.title)+'</strong><p>'+safe(x.details)+'</p><small>Townhouse '+safe(x.unit_number)+' · '+safe(x.status.replaceAll('_',' '))+' · '+new Date(x.created_at).toLocaleDateString('en-AU')+'</small>'+(profile.role==='admin' && x.status==='new'?' <button type="button" data-approve-request="'+x.id+'">Approve</button>':'')+'</div>').join(''):'<p class="muted">No maintenance requests yet.</p>';
+ const visible=(profile.role==='admin'&&viewMode!=='admin')?data.filter(x=>x.unit_number==='36'):data;
+ $('requests').innerHTML=visible.length?visible.map(x=>'<div class="notice"><strong>'+safe(x.title)+'</strong><p>'+safe(x.details)+'</p><small>Townhouse '+safe(x.unit_number)+' · '+safe(x.status.replaceAll('_',' '))+' · '+new Date(x.created_at).toLocaleDateString('en-AU')+'</small>'+(profile.role==='admin' && viewMode==='admin' && x.status==='new'?' <button type="button" data-approve-request="'+x.id+'">Approve</button>':'')+'</div>').join(''):'<p class="muted">No maintenance requests yet.</p>';
 }
 async function loadMembers(){
  const {data,error}=await client.from('daw82_profiles').select('user_id,display_name,unit_number,role,approved').order('created_at',{ascending:false});
@@ -60,7 +70,7 @@ async function loadMembers(){
  $('members').innerHTML=approved.length?approved.map(render).join(''):'<p class="muted">No approved members yet.</p>';
 }
 $('logout').onclick=async()=>{await client.auth.signOut();location.replace('login.html')};
-$('requests').onclick=async e=>{const id=e.target.dataset.approveRequest;if(!id||profile.role!=='admin')return;e.target.disabled=true;const {error}=await client.from('daw82_requests').update({status:'approved'}).eq('id',id).eq('status','new');$('app-message').textContent=error?error.message:'Request approved';await loadRequests()};
+$('requests').onclick=async e=>{const id=e.target.dataset.approveRequest;if(!id||profile.role!=='admin'||viewMode!=='admin')return;e.target.disabled=true;const {error}=await client.from('daw82_requests').update({status:'approved'}).eq('id',id).eq('status','new');$('app-message').textContent=error?error.message:'Request approved';await loadRequests()};
 $('admin').onclick=async e=>{const id=e.target.dataset.save;if(!id)return;const role=document.querySelector('[data-role="'+id+'"]').value;const display_name=document.querySelector('[data-name="'+id+'"]').value;const unit_number=document.querySelector('[data-unit="'+id+'"]').value;const {error}=await client.from('daw82_profiles').update({role,display_name,unit_number,approved:true}).eq('user_id',id);$('app-message').textContent=error?error.message:'Member approved';if(!error)await loadMembers()};
 refresh();
 </script></body></html>
