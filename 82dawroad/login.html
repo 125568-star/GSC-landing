@@ -39,7 +39,7 @@ async function refresh(){
  const {data,error:pe}=await client.from('daw82_profiles').select('*').eq('user_id',me.id).maybeSingle();
  if(pe){message(pe.message);return}
  if(!data){const {error:ie}=await client.from('daw82_profiles').insert({user_id:me.id,display_name:String(me.user_metadata?.daw82_display_name||'').slice(0,100),unit_number:String(me.user_metadata?.daw82_unit_number||'').slice(0,30)});if(ie){message(ie.message);return}show('pending',true);show('dashboard',false);return}
- profile=data;show('pending',!data.approved);show('dashboard',data.approved);
+ profile=data;show('pending',!data.approved);show('dashboard',false);if(data.approved){location.replace('dashboard.html');return}
  if(!data.approved)return;
  $('welcome').textContent='Welcome'+(data.display_name?', '+data.display_name:'');
  $('identity').textContent=[data.role.replaceAll('_',' '),data.unit_number&&('Townhouse '+data.unit_number)].filter(Boolean).join(' · ');
