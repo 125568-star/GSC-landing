@@ -44,7 +44,7 @@ async function loadMembers(){
  const render=x=>'<div class="notice"><strong>'+safe(x.display_name||'Unnamed applicant')+'</strong> · Unit '+safe(x.unit_number||'not provided')+
  '<label>Name<input data-name="'+x.user_id+'" value="'+safe(x.display_name)+'"></label>'+
  '<label>Unit<input data-unit="'+x.user_id+'" value="'+safe(x.unit_number)+'"></label>'+
- '<label>Role<select data-role="'+x.user_id+'">'+['resident','owner','body_corp'].map(r=>'<option value="'+r+'" '+(r===x.role?'selected':'')+'>'+r.replace('_',' ')+'</option>').join('')+'</select></label>'+
+ '<label>Role<select data-role="'+x.user_id+'">'+(x.role==='coordinator'?['coordinator']:['resident','owner','body_corp']).map(r=>'<option value="'+r+'" '+(r===x.role?'selected':'')+'>'+r.replace('_',' ')+'</option>').join('')+'</select></label>'+
  '<button data-save="'+x.user_id+'">'+(x.approved?'Update member':'Approve user')+'</button></div>';
  const pending=data.filter(x=>!x.approved),approved=data.filter(x=>x.approved);
  $('pending-count').textContent='('+pending.length+')';
