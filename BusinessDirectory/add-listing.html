@@ -1,0 +1,138 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Discover useful local businesses, technology services and community resources through Ground Support Crew's curated Business Discovery Network. Free business submissions; no reciprocal links required."><title>Add a Free Business Listing | Business Discovery Network</title><link rel="canonical" href="https://groundsupportcrew.com/BusinessDirectory/add-listing.html"><style>
+:root{--navy:#0b2149;--blue:#0869e8;--ink:#1c335a;--muted:#596b82;--border:#e1e8f1;--pale:#f5f9ff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:30px}
+body{margin:0;background:white;color:var(--ink);font:16px/1.55 Arial,Helvetica,sans-serif}
+a{color:inherit}
+.wrap{width:min(1180px,calc(100% - 48px));margin:0 auto}
+.top{background:#fff;border-bottom:1px solid var(--border)}
+.nav{min-height:85px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+.brand{text-decoration:none;display:flex;align-items:center;gap:14px;color:var(--navy);font-weight:800;font-size:20px;line-height:1.08}
+.brand img{width:54px;height:54px;object-fit:contain}
+.links{display:flex;gap:28px;align-items:center;flex-wrap:wrap}
+.links a{text-decoration:none;color:var(--navy);font-size:14px;font-weight:700}
+.links a:not(.nav-cta):hover,.links a:not(.nav-cta):focus-visible{color:var(--blue);text-decoration:underline;text-underline-offset:6px}
+.links .nav-cta{background:var(--blue);color:#fff;border-radius:8px;padding:14px 21px;box-shadow:0 2px 4px #1f589e25}
+.hero{position:relative;isolation:isolate;min-height:475px;display:flex;align-items:center;overflow:hidden;background:#eff7ff url("https://images.pexels.com/photos/2516657/pexels-photo-2516657.jpeg?cs=srgb&dl=pexels-valeriiamiller-2516657.jpg&fm=jpg") right center / auto 116% no-repeat}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#f2f9ff 0%,#f0f8ff 28%,rgba(240,248,255,.94) 40%,rgba(240,248,255,.47) 61%,rgba(240,248,255,.03) 89%)}
+.hero .wrap{padding-top:65px;padding-bottom:85px}
+.eyebrow{color:var(--blue);text-transform:uppercase;font-size:12px;font-weight:800;letter-spacing:.17em}
+.hero h1{font-size:clamp(42px,5.2vw,72px);line-height:1.06;letter-spacing:-.052em;color:#0e2553;max-width:725px;margin:16px 0 21px;font-weight:800}
+.hero h1 span{display:block}
+.hero .intro{font-size:clamp(16px,1.6vw,20px);line-height:1.45;color:#1b3154;max-width:570px;margin:0 0 30px}
+.hero-actions{display:flex;gap:13px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:47px;padding:12px 23px;background:var(--blue);border:1px solid var(--blue);border-radius:8px;text-decoration:none;color:#fff;font-weight:700;font-size:15px;cursor:pointer}
+.btn.secondary{background:#fff;color:#102852;border-color:#bdd3ee}
+.btn:hover{filter:brightness(.97)}
+.category-shortcuts{max-width:1120px;position:relative;z-index:2;margin-top:-27px;padding:13px;background:white;border-radius:15px 15px 0 0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:9px;box-shadow:0 -8px 30px #16376718}
+.category-shortcuts a{min-height:103px;border-radius:11px;background:#f9fbfe;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;padding:10px 6px;text-align:center;text-decoration:none;font-size:13px;font-weight:700;color:#243556}
+.category-shortcuts a:hover,.category-shortcuts a:focus-visible{background:#eaf3ff;outline:2px solid #1b74e8}
+.cat-icon{display:flex;align-items:center;justify-content:center;height:39px;color:#fb673b}
+.category-shortcuts a:nth-child(2) .cat-icon{color:#147feb}
+.category-shortcuts a:nth-child(3) .cat-icon{color:#0fc58d}
+.category-shortcuts a:nth-child(4) .cat-icon{color:#8e58d4}
+.category-shortcuts a:nth-child(5) .cat-icon{color:#f24e86}
+.category-shortcuts a:nth-child(6) .cat-icon{color:#f6b60d}
+.cat-icon svg{width:32px;height:32px;fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.category-shortcuts a:nth-child(5) .cat-icon svg{fill:currentColor}
+.features{max-width:1120px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));background:white;padding:10px 12px 18px;box-shadow:0 10px 28px #16376712;border-radius:0 0 15px 15px}
+.feature{padding:15px 22px;display:flex;align-items:center;gap:15px;border-right:1px solid #edf0f6}
+.feature:last-child{border-right:0}
+.feature i{font-style:normal;display:flex;align-items:center;justify-content:center;color:var(--blue)}
+.feature i svg{width:36px;height:36px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.feature:nth-child(2) i{color:#10b889}.feature:nth-child(3) i{color:#ebae10}
+.feature strong{color:var(--navy);font-size:16px;display:block}
+.feature span{color:var(--muted);font-size:13px;display:block;line-height:1.4}
+section{padding:70px 0}
+section h2{font-size:clamp(28px,3vw,40px);letter-spacing:-.03em;color:var(--navy);margin:8px 0 17px}
+.heading{display:flex;align-items:end;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.hint{color:var(--muted);max-width:620px}
+.directory-search{max-width:790px;display:flex;align-items:center;gap:10px;background:#fff;padding:8px;border:1px solid var(--border);border-radius:12px;box-shadow:0 8px 25px #12376710;margin:25px 0}
+.directory-search-icon{font-size:34px;color:#416b9f;line-height:1;margin:0 6px}
+.directory-search input{font:inherit;flex:1;min-width:80px;padding:10px 4px;border:0;outline-offset:3px;color:var(--ink)}
+.search-button{border:0;border-radius:7px;background:var(--blue);color:white;font:700 15px Arial,sans-serif;min-height:44px;padding:0 22px;cursor:pointer}
+.directory-controls{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:15px 0 25px}
+.directory-controls select{padding:10px 12px;border:1px solid var(--border);border-radius:8px;background:#fff;font:inherit}
+.directory-controls a,.card a{color:var(--blue);font-weight:700}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
+.card{background:white;border:1px solid var(--border);border-radius:13px;padding:23px;box-shadow:0 8px 21px #182e5210}
+.card small{color:var(--blue);font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+.card h3{font-size:22px;margin:10px 0}.card p{color:var(--muted)}
+.alt{background:var(--pale)}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.step{background:white;border-top:4px solid var(--blue);border-radius:12px;padding:24px}
+.step b{color:var(--blue);font-size:27px}.step h3{color:var(--navy)}
+.note{font-size:14px;color:var(--muted)}
+form{max-width:780px;display:grid;grid-template-columns:1fr 1fr;gap:17px}
+form label{font-size:14px;font-weight:700}
+form label.full,form .full{grid-column:1/-1}
+form input,form textarea{width:100%;padding:13px 14px;border:1px solid #cbd8e8;border-radius:9px;background:white;color:var(--ink);font:inherit}
+form textarea{min-height:132px;resize:vertical}
+.hide{position:absolute;left:-9999px}#status{font-weight:700}
+footer{padding:39px 0;background:#11254b;color:#fff}footer a{color:#bedcff}
+@media(max-width:950px){.links{gap:15px}.category-shortcuts{grid-template-columns:repeat(3,minmax(0,1fr))}.features{grid-template-columns:1fr}.feature{border-right:0;border-bottom:1px solid var(--border)}.feature:last-child{border-bottom:0}.hero{background-size:auto 100%}}
+@media(max-width:650px){.wrap{width:calc(100% - 32px)}.nav{padding:15px 0;gap:16px;align-items:start;flex-direction:column}.brand{font-size:18px}.brand img{width:46px;height:46px}.links{gap:12px;width:100%}.links a{font-size:12px}.links .nav-cta{padding:10px 12px}.hero{min-height:450px;background-size:auto 100%;background-position:65% center}.hero::before{background:linear-gradient(90deg,#f2f9fff5 0%,#f2f9ffda 53%,#f2f9ff79 82%,#f2f9ff20)}.hero .wrap{padding:56px 0 78px}.hero h1{font-size:clamp(40px,9vw,56px)}.hero .intro{font-size:16px}.category-shortcuts{margin-top:-29px;padding:9px;gap:6px}.category-shortcuts a{min-height:82px;font-size:11px}.cat-icon svg{width:28px;height:28px}.features{padding:0 10px}.feature{padding:12px}.steps{grid-template-columns:1fr}form{grid-template-columns:1fr}.directory-search input{font-size:13px}.search-button{padding:0 12px}}
+@media(max-width:380px){.category-shortcuts{grid-template-columns:repeat(2,minmax(0,1fr))}.links{gap:9px}}
+/* Match the actual advertised laptop screen rather than a newly invented layout. */
+.hero{min-height:455px;background-color:#eaf6ff;background-image:url("https://images.pexels.com/photos/2516657/pexels-photo-2516657.jpeg?cs=srgb&dl=pexels-valeriiamiller-2516657.jpg&fm=jpg");background-size:cover;background-position:right 48%}
+.hero::before{background:linear-gradient(90deg,#eaf5ff 0%,rgba(236,247,255,.97) 24%,rgba(236,247,255,.78) 45%,rgba(236,247,255,.12) 73%,transparent 95%)}
+.hero .wrap{padding-top:54px;padding-bottom:78px}
+.hero h1{max-width:720px;font-size:clamp(42px,5vw,66px);margin:12px 0 18px}
+.hero .intro{max-width:500px;margin-bottom:24px}
+.hero-search{display:flex;align-items:center;gap:9px;background:#fff;border:1px solid #d9e3f2;border-radius:12px;padding:8px;max-width:730px;min-height:64px;box-shadow:0 10px 25px #143c7326}
+.hero-search-icon{font-size:34px;line-height:1;color:#1a4a8c;margin-left:10px}
+.hero-search input{flex:1;min-width:80px;border:0;outline-offset:2px;padding:10px;font:16px Arial,sans-serif;color:#1c335a}
+.hero-search .search-button{min-width:104px;min-height:48px;font-size:16px}
+.category-shortcuts{margin-top:-25px}
+@media(max-width:650px){.hero{background-position:63% center;min-height:435px}.hero::before{background:linear-gradient(90deg,#eaf5fffa,#eaf5ffdb 65%,#eaf5ff5a)}.hero h1{font-size:clamp(36px,8.6vw,50px)}.hero-search input{font-size:12px}.hero-search .search-button{min-width:70px;padding:0 12px;font-size:13px}}
+
+/* Approved 31 Oct screen composition: keep all functionality and source image untouched */
+body{font-family:Arial,Helvetica,sans-serif}
+.nav{min-height:100px}
+.brand{font-size:25px;line-height:1.04;gap:18px}
+.brand img{width:72px;height:72px}
+.links{gap:35px}
+.links a{font-size:16px}
+.links a.active{color:#0869e8;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:13px}
+.links .nav-cta{font-size:16px;padding:16px 26px}
+.hero{min-height:590px;align-items:stretch;background-size:cover;background-position:center 49%}
+.hero::before{background:linear-gradient(90deg,rgba(255,249,224,.78) 0%,rgba(245,248,255,.52) 26%,rgba(245,248,255,.15) 49%,transparent 78%)}
+.hero .wrap{padding-top:83px;padding-bottom:118px}
+.hero h1{font-size:clamp(52px,5.6vw,82px);line-height:1.01;font-weight:800;color:#090f3c;max-width:880px;margin:0 0 24px;letter-spacing:-.055em}
+.hero .intro{font-size:clamp(19px,2vw,27px);font-weight:600;color:#11183e;max-width:660px;margin:0 0 46px;line-height:1.32}
+.hero-search{min-height:82px;max-width:950px;padding:9px 11px;border:0;box-shadow:0 10px 30px #1e375d48}
+.hero-search-icon{font-size:41px}
+.hero-search input{font-size:19px}
+.hero-search .search-button{height:65px;min-width:170px;font-size:21px}
+.category-shortcuts{max-width:1300px;margin-top:-41px;gap:14px;padding:18px;border-radius:18px 18px 0 0;box-shadow:0 -6px 28px #10295320}
+.category-shortcuts a{min-height:112px;background:#f7f9fc;gap:8px;font-size:16px;border-radius:13px}
+.cat-icon{height:50px}.cat-icon svg{width:44px;height:44px}
+.features{max-width:1300px;min-height:125px;padding:12px 15px 21px}
+.feature{gap:22px}.feature i svg{width:53px;height:53px}.feature strong{font-size:21px}.feature span{font-size:17px}
+@media(max-width:920px){.nav{min-height:83px}.brand{font-size:19px}.brand img{width:54px;height:54px}.links{gap:13px}.links a{font-size:13px}.hero{min-height:510px}.hero .wrap{padding-top:64px}.category-shortcuts{grid-template-columns:repeat(3,1fr)}.features{grid-template-columns:1fr}}
+@media(max-width:650px){.nav{min-height:75px}.hero{min-height:460px;background-position:60% center}.hero .wrap{padding-top:55px;padding-bottom:78px}.hero h1{font-size:clamp(37px,9vw,52px)}.hero .intro{font-size:16px;margin-bottom:27px}.hero-search{min-height:57px;padding:6px}.hero-search input{font-size:12px}.hero-search .search-button{min-width:74px;height:46px;font-size:13px}.category-shortcuts{margin-top:-18px;padding:8px;gap:6px}.category-shortcuts a{min-height:82px;font-size:11px}.cat-icon{height:34px}.cat-icon svg{width:29px;height:29px}.feature strong{font-size:16px}.feature span{font-size:13px}}
+
+/* Brisbane hero: vivid blue/gold city treatment, matching approved composition. */
+.hero{isolation:isolate;background:#9ad5ff;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background-image:url("https://images.pexels.com/photos/2516657/pexels-photo-2516657.jpeg?cs=srgb&dl=pexels-valeriiamiller-2516657.jpg&fm=jpg");background-size:cover;background-position:center 61%;filter:saturate(1.9) contrast(1.23) brightness(1.12)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(255,249,226,.86) 0%,rgba(255,250,233,.66) 20%,rgba(238,248,255,.20) 43%,transparent 73%),linear-gradient(180deg,rgba(47,164,255,.42) 0%,rgba(255,174,47,.12) 47%,rgba(249,148,26,.19) 100%);pointer-events:none}
+.hero .wrap{position:relative;z-index:1}
+.brand img{filter:drop-shadow(0 2px 1px #28365735)}
+
+/* Single Brisbane image layer — fit entire vertical scene (sky, buildings, bridge and river). */
+.hero{min-height:495px;background-image:none!important;background-color:#d6ebfa!important}
+.hero::before{background-image:url("https://images.pexels.com/photos/2516657/pexels-photo-2516657.jpeg?cs=srgb&dl=pexels-valeriiamiller-2516657.jpg&fm=jpg");background-size:cover;background-position:center 85%;background-repeat:no-repeat;background-color:#d6ebfa}
+.hero .wrap{padding-top:56px;padding-bottom:76px}
+@media(max-width:650px){.hero{min-height:420px}.hero::before{background-size:cover;background-position:center 85%}.hero .wrap{padding-top:45px;padding-bottom:64px}}
+.features a.feature{text-decoration:none;color:inherit;cursor:pointer}.features a.feature:hover strong{text-decoration:underline}</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Business Discovery Network","url":"https://groundsupportcrew.com/BusinessDirectory/","publisher":{"@type":"Organization","name":"Ground Support Crew","url":"https://groundsupportcrew.com/"}}</script><link rel="icon" type="image/svg+xml" href="favicon.svg?v=20261031-pin2"><style>.page-cover{height:495px;background:#d6ebfa url("https://images.pexels.com/photos/2516657/pexels-photo-2516657.jpeg?cs=srgb&dl=pexels-valeriiamiller-2516657.jpg&fm=jpg") center 85%/cover no-repeat}.page-intro{padding:45px 0 0}.page-intro h1{color:#0b2149;font-size:clamp(36px,4.5vw,62px);margin:0 0 10px}.page-intro p{color:#596b82;margin:0 0 20px}@media(max-width:650px){.page-cover{height:340px;background-position:60% 85%}}</style></head>
+<body>
+<header class="top"><div class="wrap nav">
+<a class="brand" href="#home"><img src="favicon.svg?v=20261031-pin2" alt="Business Discovery location pin logo" width="54" height="54"><span>Business Discovery<br>Network</span></a>
+<nav class="links" aria-label="Main navigation"><a class="active" aria-current="page" href="index.html">Home</a><a href="browse.html">Browse</a><a href="add-listing.html" class="active" aria-current="page">Add Listing</a><a href="about.html">About</a><a class="nav-cta" href="add-listing.html">List a Business</a></nav>
+</div></header>
+<main><div class="page-cover" role="img" aria-label="Brisbane skyline, river and bridge"></div><div class="wrap page-intro"><h1>Add a Free Business Listing</h1><p>Tell Brisbane customers about your business.</p></div><section id="join"><div class="wrap"><div class="eyebrow" style="color:#0869dd">Join the network</div><h2>Request a free business listing.</h2><p class="hint">We review applications manually. Submitting does not guarantee approval. Your contact email is used for review and is not displayed in the directory.</p><form id="form"><label>Business name <input name="business_name" maxlength="120" required minlength="2" autocomplete="organization"></label><label>Contact email <input name="contact_email" type="email" maxlength="200" required autocomplete="email"></label><label class="full">Website URL (optional) <input name="website_url" type="url" placeholder="https://example.com" maxlength="400"></label><label class="full">Category / services <input name="category_requested" maxlength="100" placeholder="e.g. IT support, local trades"></label><label class="full">Tell visitors what you do <textarea name="description" minlength="30" maxlength="2500" required placeholder="Describe what you offer, who you serve and where you're based."></textarea></label><div class="hide" aria-hidden="true"><label>Leave this empty <input name="website_hidden" tabindex="-1" autocomplete="off"></label></div><div class="full"><button class="btn" type="submit" id="submit">Submit for review</button> <span id="status" role="status" aria-live="polite"></span></div></form></div></section>
+</main><footer><div class="wrap"><b>Business Discovery Network</b><p>Part of <a href="https://groundsupportcrew.com/">Ground Support Crew</a> · <a href="mailto:info@groundsupportcrew.com">Contact us</a></p><p class="note" style="color:#b4d2ce">Listings are informational and independently reviewed. No reciprocal links required.</p></div></footer>
+<script>const API="https://pulbcpjwxliwnmkiyfhe.supabase.co/functions/v1/business-discovery";
+el("form").addEventListener("submit",async e=>{e.preventDefault();el("submit").disabled=true;el("status").textContent="Submitting…";try{const obj=Object.fromEntries(new FormData(e.target));const r=await fetch(API+"?action=submit",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(obj)});const data=await r.json();if(!r.ok)throw Error(data.error||"Submission failed");el("status").textContent="Received. Your listing will be reviewed before publication.";e.target.reset()}catch(err){el("status").textContent=err.message||"Could not submit. Try again later."}finally{el("submit").disabled=false}});
+</script></body></html>
