@@ -8,7 +8,7 @@
 <section class="hero"><h1>Community dashboard</h1><p>Your notices, maintenance requests and community account in one place.</p></section>
 <main class="wrap"><p><a href="./">← Back to 82 Daw Road homepage</a></p>
 <section id="pending" class="card hidden"><h2>Membership pending</h2><p>Your account has been created. The admin must verify and approve your membership before you can access the portal.</p><p>Contact the admin separately if you need help.</p></section>
-<section id="dashboard" class="hidden"><div class="card"><h2 id="welcome">Community dashboard</h2><p id="identity" class="muted"></p><div id="admin-views" class="hidden"><p><strong>View dashboard as:</strong> <a href="#admin" data-view="admin">Admin</a> · <a href="#owner36" data-view="owner36">Owner of Unit 36</a> · <a href="#resident36" data-view="resident36">Renter of Unit 36</a></p><p id="preview-note" class="muted"></p></div></div>
+<section id="dashboard" class="hidden"><div class="card"><h2 id="welcome">Community dashboard</h2><p id="identity" class="muted"></p><div id="admin-views" class="hidden"><p style="display:flex;gap:18px;flex-wrap:wrap"><a href="#user36" data-view="owner36">Login as User of Unit 36</a><a href="#admin" data-view="admin">Login as Admin of Community</a></p><p id="preview-note" class="muted"></p></div></div>
 <div class="grid" style="margin-top:18px">
 <div class="card"><h3>📢 Community notices</h3><div id="notices"></div></div>
 <div class="card"><h3>🔧 Maintenance requests</h3>
@@ -43,9 +43,9 @@ function renderView(){
  const isAdmin=profile.role==='admin', preview=isAdmin&&viewMode!=='admin';
  show('admin',isAdmin&&!preview);
  show('add-request',!preview&&['resident','admin'].includes(profile.role));
- $('requests-explainer').textContent=preview?'Preview: requests for townhouse 36 only (no changes allowed)':isAdmin?'All townhouse maintenance requests':profile.role==='owner'?'Requests for your townhouse only':'Your submitted maintenance requests';
- $('preview-note').textContent=preview?'Preview only — you remain signed in as Admin. Switch back to Admin to manage requests and accounts.':'';
- $('identity').textContent=preview?(viewMode==='owner36'?'Owner of Unit 36 — preview':'Renter of Unit 36 — preview'):[profile.role.replaceAll('_',' '),profile.unit_number&&('Townhouse '+profile.unit_number)].filter(Boolean).join(' · ');
+ $('requests-explainer').textContent=preview?'Requests for Unit 36 (owner view)':isAdmin?'All townhouse maintenance requests':profile.role==='owner'?'Requests for your townhouse only':'Your submitted maintenance requests';
+ $('preview-note').textContent=preview?'Unit 36 user view. Return to Admin of Community for administration controls.':'';
+ $('identity').textContent=preview?'User of Unit 36':[profile.role.replaceAll('_',' '),profile.unit_number&&('Townhouse '+profile.unit_number)].filter(Boolean).join(' · ');
  loadRequests();
 }
 document.getElementById('admin-views').onclick=e=>{const mode=e.target.closest('a[data-view]')?.dataset.view;if(!mode||profile?.role!=='admin')return;e.preventDefault();viewMode=mode;renderView()};
