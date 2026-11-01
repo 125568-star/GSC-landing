@@ -7,7 +7,6 @@
 <header><div><strong>82 Daw Road</strong><br><span>Runcorn · Queensland</span></div><div><span>Community Portal</span> <button id="logout" class="secondary hidden">Sign out</button></div></header>
 <section class="hero"><h1>Our townhouse community</h1><p>One convenient, secure place for residents, owners and body corporate to stay informed and connected.</p></section>
 <main class="wrap"><p><a href="./">← Back to 82 Daw Road homepage</a></p>
-<section id="public" class="hidden"><div class="grid"><div class="card"><h3>📢 Community notices</h3><p>Read updates, announcements and important information.</p></div><div class="card"><h3>🔧 Maintenance</h3><p>Report common-property issues and track their progress.</p></div><div class="card"><h3>📋 Body corporate</h3><p>Keep community information organised and accessible to approved members.</p></div></div></section>
 <section id="auth" class="card" style="max-width:500px;margin:30px auto"><h2>Member access</h2><p class="muted">Sign in or request an account. A coordinator approves membership before private information becomes available.</p><form id="login-form"><label>Email<input id="email" type="email" required autocomplete="email"></label><label>Password<input id="password" type="password" required minlength="8" autocomplete="current-password"></label><button type="submit">Sign in</button> <button class="secondary" type="button" id="register">Request access</button></form><p id="message" role="status" aria-live="polite"></p></section>
 <section id="pending" class="card hidden"><h2>Membership pending</h2><p>Your account has been created. The coordinator must verify and approve your membership before you can access the portal.</p><p>Contact the coordinator separately if you need help.</p></section>
 <section id="dashboard" class="hidden"><div class="card"><h2 id="welcome">Community dashboard</h2><p id="identity" class="muted"></p></div>
@@ -25,7 +24,7 @@ const safe=(s)=>{const d=document.createElement('div');d.textContent=String(s??'
 const message=(s)=>$('message').textContent=s;
 async function refresh(){
  const {data:{user},error}=await client.auth.getUser();me=error?null:user;
- show('auth',!me);show('logout',!!me);show('public',!me);
+ show('auth',!me);show('logout',!!me);
  if(!me){show('dashboard',false);show('pending',false);return}
  const {data,error:pe}=await client.from('daw82_profiles').select('*').eq('user_id',me.id).maybeSingle();
  if(pe){message(pe.message);return}
