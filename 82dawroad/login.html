@@ -7,7 +7,17 @@
 <header><div><a href="/82dawroad/" aria-label="82 Daw Road main page" style="color:#12695e;text-decoration:none"><strong>82 Daw Road</strong></a><br><span>Runcorn · Queensland</span></div><div><span>Community Portal</span> <button id="logout" class="secondary hidden">Sign out</button></div></header>
 <section class="hero"><h1>Our townhouse community</h1><p>One convenient, secure place for residents, owners and body corporate to stay informed and connected.</p></section>
 <main class="wrap"><p><a href="./">← Back to 82 Daw Road homepage</a></p>
-<section id="auth" class="card" style="max-width:500px;margin:30px auto"><h2>Member access</h2><p class="muted">Sign in or request an account. A coordinator approves membership before private information becomes available.</p><form id="login-form"><label>Email<input id="email" type="email" required autocomplete="email"></label><label>Password<input id="password" type="password" required minlength="8" autocomplete="current-password"></label><button type="submit">Sign in</button> <button class="secondary" type="button" id="register">Request access</button></form><p id="message" role="status" aria-live="polite"></p></section>
+<section id="auth" class="card" style="max-width:500px;margin:30px auto"><h2>Member access</h2><p class="muted">Sign in or request an account. A coordinator approves membership before private information becomes available.</p><form id="login-form"><label>Email<input id="email" type="email" required autocomplete="email"></label><label>Password<input id="password" type="password" required minlength="8" autocomplete="current-password"></label><button type="submit">Sign in</button> <button class="secondary" type="button" id="show-register">Request Login</button></form><p id="message" role="status" aria-live="polite"></p></section>
+<section id="registration" class="card hidden" style="max-width:500px;margin:30px auto">
+<h2>Request a new login</h2><p class="muted">Create your own password. Your account will remain locked until the coordinator approves it.</p>
+<form id="register-form">
+<label>Full name<input id="new-name" type="text" maxlength="100" autocomplete="name" required></label>
+<label>Townhouse number<input id="new-unit" type="text" maxlength="30" required></label>
+<label>Email<input id="new-email" type="email" autocomplete="email" required></label>
+<label>Password<input id="new-password" type="password" minlength="8" autocomplete="new-password" required></label>
+<button type="submit">Submit login request</button> <button class="secondary" type="button" id="back-signin">Back to login</button>
+</form><p id="register-message" role="status" aria-live="polite"></p>
+</section>
 <section id="pending" class="card hidden"><h2>Membership pending</h2><p>Your account has been created. The coordinator must verify and approve your membership before you can access the portal.</p><p>Contact the coordinator separately if you need help.</p></section>
 <section id="dashboard" class="hidden"><div class="card"><h2 id="welcome">Community dashboard</h2><p id="identity" class="muted"></p></div>
 <div class="grid" style="margin-top:18px"><div class="card"><h3>Community notices</h3><div id="notices"></div><form id="notice-form" class="hidden"><label>Notice title<input id="notice-title" maxlength="160" required></label><label>Notice details<textarea id="notice-body" required></textarea></label><button>Publish notice</button></form></div>
@@ -24,11 +34,11 @@ const safe=(s)=>{const d=document.createElement('div');d.textContent=String(s??'
 const message=(s)=>$('message').textContent=s;
 async function refresh(){
  const {data:{user},error}=await client.auth.getUser();me=error?null:user;
- show('auth',!me);show('logout',!!me);
+ if(me){show('auth',false);show('registration',false)}else if(!$('registration').classList.contains('hidden')){show('auth',false)}else{show('auth',true)}show('logout',!!me);
  if(!me){show('dashboard',false);show('pending',false);return}
  const {data,error:pe}=await client.from('daw82_profiles').select('*').eq('user_id',me.id).maybeSingle();
  if(pe){message(pe.message);return}
- if(!data){const {error:ie}=await client.from('daw82_profiles').insert({user_id:me.id});if(ie){message(ie.message);return}show('pending',true);show('dashboard',false);return}
+ if(!data){const {error:ie}=await client.from('daw82_profiles').insert({user_id:me.id,display_name:String(me.user_metadata?.daw82_display_name||'').slice(0,100),unit_number:String(me.user_metadata?.daw82_unit_number||'').slice(0,30)});if(ie){message(ie.message);return}show('pending',true);show('dashboard',false);return}
  profile=data;show('pending',!data.approved);show('dashboard',data.approved);
  if(!data.approved)return;
  $('welcome').textContent='Welcome'+(data.display_name?', '+data.display_name:'');
@@ -41,7 +51,9 @@ async function loadNotices(){const {data,error}=await client.from('daw82_notices
 async function loadRequests(){const {data,error}=await client.from('daw82_requests').select('id,title,details,status,created_at').order('created_at',{ascending:false}).limit(50);const committee=['body_corp','coordinator'].includes(profile.role);$('requests').innerHTML=error?safe(error.message):data.length?data.map(x=>'<div class="notice"><strong>'+safe(x.title)+'</strong><p>'+safe(x.details)+'</p><small>'+safe(x.status)+'</small> '+(committee?'<select data-request="'+x.id+'">'+['new','in_progress','resolved'].map(s=>'<option value="'+s+'" '+(s===x.status?'selected':'')+'>'+s.replace('_',' ')+'</option>').join('')+'</select>':'')+'</div>').join(''):'<p class="muted">No maintenance requests yet.</p>'}
 async function loadMembers(){const {data,error}=await client.from('daw82_profiles').select('user_id,display_name,unit_number,role,approved').order('created_at',{ascending:false});$('members').innerHTML=error?safe(error.message):data.map(x=>'<div class="notice"><strong>'+safe(x.display_name||x.user_id)+'</strong> · '+safe(x.unit_number||'Unit not set')+' · '+(x.approved?'Approved':'Pending')+'<label>Name<input data-name="'+x.user_id+'" value="'+safe(x.display_name)+'"></label><label>Unit<input data-unit="'+x.user_id+'" value="'+safe(x.unit_number)+'"></label><label>Role<select data-role="'+x.user_id+'">'+['resident','owner','body_corp','coordinator'].map(r=>'<option value="'+r+'" '+(r===x.role?'selected':'')+'>'+r+'</option>').join('')+'</select></label><button data-save="'+x.user_id+'">Save & approve</button></div>').join('')||'<p>No accounts yet.</p>'}
 $('login-form').addEventListener('submit',async e=>{e.preventDefault();message('Signing in…');const {error}=await client.auth.signInWithPassword({email:$('email').value,password:$('password').value});message(error?error.message:'');if(!error)await refresh()});
-$('register').onclick=async()=>{message('Creating account…');const {error}=await client.auth.signUp({email:$('email').value,password:$('password').value});message(error?error.message:'Check your email for verification, then sign in to request approval.')};
+$('show-register').onclick=()=>{show('auth',false);show('registration',true)};
+$('back-signin').onclick=()=>{show('registration',false);show('auth',true)};
+$('register-form').onsubmit=async e=>{e.preventDefault();const status=$('register-message');status.textContent='Submitting…';const {data,error}=await client.auth.signUp({email:$('new-email').value.trim(),password:$('new-password').value,options:{emailRedirectTo:'https://groundsupportcrew.com/82dawroad/login.html',data:{daw82_display_name:$('new-name').value.trim(),daw82_unit_number:$('new-unit').value.trim()}}});if(error){status.textContent=error.message;return}status.textContent='Request received. Check your email to confirm your account, then sign in. The coordinator must approve access.';if(data.session)await refresh()};
 $('logout').onclick=async()=>{await client.auth.signOut();await refresh()};
 $('notice-form').onsubmit=async e=>{e.preventDefault();const {error}=await client.from('daw82_notices').insert({title:$('notice-title').value,body:$('notice-body').value,created_by:me.id});$('app-message').textContent=error?error.message:'Notice published';if(!error){e.target.reset();await loadNotices()}};
 $('request-form').onsubmit=async e=>{e.preventDefault();const {error}=await client.from('daw82_requests').insert({title:$('request-title').value,details:$('request-details').value,user_id:me.id});$('app-message').textContent=error?error.message:'Request submitted';if(!error){e.target.reset();await loadRequests()}};
