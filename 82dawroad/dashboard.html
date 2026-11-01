@@ -7,7 +7,7 @@
 <header><div><a href="/82dawroad/" aria-label="82 Daw Road main page" style="color:#12695e;text-decoration:none"><strong>82 Daw Road</strong></a><br><span>Runcorn · Queensland</span></div><div><span>Community Portal</span> <button id="logout" class="secondary hidden">Sign out</button></div></header>
 <section class="hero"><h1>Community dashboard</h1><p>Your notices, maintenance requests and community account in one place.</p></section>
 <main class="wrap"><p><a href="./">← Back to 82 Daw Road homepage</a></p>
-<section id="pending" class="card hidden"><h2>Membership pending</h2><p>Your account has been created. The coordinator must verify and approve your membership before you can access the portal.</p><p>Contact the coordinator separately if you need help.</p></section>
+<section id="pending" class="card hidden"><h2>Membership pending</h2><p>Your account has been created. The admin must verify and approve your membership before you can access the portal.</p><p>Contact the admin separately if you need help.</p></section>
 <section id="dashboard" class="hidden"><div class="card"><h2 id="welcome">Community dashboard</h2><p id="identity" class="muted"></p></div>
 <div class="grid" style="margin-top:18px"><div class="card"><h3>📢 Community notices</h3><div id="notices"></div><form id="notice-form" class="hidden"><label>Notice title<input id="notice-title" maxlength="160" required></label><label>Notice details<textarea id="notice-body" required></textarea></label><button>Publish notice</button></form></div>
 <div class="card"><h3>🔧 Maintenance requests</h3><div id="requests"></div><form id="request-form"><label>Issue title<input id="request-title" required maxlength="160"></label><label>Details<textarea id="request-details" required></textarea></label><button>Submit request</button></form></div></div>
@@ -32,19 +32,19 @@ async function refresh(){
  if(!data.approved)return;
  $('welcome').textContent='Welcome'+(data.display_name?', '+data.display_name:'');
  $('identity').textContent=[data.role.replaceAll('_',' '),data.unit_number&&('Townhouse '+data.unit_number)].filter(Boolean).join(' · ');
- const committee=['body_corp','coordinator'].includes(data.role);
- show('notice-form',committee);show('admin',data.role==='coordinator');
- await Promise.all([loadNotices(),loadRequests(),data.role==='coordinator'?loadMembers():Promise.resolve()]);
+ const committee=['body_corp','admin'].includes(data.role);
+ show('notice-form',committee);show('admin',data.role==='admin');
+ await Promise.all([loadNotices(),loadRequests(),data.role==='admin'?loadMembers():Promise.resolve()]);
 }
 async function loadNotices(){const {data,error}=await client.from('daw82_notices').select('title,body,created_at').order('created_at',{ascending:false}).limit(30);$('notices').innerHTML=error?safe(error.message):data.length?data.map(x=>'<div class="notice"><strong>'+safe(x.title)+'</strong><p>'+safe(x.body)+'</p><small class="muted">'+new Date(x.created_at).toLocaleDateString('en-AU')+'</small></div>').join(''):'<p class="muted">No notices yet.</p>'}
-async function loadRequests(){const {data,error}=await client.from('daw82_requests').select('id,title,details,status,created_at').order('created_at',{ascending:false}).limit(50);const committee=['body_corp','coordinator'].includes(profile.role);$('requests').innerHTML=error?safe(error.message):data.length?data.map(x=>'<div class="notice"><strong>'+safe(x.title)+'</strong><p>'+safe(x.details)+'</p><small>'+safe(x.status)+'</small> '+(committee?'<select data-request="'+x.id+'">'+['new','in_progress','resolved'].map(s=>'<option value="'+s+'" '+(s===x.status?'selected':'')+'>'+s.replace('_',' ')+'</option>').join('')+'</select>':'')+'</div>').join(''):'<p class="muted">No maintenance requests yet.</p>'}
+async function loadRequests(){const {data,error}=await client.from('daw82_requests').select('id,title,details,status,created_at').order('created_at',{ascending:false}).limit(50);const committee=['body_corp','admin'].includes(profile.role);$('requests').innerHTML=error?safe(error.message):data.length?data.map(x=>'<div class="notice"><strong>'+safe(x.title)+'</strong><p>'+safe(x.details)+'</p><small>'+safe(x.status)+'</small> '+(committee?'<select data-request="'+x.id+'">'+['new','in_progress','resolved'].map(s=>'<option value="'+s+'" '+(s===x.status?'selected':'')+'>'+s.replace('_',' ')+'</option>').join('')+'</select>':'')+'</div>').join(''):'<p class="muted">No maintenance requests yet.</p>'}
 async function loadMembers(){
  const {data,error}=await client.from('daw82_profiles').select('user_id,display_name,unit_number,role,approved').order('created_at',{ascending:false});
  if(error){$('pending-members').textContent=error.message;return}
  const render=x=>'<div class="notice"><strong>'+safe(x.display_name||'Unnamed applicant')+'</strong> · Unit '+safe(x.unit_number||'not provided')+
  '<label>Name<input data-name="'+x.user_id+'" value="'+safe(x.display_name)+'"></label>'+
  '<label>Unit<input data-unit="'+x.user_id+'" value="'+safe(x.unit_number)+'"></label>'+
- '<label>Role<select data-role="'+x.user_id+'">'+(x.role==='coordinator'?['coordinator']:['resident','owner','body_corp']).map(r=>'<option value="'+r+'" '+(r===x.role?'selected':'')+'>'+r.replace('_',' ')+'</option>').join('')+'</select></label>'+
+ '<label>Role<select data-role="'+x.user_id+'">'+(x.role==='admin'?['admin']:['resident','owner','body_corp']).map(r=>'<option value="'+r+'" '+(r===x.role?'selected':'')+'>'+r.replace('_',' ')+'</option>').join('')+'</select></label>'+
  '<button data-save="'+x.user_id+'">'+(x.approved?'Update member':'Approve user')+'</button></div>';
  const pending=data.filter(x=>!x.approved),approved=data.filter(x=>x.approved);
  $('pending-count').textContent='('+pending.length+')';
