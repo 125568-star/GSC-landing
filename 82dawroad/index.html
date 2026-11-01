@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>82 Daw Road | Community Portal</title>
+<style>
+:root{font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#173047;background:#f5f8f7}*{box-sizing:border-box}body{margin:0}header{background:#fff;padding:20px max(22px,calc((100vw - 1100px)/2));display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #d9e6e3}header strong{color:#12695e;font-size:1.2rem}header span{font-size:.8rem;color:#647977}.hero{background:linear-gradient(130deg,#0c4f51,#168674);color:white;padding:65px 24px;text-align:center}.hero h1{font-size:clamp(2.1rem,5vw,3.6rem);margin:0 0 12px}.hero p{max-width:570px;margin:0 auto;line-height:1.6}.wrap{max-width:1050px;margin:34px auto;padding:0 20px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:17px}.card{background:#fff;border:1px solid #e3e9e7;border-radius:16px;padding:25px;box-shadow:0 4px 20px #1730470b}.card h3{margin:0 0 12px}input,textarea,select{display:block;padding:12px;width:100%;border:1px solid #bccdca;border-radius:9px;margin:8px 0 14px;font:inherit}textarea{min-height:110px}button{background:#137b6e;color:#fff;border:0;border-radius:9px;padding:12px 18px;cursor:pointer;font:inherit}button.secondary{background:#e4f1ee;color:#14594e}button:disabled{opacity:.55;cursor:wait}.hidden{display:none!important}.muted{color:#647977}.notice{border-bottom:1px solid #e5eeeb;padding:12px 0;white-space:pre-wrap}.notice:last-child{border:0}#message{padding:12px;color:#8a2a2a;min-height:30px}label{font-size:.9rem;font-weight:600}footer{text-align:center;padding:28px;color:#708581;font-size:.85rem}a{color:#177f72}
+</style></head><body>
+<header><div><strong>82 Daw Road</strong><br><span>Runcorn · Queensland</span></div><div><span>Community Portal</span> <button id="logout" class="secondary hidden">Sign out</button></div></header>
+<section class="hero"><h1>Our townhouse community</h1><p>One convenient, secure place for residents, owners and body corporate to stay informed and connected.</p></section>
+<main class="wrap">
+<section id="public"><div class="grid"><div class="card"><h3>📢 Community notices</h3><p>Read updates, announcements and important information.</p></div><div class="card"><h3>🔧 Maintenance</h3><p>Report common-property issues and track their progress.</p></div><div class="card"><h3>📋 Body corporate</h3><p>Keep community information organised and accessible to approved members.</p></div></div></section>
+<section id="auth" class="card" style="max-width:500px;margin:30px auto"><h2>Member access</h2><p class="muted">Sign in or request an account. A coordinator approves membership before private information becomes available.</p><form id="login-form"><label>Email<input id="email" type="email" required autocomplete="email"></label><label>Password<input id="password" type="password" required minlength="8" autocomplete="current-password"></label><button type="submit">Sign in</button> <button class="secondary" type="button" id="register">Request access</button></form><p id="message" role="status" aria-live="polite"></p></section>
+<section id="pending" class="card hidden"><h2>Membership pending</h2><p>Your account has been created. The coordinator must verify and approve your membership before you can access the portal.</p><p>Contact the coordinator separately if you need help.</p></section>
+<section id="dashboard" class="hidden"><div class="card"><h2 id="welcome">Community dashboard</h2><p id="identity" class="muted"></p></div>
+<div class="grid" style="margin-top:18px"><div class="card"><h3>Community notices</h3><div id="notices"></div><form id="notice-form" class="hidden"><label>Notice title<input id="notice-title" maxlength="160" required></label><label>Notice details<textarea id="notice-body" required></textarea></label><button>Publish notice</button></form></div>
+<div class="card"><h3>Maintenance requests</h3><div id="requests"></div><form id="request-form"><label>Issue title<input id="request-title" required maxlength="160"></label><label>Details<textarea id="request-details" required></textarea></label><button>Submit request</button></form></div></div>
+<div id="admin" class="card hidden" style="margin-top:18px"><h3>Coordinator · Member approvals</h3><p class="muted">Approve applicants only after independently verifying their connection to the complex.</p><div id="members"></div></div>
+<p id="app-message" role="status" aria-live="polite"></p></section>
+</main><footer>82 Daw Road Community Portal · Powered by Ground Support Crew</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.95.0/dist/umd/supabase.min.js"></script>
+<script>
+const client=window.supabase.createClient('https://pulbcpjwxliwnmkiyfhe.supabase.co','sb_publishable_ljmRZCY1QvS4G64eDgTuUQ_GfWXky0x');
+const $=id=>document.getElementById(id),show=(id,on)=>$(id).classList.toggle('hidden',!on);
+let me=null,profile=null;
+const safe=(s)=>{const d=document.createElement('div');d.textContent=String(s??'');return d.innerHTML};
+const message=(s)=>$('message').textContent=s;
+async function refresh(){
+ const {data:{user},error}=await client.auth.getUser();me=error?null:user;
+ show('auth',!me);show('logout',!!me);show('public',!me);
+ if(!me){show('dashboard',false);show('pending',false);return}
+ const {data,error:pe}=await client.from('daw82_profiles').select('*').eq('user_id',me.id).maybeSingle();
+ if(pe){message(pe.message);return}
+ if(!data){const {error:ie}=await client.from('daw82_profiles').insert({user_id:me.id});if(ie){message(ie.message);return}show('pending',true);show('dashboard',false);return}
+ profile=data;show('pending',!data.approved);show('dashboard',data.approved);
+ if(!data.approved)return;
+ $('welcome').textContent='Welcome'+(data.display_name?', '+data.display_name:'');
+ $('identity').textContent=[data.role.replaceAll('_',' '),data.unit_number&&('Townhouse '+data.unit_number)].filter(Boolean).join(' · ');
+ const committee=['body_corp','coordinator'].includes(data.role);
+ show('notice-form',committee);show('admin',data.role==='coordinator');
+ await Promise.all([loadNotices(),loadRequests(),data.role==='coordinator'?loadMembers():Promise.resolve()]);
+}
+async function loadNotices(){const {data,error}=await client.from('daw82_notices').select('title,body,created_at').order('created_at',{ascending:false}).limit(30);$('notices').innerHTML=error?safe(error.message):data.length?data.map(x=>'<div class="notice"><strong>'+safe(x.title)+'</strong><p>'+safe(x.body)+'</p><small class="muted">'+new Date(x.created_at).toLocaleDateString('en-AU')+'</small></div>').join(''):'<p class="muted">No notices yet.</p>'}
+async function loadRequests(){const {data,error}=await client.from('daw82_requests').select('id,title,details,status,created_at').order('created_at',{ascending:false}).limit(50);const committee=['body_corp','coordinator'].includes(profile.role);$('requests').innerHTML=error?safe(error.message):data.length?data.map(x=>'<div class="notice"><strong>'+safe(x.title)+'</strong><p>'+safe(x.details)+'</p><small>'+safe(x.status)+'</small> '+(committee?'<select data-request="'+x.id+'">'+['new','in_progress','resolved'].map(s=>'<option value="'+s+'" '+(s===x.status?'selected':'')+'>'+s.replace('_',' ')+'</option>').join('')+'</select>':'')+'</div>').join(''):'<p class="muted">No maintenance requests yet.</p>'}
+async function loadMembers(){const {data,error}=await client.from('daw82_profiles').select('user_id,display_name,unit_number,role,approved').order('created_at',{ascending:false});$('members').innerHTML=error?safe(error.message):data.map(x=>'<div class="notice"><strong>'+safe(x.display_name||x.user_id)+'</strong> · '+safe(x.unit_number||'Unit not set')+' · '+(x.approved?'Approved':'Pending')+'<label>Name<input data-name="'+x.user_id+'" value="'+safe(x.display_name)+'"></label><label>Unit<input data-unit="'+x.user_id+'" value="'+safe(x.unit_number)+'"></label><label>Role<select data-role="'+x.user_id+'">'+['resident','owner','body_corp','coordinator'].map(r=>'<option value="'+r+'" '+(r===x.role?'selected':'')+'>'+r+'</option>').join('')+'</select></label><button data-save="'+x.user_id+'">Save & approve</button></div>').join('')||'<p>No accounts yet.</p>'}
+$('login-form').addEventListener('submit',async e=>{e.preventDefault();message('Signing in…');const {error}=await client.auth.signInWithPassword({email:$('email').value,password:$('password').value});message(error?error.message:'');if(!error)await refresh()});
+$('register').onclick=async()=>{message('Creating account…');const {error}=await client.auth.signUp({email:$('email').value,password:$('password').value});message(error?error.message:'Check your email for verification, then sign in to request approval.')};
+$('logout').onclick=async()=>{await client.auth.signOut();await refresh()};
+$('notice-form').onsubmit=async e=>{e.preventDefault();const {error}=await client.from('daw82_notices').insert({title:$('notice-title').value,body:$('notice-body').value,created_by:me.id});$('app-message').textContent=error?error.message:'Notice published';if(!error){e.target.reset();await loadNotices()}};
+$('request-form').onsubmit=async e=>{e.preventDefault();const {error}=await client.from('daw82_requests').insert({title:$('request-title').value,details:$('request-details').value,user_id:me.id});$('app-message').textContent=error?error.message:'Request submitted';if(!error){e.target.reset();await loadRequests()}};
+$('requests').onchange=async e=>{const id=e.target.dataset.request;if(!id)return;const {error}=await client.from('daw82_requests').update({status:e.target.value}).eq('id',id);$('app-message').textContent=error?error.message:'Status updated'};
+$('members').onclick=async e=>{const id=e.target.dataset.save;if(!id)return;const role=document.querySelector('[data-role="'+id+'"]').value;const display_name=document.querySelector('[data-name="'+id+'"]').value;const unit_number=document.querySelector('[data-unit="'+id+'"]').value;const {error}=await client.from('daw82_profiles').update({role,display_name,unit_number,approved:true}).eq('user_id',id);$('app-message').textContent=error?error.message:'Member approved';if(!error)await loadMembers()};
+refresh();
+</script></body></html>
