@@ -36,7 +36,7 @@ async function refresh(){
  if(!data.approved)return;
  $('welcome').textContent='Welcome'+(data.display_name?', '+data.display_name:'');
  $('identity').textContent=[data.role.replaceAll('_',' '),data.unit_number&&('Townhouse '+data.unit_number)].filter(Boolean).join(' · ');
- show('admin-views',data.role==='admin');renderView();
+ show('admin-views',data.role==='admin');if(data.role==='admin'){const {data:active,error:ae}=await client.from('daw82_active_roles').select('active_role').eq('user_id',me.id).maybeSingle();if(ae){message(ae.message);return}viewMode=active?.active_role==='owner'?'owner36':'admin'}renderView();
  await Promise.all([loadNotices(),loadRequests(),data.role==='admin'?loadMembers():Promise.resolve()]);
 }
 function renderView(){
@@ -45,15 +45,15 @@ function renderView(){
  show('add-request',!preview&&['resident','admin'].includes(profile.role));
  $('requests-explainer').textContent=preview?'Requests for Unit 36 (owner view)':isAdmin?'All townhouse maintenance requests':profile.role==='owner'?'Requests for your townhouse only':'Your submitted maintenance requests';
  $('preview-note').textContent=preview?'Unit 36 user view. Return to Admin of Community for administration controls.':'';
- $('identity').textContent=preview?'User of Unit 36':[profile.role.replaceAll('_',' '),profile.unit_number&&('Townhouse '+profile.unit_number)].filter(Boolean).join(' · ');
+ $('identity').textContent=preview?'You are Owner of Unit 36':isAdmin?'You are Admin of Community'+(profile.unit_number?' · Townhouse '+profile.unit_number:''):[profile.role.replaceAll('_',' '),profile.unit_number&&('Townhouse '+profile.unit_number)].filter(Boolean).join(' · ');
  loadRequests();
 }
-document.getElementById('admin-views').onclick=e=>{const mode=e.target.closest('a[data-view]')?.dataset.view;if(!mode||profile?.role!=='admin')return;e.preventDefault();viewMode=mode;renderView()};
+document.getElementById('admin-views').onclick=async e=>{const mode=e.target.closest('a[data-view]')?.dataset.view;if(!mode||profile?.role!=='admin')return;e.preventDefault();const role=mode==='owner36'?'owner':'admin';const {error}=await client.from('daw82_active_roles').upsert({user_id:me.id,active_role:role},{onConflict:'user_id'});if(error){message(error.message);return}viewMode=mode;renderView();if(role==='admin')await loadMembers()};
 async function loadNotices(){const {data,error}=await client.from('daw82_notices').select('title,body,created_at').order('created_at',{ascending:false}).limit(30);$('notices').innerHTML=error?safe(error.message):data.length?data.map(x=>'<div class="notice"><strong>'+safe(x.title)+'</strong><p>'+safe(x.body)+'</p><small class="muted">'+new Date(x.created_at).toLocaleDateString('en-AU')+'</small></div>').join(''):'<p class="muted">No notices yet.</p>'}
 async function loadRequests(){
  const {data,error}=await client.from('daw82_requests').select('id,title,details,status,unit_number,created_at').order('created_at',{ascending:false}).limit(100);
  if(error){$('requests').textContent=error.message;return}
- const visible=(profile.role==='admin'&&viewMode!=='admin')?data.filter(x=>x.unit_number==='36'):data;
+ const visible=data;
  $('requests').innerHTML=visible.length?visible.map(x=>'<div class="notice"><strong>'+safe(x.title)+'</strong><p>'+safe(x.details)+'</p><small>Townhouse '+safe(x.unit_number)+' · '+safe(x.status.replaceAll('_',' '))+' · '+new Date(x.created_at).toLocaleDateString('en-AU')+'</small>'+(profile.role==='admin' && viewMode==='admin' && x.status==='new'?' <button type="button" data-approve-request="'+x.id+'">Approve</button>':'')+'</div>').join(''):'<p class="muted">No maintenance requests yet.</p>';
 }
 async function loadMembers(){
