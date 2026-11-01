@@ -9,8 +9,12 @@
 <main class="wrap"><p><a href="./">← Back to 82 Daw Road homepage</a></p>
 <section id="pending" class="card hidden"><h2>Membership pending</h2><p>Your account has been created. The admin must verify and approve your membership before you can access the portal.</p><p>Contact the admin separately if you need help.</p></section>
 <section id="dashboard" class="hidden"><div class="card"><h2 id="welcome">Community dashboard</h2><p id="identity" class="muted"></p></div>
-<div class="grid" style="margin-top:18px"><div class="card"><h3>📢 Community notices</h3><div id="notices"></div><form id="notice-form" class="hidden"><label>Notice title<input id="notice-title" maxlength="160" required></label><label>Notice details<textarea id="notice-body" required></textarea></label><button>Publish notice</button></form></div>
-<div class="card"><h3>🔧 Maintenance requests</h3><div id="requests"></div><form id="request-form"><label>Issue title<input id="request-title" required maxlength="160"></label><label>Details<textarea id="request-details" required></textarea></label><button>Submit request</button></form></div></div>
+<div class="grid" style="margin-top:18px">
+<div class="card"><h3>📢 Community notices</h3><div id="notices"></div></div>
+<div class="card"><h3>🔧 Maintenance requests</h3>
+<p class="muted" id="requests-explainer">Requests you are permitted to view.</p>
+<p><a id="add-request" href="request.html" style="display:inline-block;background:#137b6e;color:white;padding:12px 18px;border-radius:9px;text-decoration:none">+ Add request</a></p>
+<div id="requests"></div></div></div>
 <div id="admin" class="card hidden" style="margin-top:18px"><h3>New User Approvals <span id="pending-count"></span></h3><p class="muted">Review new requests and verify the person belongs to the complex before approving them.</p><div id="pending-members"></div><h3 style="margin-top:28px">Approved Members</h3><div id="members"></div></div>
 <p id="app-message" role="status" aria-live="polite"></p></section>
 </main><footer>82 Daw Road Community Portal · Powered by Ground Support Crew</footer>
@@ -33,11 +37,15 @@ async function refresh(){
  $('welcome').textContent='Welcome'+(data.display_name?', '+data.display_name:'');
  $('identity').textContent=[data.role.replaceAll('_',' '),data.unit_number&&('Townhouse '+data.unit_number)].filter(Boolean).join(' · ');
  const committee=['body_corp','admin'].includes(data.role);
- show('notice-form',committee);show('admin',data.role==='admin');
+ show('add-request',['resident','admin'].includes(data.role));show('admin',data.role==='admin');$('requests-explainer').textContent=data.role==='admin'?'All townhouse maintenance requests':data.role==='owner'?'Requests for your townhouse only':'Your submitted maintenance requests';
  await Promise.all([loadNotices(),loadRequests(),data.role==='admin'?loadMembers():Promise.resolve()]);
 }
 async function loadNotices(){const {data,error}=await client.from('daw82_notices').select('title,body,created_at').order('created_at',{ascending:false}).limit(30);$('notices').innerHTML=error?safe(error.message):data.length?data.map(x=>'<div class="notice"><strong>'+safe(x.title)+'</strong><p>'+safe(x.body)+'</p><small class="muted">'+new Date(x.created_at).toLocaleDateString('en-AU')+'</small></div>').join(''):'<p class="muted">No notices yet.</p>'}
-async function loadRequests(){const {data,error}=await client.from('daw82_requests').select('id,title,details,status,created_at').order('created_at',{ascending:false}).limit(50);const committee=['body_corp','admin'].includes(profile.role);$('requests').innerHTML=error?safe(error.message):data.length?data.map(x=>'<div class="notice"><strong>'+safe(x.title)+'</strong><p>'+safe(x.details)+'</p><small>'+safe(x.status)+'</small> '+(committee?'<select data-request="'+x.id+'">'+['new','in_progress','resolved'].map(s=>'<option value="'+s+'" '+(s===x.status?'selected':'')+'>'+s.replace('_',' ')+'</option>').join('')+'</select>':'')+'</div>').join(''):'<p class="muted">No maintenance requests yet.</p>'}
+async function loadRequests(){
+ const {data,error}=await client.from('daw82_requests').select('id,title,details,status,unit_number,created_at').order('created_at',{ascending:false}).limit(100);
+ if(error){$('requests').textContent=error.message;return}
+ $('requests').innerHTML=data.length?data.map(x=>'<div class="notice"><strong>'+safe(x.title)+'</strong><p>'+safe(x.details)+'</p><small>Townhouse '+safe(x.unit_number)+' · '+safe(x.status.replaceAll('_',' '))+' · '+new Date(x.created_at).toLocaleDateString('en-AU')+'</small>'+(profile.role==='admin' && x.status==='new'?' <button type="button" data-approve-request="'+x.id+'">Approve</button>':'')+'</div>').join(''):'<p class="muted">No maintenance requests yet.</p>';
+}
 async function loadMembers(){
  const {data,error}=await client.from('daw82_profiles').select('user_id,display_name,unit_number,role,approved').order('created_at',{ascending:false});
  if(error){$('pending-members').textContent=error.message;return}
@@ -52,9 +60,7 @@ async function loadMembers(){
  $('members').innerHTML=approved.length?approved.map(render).join(''):'<p class="muted">No approved members yet.</p>';
 }
 $('logout').onclick=async()=>{await client.auth.signOut();location.replace('login.html')};
-$('notice-form').onsubmit=async e=>{e.preventDefault();const {error}=await client.from('daw82_notices').insert({title:$('notice-title').value,body:$('notice-body').value,created_by:me.id});$('app-message').textContent=error?error.message:'Notice published';if(!error){e.target.reset();await loadNotices()}};
-$('request-form').onsubmit=async e=>{e.preventDefault();const {error}=await client.from('daw82_requests').insert({title:$('request-title').value,details:$('request-details').value,user_id:me.id});$('app-message').textContent=error?error.message:'Request submitted';if(!error){e.target.reset();await loadRequests()}};
-$('requests').onchange=async e=>{const id=e.target.dataset.request;if(!id)return;const {error}=await client.from('daw82_requests').update({status:e.target.value}).eq('id',id);$('app-message').textContent=error?error.message:'Status updated'};
+$('requests').onclick=async e=>{const id=e.target.dataset.approveRequest;if(!id||profile.role!=='admin')return;e.target.disabled=true;const {error}=await client.from('daw82_requests').update({status:'approved'}).eq('id',id).eq('status','new');$('app-message').textContent=error?error.message:'Request approved';await loadRequests()};
 $('admin').onclick=async e=>{const id=e.target.dataset.save;if(!id)return;const role=document.querySelector('[data-role="'+id+'"]').value;const display_name=document.querySelector('[data-name="'+id+'"]').value;const unit_number=document.querySelector('[data-unit="'+id+'"]').value;const {error}=await client.from('daw82_profiles').update({role,display_name,unit_number,approved:true}).eq('user_id',id);$('app-message').textContent=error?error.message:'Member approved';if(!error)await loadMembers()};
 refresh();
 </script></body></html>
