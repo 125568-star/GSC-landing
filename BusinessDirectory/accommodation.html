@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Accommodation | Business Discovery Network</title><meta name="description" content="Discover Brisbane accommodation businesses in the Business Discovery Network."><link rel="icon" href="favicon.svg">
+<style>
+:root{font-family:Arial,Helvetica,sans-serif;color:#132542;background:#f4f8ff}*{box-sizing:border-box}body{margin:0}a{color:#0869e8}.wrap{max-width:1190px;margin:auto;padding:0 24px}header{background:#fff;border-bottom:1px solid #e4eaf2}header .wrap{min-height:90px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;gap:14px;align-items:center;text-decoration:none;color:#132542;font-weight:750;font-size:21px;line-height:1.05}.brand img{width:60px;height:60px}nav{display:flex;gap:24px;align-items:center;flex-wrap:wrap}nav a{text-decoration:none;font-weight:600}nav .btn{background:#0766e6;color:#fff;padding:13px 20px;border-radius:10px}main{min-height:65vh}.intro{padding:60px 0 34px}.back{text-decoration:none;font-weight:650}.eyebrow{color:#0869e8;text-transform:uppercase;letter-spacing:.11em;font-size:13px;font-weight:750;margin-top:30px}h1{font-size:clamp(40px,6vw,65px);line-height:1.05;margin:14px 0;color:#101c44}p{line-height:1.6;color:#52627a}.search{width:100%;border:1px solid #dce5f0;background:#fff;padding:18px 20px;border-radius:12px;font:inherit;font-size:17px;margin:10px 0 22px}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:20px;padding-bottom:70px}.card{padding:24px;background:#fff;border:1px solid #e0e8f2;border-radius:16px;box-shadow:0 7px 22px #1524490a}.card small{color:#0b70cf;font-weight:700}.card h2{font-size:23px;margin:12px 0}.card p{overflow-wrap:anywhere}.card a{font-weight:700}#status{margin:4px 0 22px}footer{background:#0b2149;color:#fff;padding:28px 0}footer p,footer a{color:#cbdaf1}@media(max-width:650px){header .wrap{padding:14px 20px;align-items:flex-start;flex-direction:column}.brand{font-size:18px}.brand img{width:50px;height:50px}nav{gap:14px;font-size:14px}.intro{padding-top:35px}}
+
+/* Shared Brisbane skyline page banner, with readable headings */
+.intro{position:relative;isolation:isolate;margin:0 calc(50% - 50vw);padding:62px max(24px,calc((100vw - 1040px)/2 + 24px)) 50px;overflow:hidden;background:#cce6f7}
+.intro::before{content:"";position:absolute;inset:0;z-index:-2;background-image:url("https://images.pexels.com/photos/2516657/pexels-photo-2516657.jpeg?cs=srgb&dl=pexels-valeriiamiller-2516657.jpg&fm=jpg");background-size:cover;background-position:center 85%;filter:saturate(1.9) contrast(1.23) brightness(1.12)}
+.intro::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(255,252,236,.88),rgba(245,251,255,.72) 48%,rgba(255,255,255,.1) 100%)}
+.intro p{color:#203b5b}
+@media(max-width:650px){.intro{padding:35px 24px 28px}.intro::before{background-position:65% 85%}}
+
+/* Unified homepage-style layout: full-width photo first; all page content below. */
+body{background:#fff}
+header{background:#fff;border-bottom:1px solid #e1e8f1}
+header .wrap{min-height:100px}
+.brand{font-size:25px;font-weight:800;gap:18px;color:#0b2149}
+.brand img{width:72px;height:72px}
+nav{gap:35px}
+nav a{color:#0b2149;font-size:16px;font-weight:700}
+nav .btn,nav .cta{background:#0869e8;color:white;padding:16px 26px;border-radius:8px}
+.page-hero{display:block;width:100%;height:495px;background:#d6ebfa url("https://images.pexels.com/photos/2516657/pexels-photo-2516657.jpeg?cs=srgb&dl=pexels-valeriiamiller-2516657.jpg&fm=jpg") center 85% / cover no-repeat}
+main.wrap .page-hero{width:100vw;margin-left:calc(50% - 50vw)}
+.intro{position:static;isolation:auto;overflow:visible;background:none;margin:0 auto;padding:56px 24px 34px;max-width:1190px}
+.intro::before,.intro::after{content:none;display:none}
+main.wrap .intro{padding-left:0;padding-right:0;max-width:none}
+.intro p{color:#52627a}
+@media(max-width:920px){header .wrap{min-height:83px}.brand{font-size:19px}.brand img{width:54px;height:54px}nav{gap:13px}nav a{font-size:13px}}
+@media(max-width:650px){header .wrap{min-height:75px}.page-hero{height:340px;background-position:60% 85%}.intro{padding:35px 20px 24px}.brand{font-size:18px}.brand img{width:46px;height:46px}nav{gap:12px;flex-wrap:wrap}nav a{font-size:13px}nav .btn,nav .cta{padding:10px 12px}}
+</style></head><body><header><div class="wrap"><a class="brand" href="index.html"><img src="favicon.svg" alt="Business Discovery Network logo"><span>Business Discovery<br>Network</span></a><nav aria-label="Main navigation"><a href="index.html">Home</a><a href="index.html#directory">Browse</a><a href="index.html#how">About</a><a class="btn" href="index.html#join">List a Business</a></nav></div></header>
+<main><div class="page-hero" role="img" aria-label="Brisbane skyline, river and bridge"></div><section class="wrap intro"><a class="back" href="index.html">← All categories</a><div class="eyebrow">Browse Brisbane businesses</div><h1>Accommodation</h1><p>Explore approved local accommodation businesses and services. Select a listing to visit its website.</p><label for="search">Search within Accommodation</label><input class="search" id="search" type="search" placeholder="Search businesses or service areas…" autocomplete="off"><p id="status" aria-live="polite">Loading approved listings…</p><div class="cards" id="cards"></div></section></main>
+<footer><div class="wrap"><b>Business Discovery Network</b><p>Part of <a href="https://groundsupportcrew.com/">Ground Support Crew</a></p></div></footer>
+<script>
+const API="https://pulbcpjwxliwnmkiyfhe.supabase.co/functions/v1/business-discovery";
+const terms=["accommodation","hotel","motel","stay","lodging","bnb","hostel","resort"],isOther=false,title="Accommodation";
+let selected=[],categories=[];
+const root=document.getElementById("cards"),status=document.getElementById("status"),search=document.getElementById("search");
+const isMatch=name=>terms.some(t=>name.toLowerCase().includes(t));
+function render(){root.replaceChildren();const q=search.value.trim().toLowerCase();const matches=selected.filter(b=>[b.name,b.description,b.service_area].join(" ").toLowerCase().includes(q));status.textContent=matches.length?matches.length+" approved business"+(matches.length===1?"":"es"):"No matching businesses yet.";for(const b of matches){const card=document.createElement("article");card.className="card";const c=document.createElement("small");c.textContent=categories.find(x=>String(x.id)===String(b.category_id))?.name||title;const h=document.createElement("h2");h.textContent=b.name;const p=document.createElement("p");p.textContent=b.description||"";card.append(c,h,p);if(b.service_area){const area=document.createElement("p");area.textContent="Service area: "+b.service_area;card.append(area)}if(b.website_url&&/^https:\/\//i.test(b.website_url)){const a=document.createElement("a");a.href=b.website_url;a.target="_blank";a.rel=b.sponsored?"noopener noreferrer sponsored":"noopener noreferrer";a.textContent="Visit business website";card.append(a)}root.append(card)}}
+fetch(API+"?action=directory").then(r=>{if(!r.ok)throw Error();return r.json()}).then(data=>{categories=data.categories||[];const known=["food","drink","restaurant","cafe","café","coffee","catering","bar","bakery","dining","trade","service","builder","plumb","electric","repair","clean","maintenance","handyman","construction","it support","shop","retail","store","boutique","market","fashion","accommodation","hotel","motel","stay","lodging","bnb","hostel","resort","health","beauty","wellness","salon","hair","medical","fitness","spa"];selected=(data.businesses||[]).filter(b=>{const name=categories.find(c=>String(c.id)===String(b.category_id))?.name||"";return isOther?!known.some(t=>name.toLowerCase().includes(t)):isMatch(name)});render()}).catch(()=>{status.textContent="Listings are temporarily unavailable. Please try again later."});
+search.addEventListener("input",render);
+</script></body></html>
