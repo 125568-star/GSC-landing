@@ -33,8 +33,8 @@ h1{font-family:'Big Shoulders Display',sans-serif;font-size:32px;margin:40px 0 1
 .website-card{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);align-items:center;gap:26px;padding:30px 0;border-bottom:1px solid #D9CABB}
 .website-card:last-child{border-bottom:0}
 .preview{display:block;text-decoration:none;padding:14px;border-radius:16px;background:linear-gradient(135deg,#d9f6fa,#e3e1ff)}
-.preview.townhouse-preview{background:#fff;border:3px solid #3277cc;padding:11px}
-.preview.townhouse-preview img{background:#fff;object-fit:contain}
+.preview.townhouse-preview{background:#fff;border:3px solid #3277cc;padding:0;overflow:hidden;aspect-ratio:350/263}
+.preview.townhouse-preview img{display:block;width:100%;height:100%;object-fit:cover;border-radius:0;background:#fff}
 .preview.gsc{background:linear-gradient(135deg,#ffe1b7,#fae1d1)}
 .preview img{display:block;width:100%;height:auto;border-radius:8px}
 .website-copy h2{font-size:21px;margin:0 0 12px}
