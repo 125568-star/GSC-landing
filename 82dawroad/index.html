@@ -24,6 +24,7 @@ const safe=(s)=>{const d=document.createElement('div');d.textContent=String(s??'
 const message=(s)=>{const el=$('message');if(el)el.textContent=s};
 async function refresh(){
  const {data:{user},error}=await client.auth.getUser();me=error?null:user;
+ if(me){const {data:existing}=await client.from('daw82_profiles').select('approved').eq('user_id',me.id).maybeSingle();if(existing?.approved){location.replace('/82dawroad/dashboard.html');return}}
  show('login-link',!me);show('logout',!!me);show('public',!me);
  if(!me){show('dashboard',false);show('pending',false);return}
  const {data,error:pe}=await client.from('daw82_profiles').select('*').eq('user_id',me.id).maybeSingle();
