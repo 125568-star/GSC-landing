@@ -37,12 +37,12 @@ async function refresh(){
  $('welcome').textContent='Welcome'+(data.display_name?', '+data.display_name:'');
  $('identity').textContent=[data.role.replaceAll('_',' '),data.unit_number&&('Townhouse '+data.unit_number)].filter(Boolean).join(' · ');
  show('admin-views',data.role==='admin');if(data.role==='admin'){const {data:active,error:ae}=await client.from('daw82_active_roles').select('active_role').eq('user_id',me.id).maybeSingle();if(ae){message(ae.message);viewMode='admin'}else viewMode=active?.active_role==='owner'?'owner36':'admin'}renderView();
- await Promise.all([loadNotices(),loadRequests(),data.role==='admin'?loadMembers():Promise.resolve()]);
+ await Promise.all([loadNotices(),loadRequests(),['admin','body_corp'].includes(data.role)?loadMembers():Promise.resolve()]);
 }
 function renderView(){
  const isAdmin=profile.role==='admin', preview=isAdmin&&viewMode!=='admin';
- show('admin',isAdmin&&!preview);
- show('add-request',!preview&&['resident','admin'].includes(profile.role));show('add-notice',!preview&&['admin','body_corp'].includes(profile.role));
+ show('admin',(isAdmin&&!preview)||profile.role==='body_corp');
+ show('add-request',!preview&&['occupier','resident','admin'].includes(profile.role));show('add-notice',!preview&&['admin','body_corp'].includes(profile.role));
  $('requests-explainer').textContent=preview?'Requests for Unit 36 (owner view)':isAdmin?'All townhouse maintenance requests':profile.role==='owner'?'Requests for your townhouse only':'Your submitted maintenance requests';
  $('preview-note').textContent=preview?'Unit 36 user view. Return to Admin of Community for administration controls.':'';
  $('identity').textContent=preview?'You are Owner of Unit 36':isAdmin?'You are Admin of Community'+(profile.unit_number?' · Townhouse '+profile.unit_number:''):[profile.role.replaceAll('_',' '),profile.unit_number&&('Townhouse '+profile.unit_number)].filter(Boolean).join(' · ');
@@ -53,14 +53,14 @@ async function loadNotices(){const {data,error}=await client.from('daw82_notices
 async function loadRequests(){
  const {data,error}=await client.from('daw82_requests').select('id,title,details,status,unit_number,created_at').order('created_at',{ascending:false}).limit(100);
  if(error){$('requests').textContent=error.message;return}
- const visible=data;
+ const visible=data; if(profile.role==='owner'&&visible.length===0){document.getElementById('requests').closest('.card').classList.add('hidden');return}document.getElementById('requests').closest('.card').classList.remove('hidden');
  $('requests').innerHTML=visible.length?visible.map(x=>'<div class="notice"><strong>'+safe(x.title)+'</strong><p>'+safe(x.details)+'</p><small>Townhouse '+safe(x.unit_number)+' · '+safe(x.status.replaceAll('_',' '))+' · '+new Date(x.created_at).toLocaleDateString('en-AU')+'</small>'+(profile.role==='admin' && viewMode==='admin' && x.status==='new'?' <button type="button" data-approve-request="'+x.id+'">Approve</button>':'')+'</div>').join(''):'<p class="muted">No maintenance requests yet.</p>';
 }
 async function loadMembers(){
  const {data,error}=await client.from('daw82_profiles').select('user_id,display_name,unit_number,role,approved').order('created_at',{ascending:false});
  if(error){$('pending-members').textContent=error.message;return}
- const render=x=>'<div class="notice"><strong>'+safe(x.display_name||'Unnamed applicant')+'</strong> · Unit '+safe(x.unit_number||'not provided')+' · '+safe(x.role.replaceAll('_',' '))+' · <strong>'+(x.approved?'Approved':'Pending approval')+'</strong> <a style="margin-left:12px" href="review-user.html?id='+encodeURIComponent(x.user_id)+'">Review</a></div>';
- const pending=data.filter(x=>!x.approved),approved=data.filter(x=>x.approved);
+ const render=x=>'<div class="notice"><strong>'+safe(x.display_name||'Unnamed applicant')+'</strong> · Unit '+safe(x.unit_number||'not provided')+' · '+safe(x.role==='occupier'?'Occupier':x.role.replaceAll('_',' '))+' · <strong>'+(x.approved?'Approved':'Pending approval')+'</strong> <a style="margin-left:12px" href="review-user.html?id='+encodeURIComponent(x.user_id)+'">Review</a></div>';
+ const allowed=profile.role==='body_corp'?data.filter(x=>!['admin','body_corp'].includes(x.role)):data;const pending=allowed.filter(x=>!x.approved),approved=allowed.filter(x=>x.approved);
  $('pending-count').textContent='('+pending.length+')';
  $('pending-members').innerHTML=pending.length?pending.map(render).join(''):'<p class="muted">No pending requests.</p>';
  $('members').innerHTML=approved.length?approved.map(render).join(''):'<p class="muted">No approved members yet.</p>';
