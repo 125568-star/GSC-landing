@@ -77,7 +77,7 @@ async function loadNotices(){const {data,error}=await client.from('kuranda_notic
 async function loadRequests(){
  const {data,error}=await client.from('kuranda_requests').select('id,title,details,status,unit_number,created_at').order('created_at',{ascending:false}).limit(100);
  if(error){$('requests').textContent=error.message;return}
- const visible=data; if(profile.role==='owner'&&visible.length===0){document.getElementById('requests').closest('.card').classList.add('hidden');return}document.getElementById('requests').closest('.card').classList.remove('hidden');
+ const visible=data; if(viewMode==='owner'&&visible.length===0){document.getElementById('requests').closest('.card').classList.add('hidden');return}document.getElementById('requests').closest('.card').classList.remove('hidden');
  $('requests').innerHTML=visible.length?visible.map(x=>'<div class="notice"><strong>'+safe(x.title)+'</strong><p>'+safe(x.details)+'</p><small>Townhouse '+safe(x.unit_number)+' · '+safe(x.status.replaceAll('_',' '))+' · '+new Date(x.created_at).toLocaleDateString('en-AU')+'</small>'+(profile.role==='admin' && viewMode==='admin' && x.status==='new'?' <button type="button" data-approve-request="'+x.id+'">Approve</button>':'')+'</div>').join(''):'<p class="muted">No maintenance requests yet.</p>';
 }
 async function loadMembers(){
