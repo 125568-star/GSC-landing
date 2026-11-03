@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Community Dashboard | Kuranda</title>
+<style>
+:root{font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#173047;background:#f5f8f7}*{box-sizing:border-box}body{margin:0}header{background:#fff;padding:20px max(22px,calc((100vw - 1100px)/2));display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #d9e6e3}header strong{color:#12695e;font-size:1.2rem}header span{font-size:.8rem;color:#647977}.hero{background:linear-gradient(130deg,#0c4f51,#168674);color:white;padding:65px 24px;text-align:center}.hero h1{font-size:clamp(2.1rem,5vw,3.6rem);margin:0 0 12px}.hero p{max-width:570px;margin:0 auto;line-height:1.6}.wrap{max-width:1050px;margin:34px auto;padding:0 20px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:17px}.card{background:#fff;border:1px solid #e3e9e7;border-radius:16px;padding:25px;box-shadow:0 4px 20px #1730470b}.card h3{margin:0 0 12px}input,textarea,select{display:block;padding:12px;width:100%;border:1px solid #bccdca;border-radius:9px;margin:8px 0 14px;font:inherit}textarea{min-height:110px}button{background:#137b6e;color:#fff;border:0;border-radius:9px;padding:12px 18px;cursor:pointer;font:inherit}button.secondary{background:#e4f1ee;color:#14594e}button:disabled{opacity:.55;cursor:wait}.hidden{display:none!important}.muted{color:#647977}.notice{border-bottom:1px solid #e5eeeb;padding:12px 0;white-space:pre-wrap}.notice:last-child{border:0}#message{padding:12px;color:#8a2a2a;min-height:30px}label{font-size:.9rem;font-weight:600}footer{text-align:center;padding:28px;color:#708581;font-size:.85rem}a{color:#177f72}
+</style></head><body>
+<header><div><a href="/kuranda/" aria-label="Kuranda main page" style="color:#12695e;text-decoration:none"><strong>Kuranda</strong></a><br><span>Runcorn · Queensland</span></div><div><span>Community Portal</span> <button id="logout" class="secondary hidden">Sign out</button></div></header>
+<section class="hero"><h1>Community dashboard</h1><p>Your notices, maintenance requests and community account in one place.</p></section>
+<main class="wrap"><p><a href="./">← Back to Kuranda homepage</a></p>
+<section id="pending" class="card hidden"><h2>Membership pending</h2><p>Your account has been created. The admin must verify and approve your membership before you can access the portal.</p><p>Contact the admin separately if you need help.</p></section>
+<section id="dashboard" class="hidden"><div class="card"><h2 id="welcome">Community dashboard</h2><p id="identity" class="muted"></p><div id="admin-views" style="margin-top:14px;padding-top:12px;border-top:1px solid #d9e6e3"><p style="display:flex;gap:18px;flex-wrap:wrap;font-weight:600"><a href="#user36" data-view="owner36">Login as Owner of Unit ${activeUnit}</a><a href="#admin" data-view="admin">Login as Admin of Community</a></p><p id="preview-note" class="muted"></p></div></div>
+<div class="grid" style="margin-top:18px">
+<div class="card"><h3>📢 Community notices</h3><p><a id="add-notice" class="hidden" href="notice.html" style="display:inline-block;background:#137b6e;color:white;padding:12px 18px;border-radius:9px;text-decoration:none">+ Add Notice</a></p><div id="notices"></div></div>
+<div class="card"><h3>🔧 Maintenance requests</h3>
+<p class="muted" id="requests-explainer">Requests you are permitted to view.</p>
+<p><a id="add-request" href="request.html" style="display:inline-block;background:#137b6e;color:white;padding:12px 18px;border-radius:9px;text-decoration:none">+ Add request</a></p>
+<div id="requests"></div></div>
+<div class="card" aria-labelledby="zds-my-listings">
+<h3 id="zds-my-listings">🎁 Giving Away for Free <span style="display:inline-block;background:#def5e8;color:#16634d;border-radius:20px;padding:3px 9px;font-size:.72rem;vertical-align:middle">FREE · $0</span></h3>
+<p>Have something useful you no longer need? Give it away through Zero Dollar Store, where every listed item is free.</p>
+<p><a href="https://zerodollarstore.com/?view=my-listings" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#137b6e;color:white;padding:12px 18px;border-radius:9px;text-decoration:none;font-weight:600">My free listings ↗</a></p>
+<p><a href="https://zerodollarstore.com/" target="_blank" rel="noopener noreferrer">+ Advertise an item for free</a></p>
+<p><a href="https://zerodollarstore.com/browse.html" target="_blank" rel="noopener noreferrer">Browse all free items</a></p>
+<p class="muted">Sign in to your Zero Dollar Store account to see only your own listings. Townhouse membership details are not shared.</p>
+</div></div>
+<div id="admin" class="card hidden" style="margin-top:18px"><h3>New User Approvals <span id="pending-count"></span></h3><p class="muted">Review new requests and verify the person belongs to the complex before approving them.</p><div id="pending-members"></div><h3 style="margin-top:28px">Approved Members</h3><div id="members"></div></div>
+<p id="app-message" role="status" aria-live="polite"></p></section>
+</main><footer>Kuranda Community Portal · Powered by Ground Support Crew</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.95.0/dist/umd/supabase.min.js"></script>
+<script>
+const client=window.supabase.createClient('https://pulbcpjwxliwnmkiyfhe.supabase.co','sb_publishable_ljmRZCY1QvS4G64eDgTuUQ_GfWXky0x');
+const $=id=>document.getElementById(id),show=(id,on)=>$(id).classList.toggle('hidden',!on);
+let me=null,profile=null,viewMode="admin",activeUnit="";
+const safe=(s)=>{const d=document.createElement('div');d.textContent=String(s??'');return d.innerHTML};
+const message=(s)=>{$('app-message').textContent=s};
+async function refresh(){
+ const {data:{user},error}=await client.auth.getUser();me=error?null:user;
+ show('logout',!!me);
+ if(!me){location.replace('login.html');return}
+ const {data,error:pe}=await client.from('kuranda_profiles').select('*').eq('user_id',me.id).maybeSingle();
+ if(pe){message(pe.message);return}
+ if(!data){const {error:ie}=await client.from('kuranda_profiles').insert({user_id:me.id,display_name:String(me.user_metadata?.kuranda_display_name||'').slice(0,100),unit_number:String(me.user_metadata?.kuranda_unit_number||'').slice(0,30)});if(ie){message(ie.message);return}show('pending',true);show('dashboard',false);return}
+ profile=data;show('pending',!data.approved);show('dashboard',data.approved);
+ if(!data.approved)return;
+ $('welcome').textContent='Welcome'+(data.display_name?', '+data.display_name:'');
+ $('identity').textContent=[data.role.replaceAll('_',' '),data.unit_number&&('Townhouse '+data.unit_number)].filter(Boolean).join(' · ');
+ show('admin-views',data.role==='admin');if(data.role==='admin'){const {data:active,error:ae}=await client.from('kuranda_active_roles').select('active_role').eq('user_id',me.id).maybeSingle();if(ae){message(ae.message);viewMode='admin'}else viewMode=active?.active_role==='owner'?'owner36':'admin'}renderView();
+ await Promise.all([loadNotices(),loadRequests(),['admin','body_corp'].includes(data.role)?loadMembers():Promise.resolve()]);
+}
+function renderView(){
+ const isAdmin=profile.role==='admin', preview=isAdmin&&viewMode!=='admin';
+ show('admin',(isAdmin&&!preview)||profile.role==='body_corp');
+ show('add-request',!preview&&['occupier','resident','admin'].includes(profile.role));show('add-notice',!preview&&['admin','body_corp'].includes(profile.role));
+ $('requests-explainer').textContent=preview?'Requests for Unit ${activeUnit} (owner view)':isAdmin?'All townhouse maintenance requests':profile.role==='owner'?'Requests for your townhouse only':'Your submitted maintenance requests';
+ $('preview-note').textContent=preview?'Unit ${activeUnit} user view. Return to Admin of Community for administration controls.':'';
+ $('identity').textContent=preview?'You are Owner of Unit ${activeUnit}':isAdmin?'You are Admin of Community'+(profile.unit_number?' · Townhouse '+profile.unit_number:''):[profile.role.replaceAll('_',' '),profile.unit_number&&('Townhouse '+profile.unit_number)].filter(Boolean).join(' · ');
+ loadRequests();
+}
+document.getElementById('admin-views').onclick=async e=>{const mode=e.target.closest('a[data-view]')?.dataset.view;if(!mode||profile?.role!=='admin')return;e.preventDefault();const role=mode==='owner36'?'owner':'admin';const {error}=await client.from('kuranda_active_roles').upsert({user_id:me.id,active_role:role},{onConflict:'user_id'});if(error){message(error.message);return}viewMode=mode;renderView();if(role==='admin')await loadMembers()};
+async function loadNotices(){const {data,error}=await client.from('kuranda_notices').select('title,body,created_at').order('created_at',{ascending:false}).limit(30);$('notices').innerHTML=error?safe(error.message):data.length?data.map(x=>'<div class="notice"><strong>'+safe(x.title)+'</strong><p>'+safe(x.body)+'</p><small class="muted">'+new Date(x.created_at).toLocaleDateString('en-AU')+'</small></div>').join(''):'<p class="muted">No notices yet.</p>'}
+async function loadRequests(){
+ const {data,error}=await client.from('kuranda_requests').select('id,title,details,status,unit_number,created_at').order('created_at',{ascending:false}).limit(100);
+ if(error){$('requests').textContent=error.message;return}
+ const visible=(profile.role==='admin'&&viewMode!=='admin')?data.filter(x=>x.unit_number===activeUnit):data; if(profile.role==='owner'&&visible.length===0){document.getElementById('requests').closest('.card').classList.add('hidden');return}document.getElementById('requests').closest('.card').classList.remove('hidden');
+ $('requests').innerHTML=visible.length?visible.map(x=>'<div class="notice"><strong>'+safe(x.title)+'</strong><p>'+safe(x.details)+'</p><small>Townhouse '+safe(x.unit_number)+' · '+safe(x.status.replaceAll('_',' '))+' · '+new Date(x.created_at).toLocaleDateString('en-AU')+'</small>'+(profile.role==='admin' && viewMode==='admin' && x.status==='new'?' <button type="button" data-approve-request="'+x.id+'">Approve</button>':'')+'</div>').join(''):'<p class="muted">No maintenance requests yet.</p>';
+}
+async function loadMembers(){
+ const {data,error}=await client.from('kuranda_profiles').select('user_id,display_name,unit_number,role,approved').order('created_at',{ascending:false});
+ if(error){$('pending-members').textContent=error.message;return}
+ const render=x=>'<div class="notice"><strong>'+safe(x.display_name||'Unnamed applicant')+'</strong> · Unit '+safe(x.unit_number||'not provided')+' · '+safe(x.role==='occupier'?'Occupier':x.role.replaceAll('_',' '))+' · <strong>'+(x.approved?'Approved':'Pending approval')+'</strong> <a style="margin-left:12px" href="review-user.html?id='+encodeURIComponent(x.user_id)+'">Review</a></div>';
+ const allowed=profile.role==='body_corp'?data.filter(x=>!['admin','body_corp'].includes(x.role)):data;const pending=allowed.filter(x=>!x.approved),approved=allowed.filter(x=>x.approved);
+ $('pending-count').textContent='('+pending.length+')';
+ $('pending-members').innerHTML=pending.length?pending.map(render).join(''):'<p class="muted">No pending requests.</p>';
+ $('members').innerHTML=approved.length?approved.map(render).join(''):'<p class="muted">No approved members yet.</p>';
+}
+$('logout').onclick=async()=>{await client.auth.signOut();location.replace('login.html')};
+$('requests').onclick=async e=>{const id=e.target.dataset.approveRequest;if(!id||profile.role!=='admin'||viewMode!=='admin')return;e.target.disabled=true;const {error}=await client.from('kuranda_requests').update({status:'approved'}).eq('id',id).eq('status','new');$('app-message').textContent=error?error.message:'Request approved';await loadRequests()};
+refresh();
+</script></body></html>
