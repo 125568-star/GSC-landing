@@ -12,7 +12,7 @@ function value(form,name){return form.elements.namedItem(name).value.trim()}
 function element(tag,text,className){const el=document.createElement(tag);if(text!==undefined)el.textContent=text;if(className)el.className=className;return el}
 async function busy(form,action){const buttons=[...form.querySelectorAll('button')];buttons.forEach(b=>b.disabled=true);message('Please wait…');try{await action()}catch(e){message(e.message||'Unable to connect. Please try again.',true)}finally{buttons.forEach(b=>b.disabled=false)}}
 async function refresh(){
- show('admin-panel',false);members=[];$('member-list').replaceChildren();
+ show('admin-panel',false);show('facility-bookings',false);members=[];$('member-list').replaceChildren();
  const {data,error}=await client.auth.getUser();user=error?null:data.user;show('logout',!!user);
  if(!user){isSuperAdmin=false;screen('login');return}
  const privilege=await client.rpc('community_is_super_admin');if(privilege.error)throw privilege.error;isSuperAdmin=privilege.data===true;
@@ -20,7 +20,7 @@ async function refresh(){
  const result=await client.from('kuranda_profiles').select('user_id,display_name,unit_number,role,approved,requested_role,access_status,created_at,complex_id').eq('user_id',user.id).maybeSingle();
  if(result.error)throw result.error;profile=result.data;
  if(!profile){screen('join');return}
- screen('account');$('welcome').textContent='Welcome'+(profile.display_name?', '+profile.display_name:'');
+ screen('account');show('facility-bookings',profile.approved===true&&profile.access_status==='active');$('welcome').textContent='Welcome'+(profile.display_name?', '+profile.display_name:'');
  $('identity').textContent=[isSuperAdmin?'Super admin':roles[profile.role]||profile.role,profile.unit_number?'Unit '+profile.unit_number:'',statuses[profile.access_status],'Kuranda · Complex '+profile.complex_id].filter(Boolean).join(' · ');
  const copy={pending:['Membership pending','Your request is waiting for manager review. Private community access is not enabled until approval.'],active:['Your membership is active',(isSuperAdmin||profile.role==='manager')?'You can review applications and manage members below.':'Your approved role is '+roles[profile.role]+'. This demonstration currently includes account access; community services can be added next.'],suspended:['Access suspended','Your membership access has been suspended. Contact the community manager if you need help.'],declined:['Membership not approved','Your request was not approved. Contact the community manager if you believe this needs review.']};
  const [title,description]=copy[profile.access_status]||copy.pending;$('account-title').textContent=title;$('account-description').textContent=description;
@@ -59,6 +59,7 @@ function renderMembers(){
   })};$('member-list').append(card);
  });
 }
+document.querySelectorAll('[data-facility]').forEach(button=>button.addEventListener('click',()=>{$('booking-note').textContent='Online booking for the '+button.dataset.facility+' is not yet available. No reservation has been made.'}));
 document.querySelectorAll('[data-screen]').forEach(button=>button.onclick=()=>screen(button.dataset.screen));
 $('login-form').onsubmit=e=>{e.preventDefault();busy(e.target,async()=>{const {error}=await client.auth.signInWithPassword({email:value(e.target,'email'),password:e.target.elements.namedItem('password').value});if(error)throw error;await refresh()})};
 $('signup-form').onsubmit=e=>{e.preventDefault();busy(e.target,async()=>{
