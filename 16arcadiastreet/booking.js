@@ -52,7 +52,7 @@
   for(const item of rows){
    const line=document.createElement('div');line.className='booking-line';
    const info=document.createElement('span');const d=new Date(item.starts_at);
-   info.textContent=nice(new Intl.DateTimeFormat('en-CA',{timeZone:zone,year:'numeric',month:'2-digit',day:'2-digit'}).format(d))+' · '+d.toLocaleTimeString('en-AU',{timeZone:zone,hour:'2-digit',minute:'2-digit',hour12:false});
+   info.textContent=nice((()=>{const p=parts(d);return p.year+'-'+p.month+'-'+p.day})())+' · '+d.toLocaleTimeString('en-AU',{timeZone:zone,hour:'2-digit',minute:'2-digit',hour12:false});
    const cancel=document.createElement('button');cancel.type='button';cancel.className='secondary';cancel.textContent='Cancel booking';
    cancel.onclick=async()=>{if(!window.confirm('Cancel this booking?'))return;cancel.disabled=true;const {error}=await client.from('kuranda_facility_bookings').delete().eq('id',item.id).eq('user_id',user.id);if(error){status(error.message,true);cancel.disabled=false}else{status('Booking cancelled.');await refreshBookings()}};
    line.append(info,cancel);root.append(line)
