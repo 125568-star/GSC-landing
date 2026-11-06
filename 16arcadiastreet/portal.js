@@ -1,10 +1,10 @@
 'use strict';
 (() => {
 const $=id=>document.getElementById(id);
-const roles={occupier:'Tenant',owner:'Owner',manager:'Manager',body_corp:'Body corporate',admin:'Admin'};
+const roles={occupier:'Tenant',owner:'Owner',manager:'Manager',body_corp:'Body corporate'};
 const statuses={pending:'Pending',active:'Active',suspended:'Suspended',declined:'Declined'};
 const screens=['loading','login','signup','forgot','reset','join','account'];
-let client,user,profile,members=[],recovery=location.hash.includes('type=recovery');
+let client,user,profile,isSuperAdmin=false,members=[],recovery=location.hash.includes('type=recovery');
 const show=(id,on)=>$(id).classList.toggle('hidden',!on);
 function message(text,error=false){$('message').textContent=text;$('message').className='message '+(error?'error':'success')}
 function screen(id){screens.forEach(x=>show(x,x===id));message('')}
@@ -14,16 +14,17 @@ async function busy(form,action){const buttons=[...form.querySelectorAll('button
 async function refresh(){
  show('admin-panel',false);members=[];$('member-list').replaceChildren();
  const {data,error}=await client.auth.getUser();user=error?null:data.user;show('logout',!!user);
- if(!user){screen('login');return}
+ if(!user){isSuperAdmin=false;screen('login');return}
+ const privilege=await client.rpc('community_is_super_admin');if(privilege.error)throw privilege.error;isSuperAdmin=privilege.data===true;
  if(recovery){screen('reset');return}
  const result=await client.from('kuranda_profiles').select('user_id,display_name,unit_number,role,approved,requested_role,access_status,created_at,complex_id').eq('user_id',user.id).maybeSingle();
  if(result.error)throw result.error;profile=result.data;
  if(!profile){screen('join');return}
  screen('account');$('welcome').textContent='Welcome'+(profile.display_name?', '+profile.display_name:'');
- $('identity').textContent=[roles[profile.role]||profile.role,profile.unit_number?'Unit '+profile.unit_number:'',statuses[profile.access_status],'Kuranda · Complex '+profile.complex_id].filter(Boolean).join(' · ');
- const copy={pending:['Membership pending','Your request is waiting for admin review. Private community access is not enabled until approval.'],active:['Your membership is active',profile.role==='admin'?'You can review applications and manage members below.':'Your approved role is '+roles[profile.role]+'. This demonstration currently includes account access; community services can be added next.'],suspended:['Access suspended','Your membership access has been suspended. Contact the community admin if you need help.'],declined:['Membership not approved','Your request was not approved. Contact the community admin if you believe this needs review.']};
+ $('identity').textContent=[isSuperAdmin?'Super admin':roles[profile.role]||profile.role,profile.unit_number?'Unit '+profile.unit_number:'',statuses[profile.access_status],'Kuranda · Complex '+profile.complex_id].filter(Boolean).join(' · ');
+ const copy={pending:['Membership pending','Your request is waiting for manager review. Private community access is not enabled until approval.'],active:['Your membership is active',(isSuperAdmin||profile.role==='manager')?'You can review applications and manage members below.':'Your approved role is '+roles[profile.role]+'. This demonstration currently includes account access; community services can be added next.'],suspended:['Access suspended','Your membership access has been suspended. Contact the community manager if you need help.'],declined:['Membership not approved','Your request was not approved. Contact the community manager if you believe this needs review.']};
  const [title,description]=copy[profile.access_status]||copy.pending;$('account-title').textContent=title;$('account-description').textContent=description;
- if(profile.role==='admin'&&profile.approved){show('admin-panel',true);await loadMembers()}
+ if((isSuperAdmin||profile.role==='manager')&&profile.approved){show('admin-panel',true);await loadMembers()}
 }
 async function loadMembers(){
  $('list-status').textContent='Loading members…';
@@ -38,13 +39,15 @@ function renderMembers(){
  $('list-status').textContent=visible.length+' of '+members.length+' members';$('member-list').replaceChildren();
  if(!visible.length){$('member-list').append(element('p',members.length?'No members match your search.':'No applications yet.','muted'));return}
  visible.forEach(member=>{
-  const card=element('article',undefined,'card');const top=element('div',undefined,'member-top');const info=element('div');info.append(element('h3',member.display_name||'Unnamed member'),element('div',(member.unit_number?'Unit '+member.unit_number+' · ':'')+roles[member.role]+(member.user_id===user.id?' · You':''),'member-meta'));top.append(info,element('span',statuses[member.access_status],'badge '+member.access_status));card.append(top);
+  const card=element('article',undefined,'card');const top=element('div',undefined,'member-top');const info=element('div');info.append(element('h3',member.display_name||'Unnamed member'),element('div',(member.unit_number?'Unit '+member.unit_number+' · ':'')+(member.role==='admin'?'Super admin':roles[member.role])+(member.user_id===user.id?' · You':''),'member-meta'));top.append(info,element('span',statuses[member.access_status],'badge '+member.access_status));card.append(top);
   if(member.access_status==='pending')card.append(element('p','Requested role: '+roles[member.requested_role],'muted'));
   const date=new Date(member.created_at).toLocaleDateString('en-AU');card.append(element('p','Kuranda · Complex '+member.complex_id+' · Joined '+date,'member-meta'));
+  if(member.role==='admin'||(!isSuperAdmin&&member.role==='manager')){$('member-list').append(card);return}
+  const assignableRoles=Object.fromEntries(Object.entries(roles).filter(([key])=>isSuperAdmin||key!=='manager'));
   const edit=element('button','Review / edit','secondary');edit.type='button';edit.setAttribute('aria-expanded','false');card.append(edit);
   const form=element('form',undefined,'member-editor hidden');const grid=element('div',undefined,'edit-grid');
   function field(label,name,initial,options){const lab=element('label',label);const input=element(options?'select':'input');input.name=name;if(options)Object.entries(options).forEach(([key,text])=>{const opt=element('option',text);opt.value=key;input.append(opt)});else{input.type='text';input.maxLength=name==='name'?100:30;input.required=name==='name'}input.value=initial;lab.append(input);grid.append(lab);return input}
-  field('Full name','name',member.display_name);const unit=field('Unit number','unit',member.unit_number);const role=field('Role','role',member.access_status==='pending'?member.requested_role:member.role,roles);field('Access status','status',member.access_status,statuses);
+  field('Full name','name',member.display_name);const unit=field('Unit number','unit',member.unit_number);const role=field('Role','role',member.access_status==='pending'?member.requested_role:member.role,assignableRoles);field('Access status','status',member.access_status,statuses);
   const requireUnit=()=>unit.required=['occupier','owner'].includes(role.value);role.onchange=requireUnit;requireUnit();form.append(grid);
   const actions=element('div',undefined,'actions');const save=element('button','Save changes');const approve=element('button','Approve membership');approve.type='button';approve.className='secondary';const cancel=element('button','Cancel','secondary');cancel.type='button';actions.append(save);if(member.access_status==='pending')actions.append(approve);actions.append(cancel);form.append(actions);card.append(form);
   edit.onclick=()=>{form.classList.toggle('hidden');edit.setAttribute('aria-expanded',String(!form.classList.contains('hidden')))};
@@ -60,9 +63,9 @@ document.querySelectorAll('[data-screen]').forEach(button=>button.onclick=()=>sc
 $('login-form').onsubmit=e=>{e.preventDefault();busy(e.target,async()=>{const {error}=await client.auth.signInWithPassword({email:value(e.target,'email'),password:e.target.elements.namedItem('password').value});if(error)throw error;await refresh()})};
 $('signup-form').onsubmit=e=>{e.preventDefault();busy(e.target,async()=>{
  const form=e.target;const {data,error}=await client.auth.signUp({email:value(form,'email'),password:form.elements.namedItem('password').value,options:{emailRedirectTo:location.origin+'/16arcadiastreet/members.html',data:{community:'kuranda',display_name:value(form,'name'),unit_number:value(form,'unit'),requested_role:value(form,'role')}}});if(error)throw error;
- form.reset();if(data.session)await refresh();message('Check your email to confirm your account, then sign in for admin review. If you already have an account, use Sign in.');
+ form.reset();if(data.session)await refresh();message('Check your email to confirm your account, then sign in for manager review. If you already have an account, use Sign in.');
  })};
-$('join-form').onsubmit=e=>{e.preventDefault();busy(e.target,async()=>{const {error}=await client.rpc('kuranda_request_membership',{p_name:value(e.target,'name'),p_unit:value(e.target,'unit'),p_requested_role:value(e.target,'role')});if(error)throw error;await refresh();message('Your membership request is ready for admin review.')})};
+$('join-form').onsubmit=e=>{e.preventDefault();busy(e.target,async()=>{const {error}=await client.rpc('kuranda_request_membership',{p_name:value(e.target,'name'),p_unit:value(e.target,'unit'),p_requested_role:value(e.target,'role')});if(error)throw error;await refresh();message('Your membership request is ready for manager review.')})};
 $('forgot-form').onsubmit=e=>{e.preventDefault();busy(e.target,async()=>{const {error}=await client.auth.resetPasswordForEmail(value(e.target,'email'),{redirectTo:location.origin+'/16arcadiastreet/members.html'});if(error)throw error;message('If an account exists for that email, a reset link has been requested. Check your inbox and spam folder.')})};
 $('reset-form').onsubmit=e=>{e.preventDefault();busy(e.target,async()=>{const {error}=await client.auth.updateUser({password:e.target.elements.namedItem('password').value});if(error)throw error;recovery=false;e.target.reset();await refresh();message('Your password has been updated.')})};
 $('resend').onclick=()=>busy($('login-form'),async()=>{const email=value($('login-form'),'email');if(!email)throw new Error('Enter your email address first.');const {error}=await client.auth.resend({type:'signup',email,options:{emailRedirectTo:location.origin+'/16arcadiastreet/members.html'}});if(error)throw error;message('If confirmation is pending, an email has been requested. Check your inbox and spam folder.')});
