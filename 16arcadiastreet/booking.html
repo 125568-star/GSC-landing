@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Book a facility | Kuranda Community</title>
+<link rel="stylesheet" href="portal.css">
+<style>
+.booking-wrap{max-width:980px;margin:24px auto 48px;padding:0 18px}
+.booking-photo{width:100%;height:clamp(230px,42vw,390px);display:block;object-fit:cover;background:#d7e7e4;border-radius:16px 16px 0 0}
+.photo-note{font-size:.8rem;color:#637675;margin:8px 0 0}
+.booking-intro{padding:24px 26px}.booking-intro h1{margin:0 0 8px;font-size:clamp(1.8rem,4vw,2.6rem)}
+.booking-columns{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;margin-top:22px}
+.month-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:18px}
+.month-head button{padding:8px 13px}.month-head h2{font-size:1.25rem;margin:0;text-align:center}
+.calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}
+.calendar .weekday{text-align:center;color:#607a76;font-size:.8rem;padding:8px 0}
+.calendar button{padding:0;width:100%;aspect-ratio:1/1;border:1px solid #dce7e4;background:#f3f8f6;color:#164b43;border-radius:9px;font:600 .94rem system-ui;min-width:0}
+.calendar button.selected{background:#137b6e;color:white;border-color:#137b6e}
+.calendar button:disabled{background:#edf0f0;color:#a3b0ad;cursor:not-allowed;border-color:#edf0f0}
+.slots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.slots button{padding:12px 4px}.slots button.booked,.slots button:disabled{background:#edf0f0;color:#8b9c98;cursor:not-allowed}
+.slots button.selected{background:#164b43}
+.booking-status{min-height:24px;margin:12px 0 4px;line-height:1.5}
+.booking-status.error{color:#963b32}.booking-status.success{color:#12695e}
+.my-bookings{margin-top:22px}.booking-line{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-top:1px solid #dce7e4}
+.booking-line button{flex-shrink:0}.confirm{width:100%;margin-top:16px}
+@media(max-width:700px){.booking-columns{grid-template-columns:1fr}.booking-intro{padding:18px}.slots{grid-template-columns:repeat(3,1fr)}.booking-line{flex-wrap:wrap}}
+</style></head><body>
+<header><a href="./"><strong>16 Arcadia Street</strong><small>Kuranda Community</small></a><div class="actions"><a href="members.html">← Members area</a></div></header>
+<div class="demo">Community facility bookings · Australia/Brisbane time</div>
+<main class="booking-wrap" id="booking-page" hidden>
+<section class="card" style="padding:0;overflow:hidden">
+<img id="facility-image" class="booking-photo" alt="" loading="eager">
+<div class="booking-intro"><h1 id="facility-title">Book a facility</h1><p class="muted">Select a date and an available one-hour time slot. Only future times can be reserved.</p><p class="photo-note">Illustrative facility photograph, not a photo of the complex.</p></div>
+</section>
+<div class="booking-columns">
+<section class="card" aria-label="Booking calendar"><div class="month-head"><button class="secondary" id="prev-month" type="button" aria-label="Previous month">‹</button><h2 id="month-label"></h2><button class="secondary" id="next-month" type="button" aria-label="Next month">›</button></div><div class="calendar" id="calendar"></div></section>
+<section class="card"><h2 id="date-title">Select a date</h2><p class="muted">Times shown in Brisbane time (AEST). Reserved and past times are disabled.</p><div class="slots" id="slots"></div><button id="confirm" class="confirm" type="button" disabled>Choose a time</button><p id="status" class="booking-status" role="status" aria-live="polite"></p></section>
+</div><section class="card my-bookings"><h2>My upcoming bookings</h2><div id="my-bookings"></div></section>
+</main>
+<main class="wrap" id="access-message"><section class="card auth-card"><h1>Checking member access…</h1><p>Only approved, active Kuranda members can reserve community facilities.</p></section></main>
+<footer>16 Arcadia Street Community · Ground Support Crew</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.95.0/dist/umd/supabase.min.js"></script>
+<script src="booking.js?v=20261106"></script></body></html>
