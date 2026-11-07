@@ -11,8 +11,29 @@ function screen(id){screens.forEach(x=>show(x,x===id));message('')}
 function value(form,name){return form.elements.namedItem(name).value.trim()}
 function element(tag,text,className){const el=document.createElement(tag);if(text!==undefined)el.textContent=text;if(className)el.className=className;return el}
 async function busy(form,action){const buttons=[...form.querySelectorAll('button')];buttons.forEach(b=>b.disabled=true);message('Please wait…');try{await action()}catch(e){message(e.message||'Unable to connect. Please try again.',true)}finally{buttons.forEach(b=>b.disabled=false)}}
+const dashboardDetails={
+ occupier:{heading:'Tenant Dashboard',subtitle:'Everything you need for day-to-day life in your community.',icon:'🏡',cards:[['🎾','Book facilities','Reserve the tennis court, swimming pool or barbecue area.','#facility-bookings'],['📌','Community notices','Read updates from your community manager.','#notices'],['🔧','Maintenance','Report common-area issues to management.','#maintenance'],['📞','Useful contacts','Find management and emergency information.','#contacts']]},
+ owner:{heading:'Owner Dashboard',subtitle:'Stay informed about your property and community.',icon:'🏘️',cards:[['🎾','Book facilities','Reserve shared facilities.','#facility-bookings'],['📌','Community notices','View manager announcements and updates.','#notices'],['📋','Body corporate updates','See important community information.','#body-corporate'],['🔧','Maintenance','Follow common-property matters.','#maintenance']]},
+ manager:{heading:'Manager Dashboard',subtitle:'Manage membership and help the community stay organised.',icon:'🗂️',cards:[['👥','Manage members','Review residents, approvals and account roles.','#admin-panel'],['📌','Manage notices','Publish announcements and bin-day reminders.','#notices'],['🎾','Facility bookings','Review shared facility reservations.','#facility-bookings'],['🔧','Maintenance','See common-property reports.','#maintenance']]},
+ body_corp:{heading:'Body Corporate Dashboard',subtitle:'Community governance and shared-property information.',icon:'📋',cards:[['📌','Community notices','Read manager announcements.','#notices'],['🏘️','Community information','View body corporate updates.','#body-corporate'],['🔧','Maintenance','Follow shared-property issues.','#maintenance'],['🎾','Book facilities','Reserve shared facilities.','#facility-bookings']]}
+};
+function renderDashboard(){
+ const active=profile?.approved===true&&profile?.access_status==='active';show('role-dashboard',active);if(!active)return;
+ const role=isSuperAdmin?'manager':profile.role,details=dashboardDetails[role]||dashboardDetails.occupier;
+ $('dashboard-role').textContent=(isSuperAdmin?'Super admin · ':'')+'Kuranda community';
+ $('dashboard-title').textContent=isSuperAdmin?'Super Admin Dashboard':details.heading;
+ $('dashboard-subtitle').textContent=details.subtitle;
+ document.querySelector('.dashboard-symbol').textContent=details.icon;
+ const container=$('dashboard-links');container.replaceChildren();
+ for(const [icon,title,desc,href] of details.cards){
+  const a=element('a',undefined,'dashboard-tile');a.href=href;
+  const mark=element('span',icon,'dashboard-tile-icon');mark.setAttribute('aria-hidden','true');
+  const heading=element('strong',title),body=element('span',desc,'muted');
+  a.append(mark,heading,body);container.append(a)
+ }
+}
 async function refresh(){
- show('admin-panel',false);show('facility-bookings',false);members=[];$('member-list').replaceChildren();
+ show('admin-panel',false);show('facility-bookings',false);show('role-dashboard',false);members=[];$('member-list').replaceChildren();
  const {data,error}=await client.auth.getUser();user=error?null:data.user;show('logout',!!user);
  if(!user){isSuperAdmin=false;screen('login');return}
  const privilege=await client.rpc('community_is_super_admin');if(privilege.error)throw privilege.error;isSuperAdmin=privilege.data===true;
@@ -20,7 +41,7 @@ async function refresh(){
  const result=await client.from('kuranda_profiles').select('user_id,display_name,unit_number,role,approved,requested_role,access_status,created_at,complex_id').eq('user_id',user.id).maybeSingle();
  if(result.error)throw result.error;profile=result.data;
  if(!profile){screen('join');return}
- screen('account');show('facility-bookings',profile.approved===true&&profile.access_status==='active');$('welcome').textContent='Welcome'+(profile.display_name?', '+profile.display_name:'');
+ screen('account');renderDashboard();show('facility-bookings',profile.approved===true&&profile.access_status==='active');$('welcome').textContent='Welcome'+(profile.display_name?', '+profile.display_name:'');
  $('identity').textContent=[isSuperAdmin?'Super admin':roles[profile.role]||profile.role,profile.unit_number?'Unit '+profile.unit_number:'',statuses[profile.access_status],'Kuranda · Complex '+profile.complex_id].filter(Boolean).join(' · ');
  const copy={pending:['Membership pending','Your request is waiting for manager review. Private community access is not enabled until approval.'],active:['Your membership is active',(isSuperAdmin||profile.role==='manager')?'You can review applications and manage members below.':'Your approved role is '+roles[profile.role]+'. This demonstration currently includes account access; community services can be added next.'],suspended:['Access suspended','Your membership access has been suspended. Contact the community manager if you need help.'],declined:['Membership not approved','Your request was not approved. Contact the community manager if you believe this needs review.']};
  const [title,description]=copy[profile.access_status]||copy.pending;$('account-title').textContent=title;$('account-description').textContent=description;
@@ -59,9 +80,9 @@ function renderMembers(){
   })};$('member-list').append(card);
  });
 }
-document.querySelectorAll('[data-facility]').forEach(button=>button.addEventListener('click',()=>{$('booking-note').textContent='Online booking for the '+button.dataset.facility+' is not yet available. No reservation has been made.'}));
+
 document.querySelectorAll('[data-screen]').forEach(button=>button.onclick=()=>screen(button.dataset.screen));
-$('login-form').onsubmit=e=>{e.preventDefault();busy(e.target,async()=>{const {error}=await client.auth.signInWithPassword({email:value(e.target,'email'),password:e.target.elements.namedItem('password').value});if(error)throw error;await refresh()})};
+$('login-form').onsubmit=e=>{e.preventDefault();busy(e.target,async()=>{const entered=value(e.target,'email');const aliases={tenant:'tenant@kuranda-demo.invalid',owner:'owner@kuranda-demo.invalid',manager:'manager@kuranda-demo.invalid'};const email=aliases[entered.toLowerCase()]||entered;const {error}=await client.auth.signInWithPassword({email,password:e.target.elements.namedItem('password').value});if(error)throw error;await refresh()})};
 $('signup-form').onsubmit=e=>{e.preventDefault();busy(e.target,async()=>{
  const form=e.target;const {data,error}=await client.auth.signUp({email:value(form,'email'),password:form.elements.namedItem('password').value,options:{emailRedirectTo:location.origin+'/16arcadiastreet/members.html',data:{community:'kuranda',display_name:value(form,'name'),unit_number:value(form,'unit'),requested_role:value(form,'role')}}});if(error)throw error;
  form.reset();if(data.session)await refresh();message('Check your email to confirm your account, then sign in for manager review. If you already have an account, use Sign in.');
