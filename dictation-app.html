@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#151c32">
+<meta name="description" content="Dictation App: free and open-source Android voice notes with folders, checklists and transcription. Read about the project and download the source code.">
+<title>Dictation App — Free Android Voice Notes | Ground Support Crew</title>
+<style>
+:root{font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;background:#fff6ec;color:#2a1b12}
+*{box-sizing:border-box}body{margin:0}a{color:#5938a7}a:hover{text-decoration:none}
+header{background:#fff6ec;border-bottom:1px solid #e8dacb;padding:20px max(22px,calc((100vw - 960px)/2))}
+header a{font-weight:800;color:#2a1b12;text-decoration:none}
+main{max-width:960px;margin:auto;padding:36px 24px 72px}
+.breadcrumb{font-size:14px;color:#736357;margin-bottom:25px}.breadcrumb a{color:inherit}
+.hero{display:grid;grid-template-columns:180px 1fr;gap:28px;align-items:center;background:#151c32;color:#f9f9ff;padding:30px;border-radius:22px}
+.hero img{width:100%;max-width:180px;height:auto}.eyebrow{font-size:12px;font-weight:800;letter-spacing:.12em;color:#c1b4ff;text-transform:uppercase}
+h1{font-size:clamp(30px,5vw,54px);line-height:1.08;letter-spacing:-.04em;margin:9px 0 12px}
+.hero p{color:#dce0f1;font-size:17px;line-height:1.65;margin:0}
+.hero .sub{margin-top:12px;font-size:13px;color:#c0bedb}
+section{padding:30px 0;border-bottom:1px solid #e8dacb}
+h2{font-size:24px;margin:0 0 14px}
+p{line-height:1.7}.features{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.feature{padding:18px;border:1px solid #e8dacb;border-radius:14px;background:#fffdfa}
+.feature b{display:block;margin-bottom:5px}.feature p{margin:0;color:#594b42;font-size:14px}
+.downloads{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+.btn{display:inline-block;text-decoration:none;background:#2a1b12;color:white;padding:13px 19px;border-radius:10px;font-weight:700}
+.btn.alt{background:#eee7fa;color:#402b76}
+.note{border-left:4px solid #7953bc;background:#f0e9fa;padding:15px 18px;border-radius:6px}
+.small{font-size:13px;color:#695b52}
+footer{font-size:13px;color:#75675c;text-align:center;padding:28px}
+@media(max-width:610px){.hero{grid-template-columns:1fr;justify-items:start;padding:24px}.hero img{width:112px}.features{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><a href="index.html">GROUND SUPPORT CREW</a></header>
+<main>
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="free-software.html">Free Software</a> / Dictation App</nav>
+<div class="hero">
+<img src="assets/dictation-app-icon.svg" alt="Dictation App microphone and note icon" width="180" height="180">
+<div><span class="eyebrow">Android · Free · Open-source</span><h1>Dictation App</h1>
+<p>Speak your notes, organise ideas, and manage everyday lists. A simple dark-themed Android note-taking project, also known as My Dictation.</p>
+<p class="sub">Current documented source version: 1.4 · MIT-licensed original Android app</p></div>
+</div>
+<section>
+<h2>What it does</h2>
+<div class="features">
+<div class="feature"><b>🎙️ Voice notes</b><p>Start and stop microphone recognition manually and insert recognised words into a note at the selected cursor position.</p></div>
+<div class="feature"><b>🗂️ Organised folders</b><p>Separate shopping lists, reminders, to-dos and ideas. Keep All Notes and Unfiled in easy-to-find locations.</p></div>
+<div class="feature"><b>✍️ Simple editor</b><p>Black writing area, white text, automatic saving and a recording indicator so you can see when the microphone is active.</p></div>
+<div class="feature"><b>☑️ Note management</b><p>Checklists, note colours, long-press selection, and moving or deleting multiple notes with confirmation.</p></div>
+</div>
+</section>
+<section>
+<h2>Free download and source code</h2>
+<p>The Android project's <strong>source code is available free</strong> under the MIT licence. The ZIP contains the Android Studio/Gradle project, <code>VERSION_INFO.md</code> and <code>LICENSE</code>.</p>
+<div class="downloads">
+<a class="btn" href="https://github.com/125568-star/simpletools/raw/refs/heads/main/downloads/my-dictation/MyDictation-v1.4-source.zip">Download Android source ZIP</a>
+<a class="btn alt" href="https://github.com/125568-star/simpletools/blob/main/downloads/my-dictation/VERSION_INFO.md">Version history</a>
+<a class="btn alt" href="https://github.com/125568-star/simpletools/tree/main/downloads/my-dictation">Browse source on GitHub</a>
+</div>
+<p class="note"><strong>APK availability:</strong> This is a source-code release, not a tested public APK installer. A public installable download will be added only after device testing and release signing are completed. You can build the source using Android Studio and the included instructions.</p>
+</section>
+<section>
+<h2>Current limitations</h2>
+<p>Version 1.4 uses Android's system speech-recognition service. The proposed offline Whisper integration and automatic stopping after three seconds of silence are <strong>not yet in this release</strong>. Recognition speed and accuracy depend partly on the phone's configured Android speech service. Windows-wide dictation is a separate planned project.</p>
+<p class="small">As with any independently developed software, review compatibility and permissions before installing or modifying it. The public source archive does not contain private notes, recordings or personal credentials.</p>
+</section>
+<p><a href="free-software.html">← Back to Free Software</a></p>
+</main>
+<footer>Ground Support Crew · Dictation App · Free Android source software</footer>
+</body></html>
