@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#151c32">
+<meta name="description" content="Dictation App: free and open-source Android voice notes with folders, checklists and transcription. Read about the project and download the source code.">
+<title>Dictation App Version History | Ground Support Crew</title>
+<style>
+:root{font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;background:#fff6ec;color:#2a1b12}
+*{box-sizing:border-box}body{margin:0}a{color:#5938a7}a:hover{text-decoration:none}
+header{background:#fff6ec;border-bottom:1px solid #e8dacb;padding:20px max(22px,calc((100vw - 960px)/2))}
+header a{font-weight:800;color:#2a1b12;text-decoration:none}
+main{max-width:960px;margin:auto;padding:36px 24px 72px}
+.breadcrumb{font-size:14px;color:#736357;margin-bottom:25px}.breadcrumb a{color:inherit}
+.hero{display:grid;grid-template-columns:180px 1fr;gap:28px;align-items:center;background:#151c32;color:#f9f9ff;padding:30px;border-radius:22px}
+.hero img{width:100%;max-width:180px;height:auto}.eyebrow{font-size:12px;font-weight:800;letter-spacing:.12em;color:#c1b4ff;text-transform:uppercase}
+h1{font-size:clamp(30px,5vw,54px);line-height:1.08;letter-spacing:-.04em;margin:9px 0 12px}
+.hero p{color:#dce0f1;font-size:17px;line-height:1.65;margin:0}
+.hero .sub{margin-top:12px;font-size:13px;color:#c0bedb}
+section{padding:30px 0;border-bottom:1px solid #e8dacb}
+h2{font-size:24px;margin:0 0 14px}
+p{line-height:1.7}.features{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.feature{padding:18px;border:1px solid #e8dacb;border-radius:14px;background:#fffdfa}
+.feature b{display:block;margin-bottom:5px}.feature p{margin:0;color:#594b42;font-size:14px}
+.downloads{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+.btn{display:inline-block;text-decoration:none;background:#2a1b12;color:white;padding:13px 19px;border-radius:10px;font-weight:700}
+.btn.alt{background:#eee7fa;color:#402b76}
+.note{border-left:4px solid #7953bc;background:#f0e9fa;padding:15px 18px;border-radius:6px}
+.small{font-size:13px;color:#695b52}
+footer{font-size:13px;color:#75675c;text-align:center;padding:28px}
+@media(max-width:610px){.hero{grid-template-columns:1fr;justify-items:start;padding:24px}.hero img{width:112px}.features{grid-template-columns:1fr}}
+</style>
+<style>
+table{width:100%;border-collapse:collapse;background:#fffdfa}
+th,td{padding:14px;text-align:left;vertical-align:top;border-bottom:1px solid #e8dacb}
+thead{background:#151c32;color:#fff} tbody th{width:24%}
+</style>
+</head>
+<body>
+<header><a href="index.html">GROUND SUPPORT CREW</a></header>
+<main>
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="dictation-app.html">Dictation App</a> / Version history</nav>
+<h1>Dictation App version history</h1>
+<table>
+<thead><tr><th scope="col">Version</th><th scope="col">What changed</th></tr></thead>
+<tbody>
+<tr><th scope="row">1.0 — 9 Nov 2026</th><td>Initial Android app. Dark-themed note and folder screens; record a voice note; transcription attempt; create to-do and shopping lists with checklists; folder management, note colours, import of exported notes, and safeguards around previously saved audio. Early transcription could fail on some Android speech providers.</td></tr>
+<tr><th scope="row">1.1 — 9 Nov 2026</th><td>Changed new dictation to Android&#x27;s live microphone speech-recognition service rather than injecting a pre-recorded PCM stream. Added continuous listening/restart and partial-result handling. Legacy PCM retry remained available but provider-dependent.</td></tr>
+<tr><th scope="row">1.2 — 10 Nov 2026</th><td>Moved Unfiled and All Notes to the bottom of the folder list; added automatic saving instead of a Save Text button; black, bordered note editor; centered red REC indicator; title generation and conservative automatic folder classification; stop recording when leaving a note.</td></tr>
+<tr><th scope="row">1.3 — 10 Nov 2026</th><td>Added long-press selection of listed notes and multi-select Move/Delete, with confirmation before deletion. Opening notes no longer started recording automatically. Introduced a single manual Record/Stop toggle.</td></tr>
+<tr><th scope="row">1.4 — 11 Nov 2026</th><td>Replaced the single toggle with separate tape-recorder-style Record and Stop buttons. Recording starts only when requested. Stopping inserts transcribed text at the saved editor cursor/selection position, rather than always appending at the end. Notes continue to save automatically.</td></tr>
+<tr><th scope="row">1.5</th><td>Offline Whisper, WebRTC speech detection, automatic stop after three seconds of silence, and recoverable audio when transcription fails. Adds a Windows dictation helper.</td></tr>
+<tr><th scope="row">1.5.1</th><td>Black text on light blue buttons and light note cards. Keeps the editor black and removes unused Android speech recognition code and extra native binaries.</td></tr>
+<tr><th scope="row">1.5.2</th><td>Stop cancels Whisper transcription. Record can replace a pending take or redo the most recent transcript in the open editor.</td></tr>
+<tr><th scope="row">1.5.3</th><td>Adds a Delete note button in the editor with confirmation.</td></tr>
+</tbody>
+</table>
+<p><a href="dictation-app.html">← Back to downloads</a></p>
+</main>
+</body>
+</html>
