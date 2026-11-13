@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+<g id="vial"><rect x="4" y="40" width="62" height="20" rx="9" fill="#384c2f"/>
+<rect x="6" y="42" width="58" height="16" rx="7" fill="#a6d448"/>
+<rect x="27" y="45" width="16" height="10" rx="5" fill="#faffdf"/>
+<path d="M25 43v14m20-14v14" stroke="#253815" stroke-width="1.5"/></g>
+<use href="#vial" transform="translate(133 15) rotate(90)"/>
+</svg>
