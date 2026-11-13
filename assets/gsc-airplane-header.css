@@ -1,0 +1,64 @@
+.gsc-airplane-header{
+    position:relative;
+    min-height:45svh;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    padding:28px 0 40px;
+    overflow:hidden;
+  }
+  .gsc-airplane-header::before{
+    content:"";
+    position:absolute;
+    inset:-10px;
+    background-image:url("../1.jpg");
+    background-size:cover;
+    background-position:center 40%;
+    filter:saturate(0.9) brightness(0.85);
+    transform:scale(1.03);
+    z-index:0;
+  }
+  .gsc-airplane-header .scrim{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(20,14,8,0.55) 0%, rgba(20,14,8,0.3) 35%, rgba(20,14,8,0.35) 55%, rgba(20,14,8,0.85) 100%);
+    z-index:1;
+  }
+  .gsc-airplane-header .brand{
+    position:relative;
+    z-index:2;
+    font-family:'Big Shoulders Display',sans-serif;
+    font-weight:800;
+    font-size:clamp(20px,4.2vw,28px);
+    letter-spacing:0.08em;
+    color:#FFF6EC;
+    text-shadow:0 2px 12px rgba(0,0,0,0.5);
+  }
+  .gsc-airplane-header a.brand, .gsc-airplane-header a.brand:visited, .gsc-airplane-header a.brand:hover, .gsc-airplane-header a.brand:active{display:inline-block;color:#FFF6EC;text-decoration:none;font-family:'Big Shoulders Display',sans-serif;}
+  .gsc-airplane-header a.brand:focus-visible{outline:2px solid #FFF6EC;outline-offset:4px;}
+  .gsc-airplane-header .tagline{
+    position:relative;
+    z-index:2;
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:clamp(26px,9vw,54px);
+    line-height:1.1;
+    color:#FFFDF9;
+    text-shadow:0 4px 24px rgba(0,0,0,0.6);
+    max-width:11ch;
+    word-wrap:break-word;
+  }
+  .gsc-airplane-header .wrap{width:900px;max-width:calc(100% - 32px);padding:0;margin:0 auto;}
+  .gsc-airplane-header .hero-slogan-table{width:100%;border-collapse:collapse;table-layout:fixed;}
+  .gsc-airplane-header .hero-slogan-table td{padding:0;text-align:center;}
+  .gsc-airplane-header .tagline{max-width:none;width:100%;text-align:center;font-size:clamp(26px,5.4vw,54px);}
+.gsc-airplane-header .page-script-title{
+  margin:8px 0 0;
+  font-family:'Dancing Script','Segoe Script',cursive;
+  font-size:clamp(29px,4.5vw,42px);
+  font-weight:700;
+  line-height:1.2;
+  color:#FFF6EC;
+  text-shadow:0 2px 12px rgba(0,0,0,.6);
+}
