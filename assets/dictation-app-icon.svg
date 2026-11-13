@@ -1,7 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
-<title id="title">Dictation App</title><desc id="desc">Microphone above a text note, purple on dark navy</desc>
-<defs><linearGradient id="b" x1="0" x2="1" y2="1"><stop stop-color="#27315f"/><stop offset="1" stop-color="#12182e"/></linearGradient><linearGradient id="m" x1="0" x2="1" y2="1"><stop stop-color="#f7f4ff"/><stop offset="1" stop-color="#b9b9ff"/></linearGradient></defs>
-<rect x="6" y="6" width="244" height="244" rx="50" fill="url(#b)"/>
+<title id="title">Dictation App</title><desc id="desc">Microphone above a text note, in shades of purple</desc>
+<defs><linearGradient id="m" x1="0" x2="1" y2="1"><stop stop-color="#f7f4ff"/><stop offset="1" stop-color="#b9b9ff"/></linearGradient></defs>
 <rect x="55" y="112" width="146" height="110" rx="16" fill="#f5f3ff"/>
 <path d="M77 153h102 M77 177h102 M77 201h71" stroke="#817bc3" stroke-width="9" stroke-linecap="round"/>
 <rect x="98" y="31" width="60" height="111" rx="30" fill="url(#m)" stroke="#242960" stroke-width="6"/>
